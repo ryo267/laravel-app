@@ -1,0 +1,116 @@
+html body {
+    /* 画像ファイルの指定 */
+    background-image: url("/storage/work-5382501_1920.jpg");
+
+    /* 画像を常に天地左右の中央に配置 */
+    background-position: center center;
+
+    /* 画像をタイル状に繰り返し表示しない */
+    background-repeat: no-repeat;
+
+    /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+    background-attachment: fixed;
+
+    /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
+    background-size: cover;
+
+    /* 背景画像が読み込まれる前に表示される背景のカラー */
+    background-color: #464646;
+}
+
+.navbar-light .navbar-brand {
+    color: #fff;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: #fff;
+}
+
+.login-form {
+    position: relative;
+    .background {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -10;
+        opacity: 0.7;
+        background-color: #000;
+    }
+    .user_icon {
+        position: absolute;
+        background-color: red;
+        top: 0;
+        left: 50%;
+        width: 6rem;
+        height: 6rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+    }
+    label {
+        color: white;
+    }
+    input[type="email"], input[type="password"] {
+        border: none;
+        background: none;
+        border-radius: 0;
+        border-bottom: solid 2px #fff;
+        outline: none;
+        color: #fff;
+        width: 100%;
+    }
+    button {
+        width: 100%;
+        border-radius: 50px;
+        border: none;
+        background-color: red;
+    }
+}
+
+.register-form {
+    position: relative;
+    .background {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -10;
+        opacity: 0.7;
+        background-color: #000;
+    }
+    .user_icon {
+        position: absolute;
+        background-color: red;
+        top: 0;
+        left: 50%;
+        width: 6rem;
+        height: 6rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+    }
+    label {
+        color: white;
+    }
+    input {
+        border: none;
+        background: none;
+        border-radius: 0;
+        border-bottom: solid 2px #fff;
+        outline: none;
+        color: #fff;
+        width: 100%;
+    }
+    button {
+        width: 100%;
+        border-radius: 50px;
+        border: none;
+        background-color: red;
+    }
+}

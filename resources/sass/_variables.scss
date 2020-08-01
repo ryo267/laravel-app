@@ -1,0 +1,55 @@
+
+// Body
+$body-bg: #f8fafc;
+
+// Typography
+$font-family-sans-serif: "Nunito", sans-serif;
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+
+// Colors
+$blue: #3490dc;
+$indigo: #6574cd;
+$purple: #9561e2;
+$pink: #f66D9b;
+$red: #e3342f;
+$orange: #f6993f;
+$yellow: #ffed4a;
+$green: #38c172;
+$teal: #4dc0b5;
+$cyan: #6cb2eb;
+$clouds: #ecf0f1;
+
+$orange_gradient: linear-gradient(to right bottom, rgba(255,119,48, .8), rgba(255,185,0, .8));
+
+//ここでpcとspの幅を定義
+$mobile: 425px;
+$post_break: 575px;
+$tablet: 768px;
+
+//ここでmax-widthを指定
+@mixin tablet {
+    @media (max-width: ($tablet)) {
+            @content;
+    }
+}
+@mixin post_break {
+    @media (max-width: ($post_break)) {
+            @content;
+    }
+}
+@mixin mobile {
+    @media (max-width: ($mobile)) {
+            @content;
+    }
+}
+
+//font-awesome
+//$fa-font-path: "../webfonts";
+
+$borderColor1: rgba(0,0,0,0.25);
+$borderColor2: rgba(0,0,0,0.50);
+$borderColor3: rgba(0,0,0,0.75);
+$borderColor4: rgba(0,0,0,1.0); 
+$borderWidthX: 30px;
+$borderWidthY: 30px;
