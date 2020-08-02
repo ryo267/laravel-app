@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="row px-3">
-            <div class="col">
+            <div class="col text-center">
                 <button v-on:click="fileUpload_2" class="upload_btn">
                     アップロード<i class="fas fa-cloud-upload-alt"></i>
                 </button>
@@ -367,7 +367,7 @@ export default {
             });
         },
         deleteSkill(id) {
-            console.log(id);
+            //console.log(id);
             const url = "/ajax/user/skill/delete/";
             axios
                 .delete(url + id)

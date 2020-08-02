@@ -128056,7 +128056,7 @@ window.onload = function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\tuis\desktop\myapp_2\resources\js\welcome.js */"./resources/js/welcome.js");
+module.exports = __webpack_require__(/*! C:\Users\tuis\desktop\myapp\resources\js\welcome.js */"./resources/js/welcome.js");
 
 
 /***/ })

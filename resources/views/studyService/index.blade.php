@@ -45,7 +45,7 @@
 				<div class="r_icon_wrap" id="r_icon_wrap"><i class="far fa-id-card"></i></div>
 			</div>
 			<div class="r_nav_2" id="r_nav_2">
-				<!--<profile-component />-->
+				<profile-component />
 			</div>
 
 			<div class="o_nav" id="o_nav">
@@ -136,14 +136,8 @@
 
 			<section id="canvas"></section>
 
-			<!--
-            <section class="my-3">
-                <users-component/>
-            </section>
-                    -->
-
 			<section class="my-5">
-				<tab-component />
+				<!--<tab-component />-->
 			</section>
 
 			@section('footer')
