@@ -1,8 +1,10 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
+    "/css/login_register.css": "/css/login_register.css",
     "/css/studyService.css": "/css/studyService.css",
     "/css/welcome.css": "/css/welcome.css",
     "/js/company/app.js": "/js/company/app.js",
+    "/js/company/three.js": "/js/company/three.js",
     "/js/welcome.js": "/js/welcome.js"
 }

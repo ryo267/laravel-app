@@ -89,7 +89,7 @@ class ProfileController extends Controller
         $s3_url = Storage::disk('s3')->url($path);
 
         $user->update([
-            'back_image' => $s3_urls
+            'back_image' => $s3_url
         ]);
 
         return $user;

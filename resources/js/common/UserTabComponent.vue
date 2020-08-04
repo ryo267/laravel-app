@@ -1,21 +1,21 @@
 <template>
     <div>
-        <div class="overflow-auto all_tags">
+        <div class="overflow-auto all_tabs">
             <ul class="d-flex align-items-center m-0">
-                <li @click="activeTag('all_users',0)" id="tags" :class="[ isActive === 0 ? 'active' : '' ]">All-USERS</li>
+                <li @click="activeTab('all_users',0)" id="tags" :class="[ isActive === 0 ? 'active' : '' ]">All-USERS</li>
                 <li
-                    v-for="tag in tags"
-                    :key="tag.id"
+                    v-for="tab in tabs"
+                    :key="tab.id"
                     class="px-3"
-                    id="tags"
-                    @click="activeTag(tag.name,tag.id)" :class="[ isActive === tag.id ? 'active' : '' ]"
+                    id="tabs"
+                    @click="activeTab(tab.name,tab.id)" :class="[ isActive === tab.id ? 'active' : '' ]"
                 >
-                    {{ tag.name }}
+                    {{ tab.name }}
                 </li>
             </ul>
         </div>
         <div class="contents">
-            <posts-component :key="currentTag" :post_tag="currentTag" />
+            <users-component :key="currentTab" :tab="currentTab" />
         </div>
     </div>
 </template>
@@ -26,7 +26,7 @@ export default {
     name: "tab-component",
     data: function() {
         return {
-            tags:[
+            tabs:[
                 {
                     id: '1',
                     name: 'FOLLOWER',
@@ -35,27 +35,27 @@ export default {
                 {
                     id: '2',
                     name: 'THANKS',
-                    link: 'ajax/user/follower/desk'
+                    link: 'ajax/user/thanks/desk'
                 },
                 {
                     id: '3',
                     name: 'POST',
-                    link: 'ajax/user/follower/desk'
+                    link: 'ajax/user/post/desk'
                 },
                 {
                     id: '4',
                     name: 'REGISTRATION',
-                    link: 'ajax/user/follower/desk'
+                    link: 'ajax/user/registration/desk'
                 },
             ],
-            currentTag: "all_users",
+            currentTab: "all_users",
             isActive: 0
         };
     },
     methods: {
-        activeTag( tag_name, tag_id){
-            this.currentTag = tag_name;
-            this.isActive = tag_id;
+        activeTab( tab_name, tab_id){
+            this.currentTab = tab_name;
+            this.isActive = tab_id;
         },
     },
     mounted() {
