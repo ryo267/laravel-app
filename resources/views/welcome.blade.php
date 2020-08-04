@@ -77,6 +77,8 @@
         <!--<welcome-component />-->
     </div>
 
+    <div></div>
+
 </body>
 
 </html>
