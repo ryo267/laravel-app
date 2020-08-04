@@ -14,7 +14,7 @@
         "bootstrap": "^4.5.0",
         "browser-sync-webpack-plugin": "^2.2.2",
         "cross-env": "^7.0.2",
-        "jquery": "^1.12.4",
+        "jquery": "^3.5.0",
         "laravel-mix": "^5.0.4",
         "lodash": "^4.17.13",
         "resolve-url-loader": "^3.1.0",
