@@ -34,11 +34,12 @@
         <div class="border-loading-indicator col-2 row-2"></div>
     </div>
 
-    <div class="video_container">
-		<video src="/movie/Network12716.mp4" playsinline autoplay muted loop></video>
-    </div>
-    
     <div class="container-fluid p-0 m-0" id="app">
+
+        <div class="video_container">
+            <video src="/movie/Network12716.mp4" playsinline autoplay muted loop></video>
+        </div>
+
         @section('side_nav')
         <section class="said_nav" id="said_nav">
 
@@ -136,7 +137,7 @@
             </section>
             <div class="box" style="height: 80px;"></div>
             @show
-                    
+
             <section id="canvas"></section>
 
 
@@ -145,7 +146,7 @@
                 <users-component/>
             </section>
                     -->
-            
+
             <section class="my-5">
                 <tab-component />
             </section>

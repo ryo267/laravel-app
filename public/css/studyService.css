@@ -71,6 +71,7 @@ html body .all_tags #tags:hover {
 html body > div {
   display: flex;
   position: relative;
+  overflow: hidden;
 }
 
 html body > div .said_nav {
@@ -269,12 +270,9 @@ html body > div .said_nav .r_nav_2 > .container-fluid .skill_label {
   border-bottom: solid 2px #fff;
 }
 
-html body > div .said_nav .r_nav_2 > .container-fluid h1 {
-  color: #fff;
-}
-
-html body > div .said_nav .r_nav_2 > .container-fluid #skill_input {
-  color: #000;
+html body > div .said_nav .r_nav_2 > .container-fluid .skill_name,
+html body > div .said_nav .r_nav_2 > .container-fluid .progress {
+  color: #000 !important;
 }
 
 html body > div .said_nav .r_nav_2 > .container-fluid .skills {
@@ -332,7 +330,7 @@ html body > div .said_nav .r_nav_2 > .container-fluid .skills .percent .progress
   width: 70%;
   height: 100% !important;
   border-radius: 10px !important;
-  background: #00ff43;
+  background: #fff;
   box-shadow: inset 0 0 2px #000;
   -webkit-animation: animate 4s ease-in-out forwards;
           animation: animate 4s ease-in-out forwards;

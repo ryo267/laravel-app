@@ -227,7 +227,7 @@
                                     <input
                                         placeholder="SKILL_NAME"
                                         type="text"
-                                        class="h-100 w-100"
+                                        class="h-100 w-100 skill_name"
                                         id="skill_name my-2 skill_input"
                                         v-model="skill_name"
                                     />
@@ -236,7 +236,7 @@
                                     <input
                                         placeholder="1~100"
                                         type="text"
-                                        class="h-100 w-100"
+                                        class="h-100 w-100 progress"
                                         id="progress my-2 skill_input"
                                         v-model="progress"
                                     />

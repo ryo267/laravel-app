@@ -12,7 +12,7 @@ export default {
     },
     data: function() {
         return {
-            thanks_count: [],
+            thanks_count: 0,
         };
     },
     methods: {

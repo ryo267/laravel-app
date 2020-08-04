@@ -128009,6 +128009,12 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); //require('../../node_modules/easy-pie-chart/dist/jquery.easypiechart');
 //require('../../node_modules/jquery.diamonds.js/src/jquery.diamonds');
 
@@ -128042,10 +128048,87 @@ $("#diamond-grid").diamonds({
 });
 */
 
-window.onload = function () {
-  var spinner = document.getElementById("loading");
-  spinner.classList.add("loaded");
-};
+var MatrixAnimation = /*#__PURE__*/function () {
+  function MatrixAnimation(element, letterColor, letterSize, font, speed, fillColor) {
+    _classCallCheck(this, MatrixAnimation);
+
+    this.element = element;
+    this.width = element.offsetWidth;
+    this.height = element.offsetHeight;
+    this.letterColor = letterColor;
+    this.letterSize = letterSize;
+    this.font = font;
+    this.speed = speed < 24 ? 24 : speed;
+    this.status = true;
+    this.ctx = undefined;
+    this.letters = undefined;
+    this.fillColor = fillColor;
+  }
+
+  _createClass(MatrixAnimation, [{
+    key: "drawAnimation",
+    value: function drawAnimation() {
+      var _this = this;
+
+      if (this.status) {
+        this.ctx.fillStyle = this.letterColor;
+        this.ctx.font = '${this.letterSize}pt ${this.font}';
+        this.letters.forEach(function (y, index) {
+          var randomSymbol = String.fromCharCode(Math.random() * 128);
+          var x = index * _this.letterSize;
+
+          _this.ctx.fillText(randomSymbol, x, y);
+
+          if (y > 250 + Math.random() * 15000) _this.letters[index] = 0;else _this.letters[index] = y + _this.letterSize;
+        });
+        this.ctx.fillStyle = this.fillColor;
+        this.ctx.fillRect(0, 0, this.width, this.height);
+      }
+    }
+  }, {
+    key: "createCanvas",
+    value: function createCanvas(element) {
+      this.element.innerHTML = '';
+      this.width = element ? element.offsetWidth : this.width;
+      this.height = element ? element.offsetHeight : this.height;
+      var canvas = document.createElement('canvas');
+      canvas.setAttribute('id', 'canvas');
+      canvas.setAttribute('width', this.width);
+      canvas.setAttribute('height', this.height);
+      canvas.style.backgroundColor = '#FFFFFF';
+      this.ctx = canvas.getContext('2d');
+      var col = Math.floor(this.width / this.letterSize);
+      this.letters = Array(col).fill(0);
+      this.element.append(canvas);
+    }
+  }, {
+    key: "init",
+    value: function init() {
+      var _this2 = this;
+
+      this.createCanvas();
+      setInterval(function () {
+        _this2.drawAnimation();
+      }, this.speed);
+    }
+  }, {
+    key: "pausePlay",
+    value: function pausePlay() {
+      this.status = this.status ? false : true;
+    }
+  }]);
+
+  return MatrixAnimation;
+}();
+
+var matrix = new MatrixAnimation(document.querySelector('#matrix'), '#fff', 15, 'Arial', 100, 'rgba(0,0,0,0.1)');
+var matrix2 = new MatrixAnimation(document.querySelector('#matrix2'), '#000', 15, 'Arial', 100, 'rgba(255,255,255,0.1)');
+matrix.init();
+matrix2.init();
+window.addEventListener('resize', function () {
+  matrix.createCanvas(document.querySelector('#matrix'));
+  matrix2.createCanvas(document.querySelector('#matrix2'));
+});
 
 /***/ }),
 
@@ -128056,7 +128139,7 @@ window.onload = function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\tuis\desktop\myapp\resources\js\welcome.js */"./resources/js/welcome.js");
+module.exports = __webpack_require__(/*! C:\Users\tuis\desktop\master\myapp\resources\js\welcome.js */"./resources/js/welcome.js");
 
 
 /***/ })

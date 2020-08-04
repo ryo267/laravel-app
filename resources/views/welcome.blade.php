@@ -26,13 +26,18 @@
 
 
 <body>
-    <section id="canvas"></section>
+    <!--<section id="canvas" styyle="backgroound-color:#fff;"></section>-->
 
-    <div class="video_container">
+
+
+    <!--<div class="video_container">
         <video src="/movie/Welcome24829.mp4" playsinline autoplay muted></video>
-    </div>
+    </div>-->
 
-    <div class="flex-center position-ref full-height">
+    <div class="section1">
+        <div class="wrap">
+            <div id="matrix" class="matrix"></div>
+        </div>
         @if (Route::has('login'))
         <div class="" id="login">
             @auth
@@ -48,7 +53,11 @@
         @endif
     </div>
 
-    <div>
+    <div class="section2">
+        <div class="wrap2">
+            <div id="matrix2" class="matrix2"></div>
+
+        </div>
         @if (Route::has('company.login'))
         <div class="" id="login">
             @auth
@@ -65,7 +74,7 @@
     </div>
 
     <div id="app">
-        <welcome-component />
+        <!--<welcome-component />-->
     </div>
 
 </body>
