@@ -12,8 +12,8 @@ yarn-error.log
 git-worktrees/*
 .circleci
 *.sqlite
+.github/workflows
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
-.github/*
