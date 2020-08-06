@@ -60,4 +60,6 @@ jobs:
           NGIN_X: ${{ secrets.NGIN_X }}
         run: |
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
-          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOST_NAME} 'cd /var/app/current/ && sudo git pull origin master && sudo echo ${NGIN_X} > /etc/nginx/conf.d/elasticbeanstalk/php.conf && sudo nginx -s reload && sudo echo ${ENV} .env'
+          echo "$NGIN_X" > ngin_x && chmod 600 ngin_x
+          echo "$ENV" > env $$ chmod 600 env
+          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOST_NAME} 'cd /var/app/current/ && sudo git pull origin master && sudo echo ngin_x > /etc/nginx/conf.d/elasticbeanstalk/php.conf && sudo nginx -s reload && sudo echo env .env && sudo php artisan key:generate'
