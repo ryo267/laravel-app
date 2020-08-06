@@ -10,8 +10,9 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 git-worktrees/*
-.circleci
+.circleci/*
 *.sqlite
+.github/workflows/*
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
