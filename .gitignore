@@ -16,4 +16,4 @@ git-worktrees/*
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
-.github
+.github/*
