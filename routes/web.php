@@ -46,7 +46,7 @@ Route::get('ajax/chat','Ajax\ChatController@index');
 Route::post('ajax/chat','Ajax\ChatController@create');
 
 Route::get('ajax/user','Ajax\UserController@index');
-Route::get('ajax/users','Ajax\UserController@getUsers');
+Route::get('ajax/user/all/{tab}','Ajax\UserController@getUsers');
 Route::get('ajax/user/skill','Ajax\UserController@getSkill');
 
 Route::get('ajax/user/{id}','Ajax\UserController@profile');

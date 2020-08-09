@@ -19,8 +19,8 @@ Vue.prototype.$userId = document.querySelector("meta[name='user-id']").getAttrib
 
 Vue.component('profile-component', require('./components/ProfileComponent.vue').default);
 Vue.component('form-component', require('./components/FormComponent.vue').default);
-Vue.component('edit-component', require('./components/EditComponent.vue').default);
 
+Vue.component("all-tab-component",require("./common/AllTabComponent.vue").default);
 Vue.component('comments-component', require('./common/CommentsComponent.vue').default);
 Vue.component('delete-post-component', require('./common/DeletePostComponent.vue').default);
 Vue.component('thanks-component', require('./common/ThanksComponent.vue').default);
@@ -29,7 +29,7 @@ Vue.component('info-component', require('./common/InfoComponent.vue').default);
 Vue.component('chat-component', require('./common/ChatComponent.vue').default);
 Vue.component('posts-component', require('./common/PostsComponent.vue').default);
 Vue.component('post-component', require('./common/PostComponent.vue').default);
-Vue.component('tab-component', require('./common/TabComponent.vue').default);
+Vue.component('post-tab-component', require('./common/PostTabComponent.vue').default);
 Vue.component('users-component', require('./common/UsersComponent.vue').default);
 Vue.component('user-component', require('./common/UserComponent.vue').default);
 Vue.component('google-form-component', require('./common/GoogleFormComponent.vue').default);
@@ -42,6 +42,9 @@ Vue.component('thanks-count-component', require('./common/thanksCountComponent.v
 Vue.component('posts-count-component', require('./common/PostsCountComponent.vue').default);
 Vue.component("infos-count-component",require("./common/InfosCountComponent.vue").default);
 Vue.component("tag-component",require("./common/TagComponent.vue").default);
+Vue.component("user-tab-component",require("./common/UserTabComponent.vue").default);
+Vue.component("users-component",require("./common/UsersComponent.vue").default);
+Vue.component("user-component",require("./common/UserComponent.vue").default);
 
 Vue.component("company-profile-component",require("./company/components/CompanyProfileComponent.vue").default);
 Vue.component("company-form-component",require("./company/components/CompanyFormComponent.vue").default);

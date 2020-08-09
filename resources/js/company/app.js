@@ -38,7 +38,7 @@ Vue.component(
     "thanks-component",
     require("../common/ThanksComponent.vue").default
 );
-Vue.component("tab-component", require("../common/TabComponent.vue").default);
+Vue.component("post-tab-component", require("../common/PostTabComponent.vue").default);
 Vue.component(
     "users-component",
     require("../common/UsersComponent.vue").default

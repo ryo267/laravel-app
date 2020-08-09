@@ -15,13 +15,6 @@
                                 >
                                     <div
                                         v-if="
-                                            user.back_image === null ||
-                                                user.back_image === undefined
-                                        "
-                                        class="background-image"
-                                    ></div>
-                                    <div
-                                        v-if="
                                             user.back_image != null ||
                                                 user.back_image != undefined
                                         "
@@ -33,11 +26,25 @@
                                                 ') center/cover no-repeat'
                                         }"
                                     ></div>
+                                    <div
+                                        v-else
+                                        class="background-image"
+                                        :style="{
+                                            background:
+                                                'url(' +
+                                                '/sample/noimage.jpg' +
+                                                ') center/cover no-repeat'
+                                        }"
+                                    ></div>
                                     <div class="publication-details">
                                         <div>
-                                            <img
+                                            <img v-if=" user.profile_image != null || user.profile_image != undefined"
                                                 class="profile_image img-thumbnail rounded-circle"
                                                 :src="user.profile_image"
+                                            />
+                                            <img v-else
+                                                class="profile_image img-thumbnail rounded-circle"
+                                                src=/sample/user.png
                                             />
                                             <p></p>
                                             <p class="author">

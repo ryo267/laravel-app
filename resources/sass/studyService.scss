@@ -1,9 +1,9 @@
 @import "variables";
-/*
+
 * {
     outline: solid 2px #fff;
 }
-*/
+
 html body {
     min-width: 375px;
     margin: 0;
@@ -35,7 +35,7 @@ html body {
     .navbar-light .navbar-nav .nav-link {
         color: #fff;
     }
-    
+
     .pagination {
         display: flex;
         justify-content: center;
@@ -45,15 +45,36 @@ html body {
             padding: 1rem;
         }
     }
-    .all_tags {
-        #tags {
+    .all_tabs {
+        transition: all 1s;
+        .tabs{
+            display: flex;
+            overflow: hidden;
+            >li {
+                min-width: 100%;
+                &:nth-of-type(1){
+                    top: 0;
+                    left: 0;
+                }
+                &:nth-last-of-type(1){
+                    top: 0;
+                    left: 0;
+                    transform: translateX(100%);
+                }
+            }
+        }
+    }
+    .post_tags, .user_tabs {
+        #tags, #tabs {
             padding: 1rem;
             color: #fff;
             &.active {
-                border-bottom: solid 2px #000;
+                border-bottom: solid 2px #fff;
             }
             &:hover {
-                background-color: #000;
+                transition: 0.5s;
+                color: #000;
+                background-color: #fff;
             }
         }
     }
@@ -172,12 +193,12 @@ html body {
                             width: 100%;
                             height: 100%;
                         }
-                        .upload_btn {
-                            width: 100%;
-                            border: none;
-                            background: none;
-                            color: white;
-                        }
+                    }
+                    .upload_btn, .update_btn, .skill_add_btn {
+                        width: 100%;
+                        border: none;
+                        background: none;
+                        color: #fff;
                     }
                     .main_profile {
                         input {
@@ -224,14 +245,15 @@ html body {
                             width: 100%;
                         }
                     }
-                    
+
                     .profile_label {
                         border-bottom: solid 2px #fff;
                     }
                     .skill_label {
                         border-bottom: solid 2px #fff;
                     }
-                    .skill_name, .progress{
+                    .skill_name,
+                    .progress {
                         color: #000 !important;
                     }
                     .skills {
@@ -295,22 +317,6 @@ html body {
                                 width: 0;
                             }
                         }
-                    }
-                }
-                button {
-                    border: none;
-                    background: none;
-                    color: white;
-                    &:hover {
-                        /*
-                        color: #255784;
-                        background: #2196f3;
-                        box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3,
-                            0 0 80px #2196f3;
-                        transition-delay: 1s;
-                        */
-                        border-bottom: solid 2px #000;
-                        transition: all 0.5s;
                     }
                 }
                 &.active {
@@ -748,72 +754,6 @@ html body {
     height: 300px;
 }
 
-.all_users {
-    .container-fluid {
-        display: flex;
-        color: #fff;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        overflow: hidden;
-    }
-    .user_profile_image_wrap {
-        position: absolute;
-        top: 0;
-        left: 0;
-        overflow: hidden;
-        width: 100%;
-        height: 100%;
-    }
-    .user_profile_image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-    .hover_effect {
-        width: 100%;
-        height: 100%;
-        background: #34495e;
-        opacity: 0.5;
-        display: none;
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
-    .profile {
-        z-index: 5;
-    }
-    .sub_profile {
-        display: none;
-    }
-    button {
-        transform: translateY(1000%);
-        color: white;
-        border: solid 1px #fff;
-        background: none;
-        transition: 0.5s;
-        margin: auto;
-    }
-    .user {
-        &.active {
-            .sub_profile {
-                display: inherit;
-            }
-        }
-        &:hover {
-            .hover_effect {
-                display: inherit;
-            }
-            button {
-                transform: translateY(0);
-                display: inherit;
-                transition: 0.5s;
-            }
-        }
-    }
-}
-
-
 .loading {
     width: 100%;
     height: 100vh;
@@ -876,7 +816,8 @@ canvas {
     z-index: -1000;
 }
 
-.post, .info {
+.post,
+.info {
     .card {
         border-radius: none !important;
         background: #ecf0f1;
@@ -937,7 +878,7 @@ canvas {
     .publication-details {
         width: 100%;
         height: 100%;
-        background: rgba(0,0,0, 0.5);
+        background: rgba(0, 0, 0, 0.5);
         font-size: 1.4rem;
         font-weight: bold;
         color: #fff;

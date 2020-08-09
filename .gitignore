@@ -13,6 +13,7 @@ git-worktrees/*
 .circleci
 *.sqlite
 .github/workflows
+.vscode
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml

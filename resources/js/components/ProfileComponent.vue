@@ -5,13 +5,17 @@
                 <div class="photo_wrap">
                     <img
                         v-if="
-                            user.back_image === null ||
-                                user.back_image === undefined
+                            user.back_image != null ||
+                                user.back_image != undefined
                         "
                         class="back_photo"
-                        src="/storage/noimage.jpg"
+                        :src="user.back_image"
                     />
-                    <img v-else class="back_photo" :src="user.back_image" />
+                    <img
+                        v-else
+                        class="back_photo"
+                        src="/sample/noimage.jpg"
+                    />
                     <div class="input-item">
                         <label class="input-item__label">
                             <i class="fas fa-camera fa-3x"></i>
@@ -38,16 +42,16 @@
                         >
                             <img
                                 v-if="
-                                    user.profile_image === null ||
-                                        user.profile_image === undefined
+                                    user.profile_image != null ||
+                                        user.profile_image != undefined
                                 "
                                 class="my_profile_image"
-                                src="/storage/noimage.jpg"
+                                :src="user.profile_image"
                             />
                             <img
                                 v-else
                                 class="my_profile_image"
-                                :src="user.profile_image"
+                                src="/sample/user.png"
                                 rel=""
                                 alt=""
                             />
@@ -165,7 +169,7 @@
 
                 <div class="row ">
                     <div class="col">
-                        <button type="submit" class="col" @click="submit()">
+                        <button type="submit" class="col update_btn" @click="submit()">
                             更新
                         </button>
                     </div>
@@ -236,13 +240,13 @@
                                     <input
                                         placeholder="1~100"
                                         type="text"
-                                        class="h-100 w-100 progress"
+                                        class="h-100 w-100 input_progress"
                                         id="progress my-2 skill_input"
                                         v-model="progress"
                                     />
                                 </div>
                                 <div class="">
-                                    <button type="submit" class="col">
+                                    <button type="submit" class="col skill_add_btn">
                                         追加
                                     </button>
                                 </div>

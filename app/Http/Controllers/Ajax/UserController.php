@@ -33,10 +33,10 @@ class UserController extends Controller
             */
 
             //$response = Http::get('https://qiita.com/api/v2/items?page=1&per_page=20&query=qiita+user%3AQiita');
-            $response = Http::get('https://qiita.com/api/v2/items?',[
+            $response = Http::get('https://qiita.com/api/v2/items?', [
                 'page' => '1',
                 'per_page' => '20',
-                'query'=> 'laravel',
+                'query' => 'laravel',
             ]);
             /*
             echo $response->getStatusCode(); // 200
@@ -48,7 +48,7 @@ class UserController extends Controller
             // レスポンスボディを取得
             //$responseBody = $response->getBody()->getContents();
             $responseBody = $response->json();
-            
+
             //var_dump($responseBody);
 
             return [$user, $posts];
@@ -57,9 +57,37 @@ class UserController extends Controller
         }
     }
 
-    public function getUsers()
+    public function getUsers(Request $request)
     {
-        return User::all();
+        $tab = $request->tab;
+
+        if ($tab === 'all-users') {
+            
+            $users = \App\User::orderBy('id', 'asc')->get(['id']);
+            
+            return $users;
+
+        } else if ($tab === 'follower') {
+
+            $users = \App\User::withCount('followers')->orderBy('followers_count', 'desc')->get(['id']);
+
+            return $users;
+        } else if ($tab === 'thanks') {
+
+            $users = \App\User::withCount('thanks')->orderBy('thanks_count', 'desc')->get(['id']);
+
+            return $users;
+        } else if ($tab === 'post') {
+
+            $users = \App\User::withCount('posts')->orderBy('posts_count', 'desc')->get(['id']);
+
+            return $users;
+        } else if ($tab === 'new-registration') {
+
+            $users = \App\User::orderBy('id', 'desc')->get(['id']);
+
+            return $users;
+        }
     }
 
     public function update(UserRequest $request, User $user)
@@ -77,7 +105,6 @@ class UserController extends Controller
     {
 
         return $id;
-
     }
 
 
@@ -126,63 +153,66 @@ class UserController extends Controller
         return $progress;
     }
 
-    public function getFollow(Int $userID, Int  $me){
+    public function getFollow(Int $userID, Int  $me)
+    {
 
-        $follow_flag = \App\Follower::where('following_id',$me)->where('followed_id', $userID )->exists();
-        
+        $follow_flag = \App\Follower::where('following_id', $me)->where('followed_id', $userID)->exists();
+
         return $follow_flag;
     }
 
     public function follow(Request $request)
     {
         //var_dump($progress);
-        if( Auth::id() != $request->userID){
+        if (Auth::id() != $request->userID) {
 
             //echo ' trueeeeeeeeeeeeeeeeeeeeeeee';
 
             Auth::user()->follows()->attach($request->userID);
-            $follower_count = \App\Follower::where('followed_id', $request->userID )->count();
-            $follow_flag = \App\Follower::where('following_id',Auth::id())->where('followed_id', $request->userID )->exists();
+            $follower_count = \App\Follower::where('followed_id', $request->userID)->count();
+            $follow_flag = \App\Follower::where('following_id', Auth::id())->where('followed_id', $request->userID)->exists();
 
             //echo $follower_count.','.$follow_flag;
 
-            return [$follower_count,$follow_flag];
+            return [$follower_count, $follow_flag];
         }
-        
-        $follower_count = \App\Follower::where('followed_id', $request->userID )->count();
-        $follow_flag = \App\Follower::where('following_id',Auth::id())->where('followed_id', $request->userID )->exists();
 
-        return [$follower_count,$follow_flag];
+        $follower_count = \App\Follower::where('followed_id', $request->userID)->count();
+        $follow_flag = \App\Follower::where('following_id', Auth::id())->where('followed_id', $request->userID)->exists();
 
+        return [$follower_count, $follow_flag];
     }
 
     public function reFollow(Int $id)
     {
         Auth::user()->follows()->detach($id);
 
-        $follower_count = \App\Follower::where('followed_id', $id )->count();
-        $follow_flag = \App\Follower::where('following_id',Auth::id())->where('followed_id', $id )->exists();
-        
-        return [$follower_count,$follow_flag];
+        $follower_count = \App\Follower::where('followed_id', $id)->count();
+        $follow_flag = \App\Follower::where('following_id', Auth::id())->where('followed_id', $id)->exists();
 
+        return [$follower_count, $follow_flag];
     }
 
-    public function getPostsCount(Int $id){
-        $count = \App\Post::where('user_id',$id)->count();
+    public function getPostsCount(Int $id)
+    {
+        $count = \App\Post::where('user_id', $id)->count();
         return $count;
     }
 
-    public function getFollowCount(Int $id){
-        $count = \App\Follower::where('following_id',$id)->count();
+    public function getFollowCount(Int $id)
+    {
+        $count = \App\Follower::where('following_id', $id)->count();
         return $count;
     }
 
-    public function getFollowerCount(Int $id){
-        $count = \App\Follower::where('followed_id',$id)->count();
+    public function getFollowerCount(Int $id)
+    {
+        $count = \App\Follower::where('followed_id', $id)->count();
         return $count;
     }
 
-    public function getThanksCount(Int $id){
+    public function getThanksCount(Int $id)
+    {
         $user = \App\User::find($id);
         //$comments = $user->comments()->get(['id']);
         $comments = $user->comments;
@@ -191,7 +221,7 @@ class UserController extends Controller
             $c = \App\Comment::find($comment->id);
             $count += $c->thanks()->count();
         }*/
-        foreach( $comments as $comment){
+        foreach ($comments as $comment) {
             $count += $comment->thanks()->count();
         }
         return $count;

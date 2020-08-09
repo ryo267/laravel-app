@@ -76,6 +76,8 @@ class RegisterController extends Controller
             'id' => $count,
             'screen_name' => $data['screen_name'],
             'name' => $data['name'],
+            'profile_image' => '/sample/user.png',
+            'back_image' => '/sample/noimage.jpg',
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
