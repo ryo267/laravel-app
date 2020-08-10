@@ -133,9 +133,9 @@ class UserController extends Controller
         return $progress;
     }
 
-    public function getSkill()
+    public function getSkill(Int $id)
     {
-        $progress = \App\Progress::where('user_id', Auth::id())->get();
+        $progress = \App\Progress::where('user_id', $id)->get();
 
         return $progress;
     }

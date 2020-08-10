@@ -38,26 +38,53 @@
                                     ></div>
                                     <div class="publication-details">
                                         <div>
-                                            <img v-if=" user.profile_image != null || user.profile_image != undefined"
+                                            <img
+                                                v-if="
+                                                    user.profile_image !=
+                                                        null ||
+                                                        user.profile_image !=
+                                                            undefined
+                                                "
                                                 class="profile_image img-thumbnail rounded-circle"
                                                 :src="user.profile_image"
                                             />
-                                            <img v-else
-                                                class="profile_image img-thumbnail rounded-circle"
-                                                src=/sample/user.png
-                                            />
+                                            <img v-else class="profile_image
+                                            img-thumbnail rounded-circle"
+                                            src=/sample/user.png />
                                             <p></p>
                                             <p class="author">
                                                 {{ user.screen_name }}
                                             </p>
+                                            <div class="row">
+                                                <div class="col posts_count">
+                                                    <posts-count-component
+                                                        :userID="userID"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col follower">
+                                                    <follower-count-component
+                                                        :userID="userID"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col thanks">
+                                                    <thanks-count-component
+                                                        :userID="userID"
+                                                    />
+                                                </div>
+                                            </div>
                                             <div
-                                                class="follow_submit_1"
+                                                class="follow_submit_1 p-3"
                                                 v-if="user.id != this.$userId"
                                             >
-                                                <follow-component :userID="userID"/>
+                                                <follow-component
+                                                    :userID="userID"
+                                                />
                                             </div>
                                         </div>
-                                        <h5 class="title">{{ user.screen_name }}</h5>
                                         <div class="cta">
                                             <button
                                                 v-if="show"
@@ -82,7 +109,9 @@
                                             class="follow_submit_2"
                                             v-if="user.id != this.$userId"
                                         >
-                                            <follow-component :userID="userID"/>
+                                            <follow-component
+                                                :userID="userID"
+                                            />
                                         </div>
                                     </div>
                                 </div>
@@ -94,11 +123,47 @@
                                         class="overview"
                                         :class="{ active: isActive }"
                                     >
-                                        <h5 class="title">{{ user.screen_name }}</h5>
+                                        <h5 class="title">
+                                            {{ user.screen_name }}
+                                        </h5>
                                         <p
-                                            class="description"
+                                            class="description mb-5"
                                             v-html="user.profile_text"
                                         ></p>
+                                        <div class="skill_label">
+                                            <label
+                                                for="skill"
+                                                class=""
+                                                id="label"
+                                                ><h1>SKILL</h1></label
+                                            >
+                                        </div>
+                                        <div
+                                            class="skills mt-3"
+                                            v-for="progress in progresses"
+                                            :key="progress.id"
+                                        >
+                                            <div class="name pr-3">
+                                                {{ progress.name }}
+                                            </div>
+                                            <div
+                                                class="d-flex align-items-center"
+                                            >
+                                                <div class="percent">
+                                                    <div
+                                                        class="progress"
+                                                        :style="{
+                                                            width:
+                                                                progress.progress +
+                                                                '%'
+                                                        }"
+                                                    ></div>
+                                                </div>
+                                                <span class="value">{{
+                                                    progress.progress
+                                                }}</span>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="cta">
                                         <button
@@ -130,12 +195,14 @@
 
 <script>
 export default {
+    name: "user-component",
     props: {
         userID: [Number, String]
     },
     data: function() {
         return {
             user: [],
+            progresses: [],
             show: false,
             isActive: false
         };
@@ -158,10 +225,18 @@ export default {
             } catch (error) {
                 console.log(error);
             }
+        },
+        getSkill() {
+            const url = "/ajax/user/skill/";
+            axios.get(url + this.userID).then(response => {
+                this.progresses = response.data;
+                console.log(this.progresses);
+            });
         }
     },
     mounted() {
         this.getProfile();
+        this.getSkill();
     }
 };
 </script>

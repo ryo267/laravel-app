@@ -1,7 +1,7 @@
 <template>
     <div class="all_tabs">
         <ul class="tabs" >
-            <li class="post" :class="{ active: post_Active }"><post-tab-component v-on:panretMessage="userActive"/></li>
+            <li class="post" :class="{ active: post_Active }"><post-tab-component v-on:panret="userActive"/></li>
             <li class="user" :class="{ active: user_Active }"><user-tab-component v-on:panret="postActive"/></li>
         </ul>
     </div>
@@ -20,12 +20,10 @@ export default {
         postActive() {
             this.post_Active = true;
             this.user_Active = false;
-            console.log('postActive');
         },
         userActive() {
             this.post_Active = false;
             this.user_Active = true;
-            console.log('userActive');
         }
     },
     mounted() {}

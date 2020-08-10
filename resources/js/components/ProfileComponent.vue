@@ -28,7 +28,7 @@
         <div class="row px-3">
             <div class="col text-center">
                 <button v-on:click="fileUpload_2" class="upload_btn">
-                    アップロード<i class="fas fa-cloud-upload-alt"></i>
+                    UPLOAD<i class="fas fa-cloud-upload-alt ml-3"></i>
                 </button>
             </div>
         </div>
@@ -69,8 +69,8 @@
                     <div class="row">
                         <div class="col">
                             <button v-on:click="fileUpload" class="upload_btn">
-                                アップロード<i
-                                    class="fas fa-cloud-upload-alt"
+                                UPLOAD<i
+                                    class="fas fa-cloud-upload-alt ml-3"
                                 ></i>
                             </button>
                         </div>
@@ -170,7 +170,7 @@
                 <div class="row ">
                     <div class="col">
                         <button type="submit" class="col update_btn" @click="submit()">
-                            更新
+                            UPDATE<i class="fas fa-sync-alt ml-3"></i>
                         </button>
                     </div>
                 </div>
@@ -227,27 +227,27 @@
                         </div>
                         <div>
                             <form class="d-flex" v-on:submit.prevent="addSkill">
-                                <div class="w-100">
+                                <div class="w-50">
                                     <input
                                         placeholder="SKILL_NAME"
                                         type="text"
-                                        class="h-100 w-100 skill_name"
-                                        id="skill_name my-2 skill_input"
+                                        class="h-100 w-100 input_skill "
+                                        id="skill_name my-2"
                                         v-model="skill_name"
                                     />
                                 </div>
-                                <div class="w-10">
+                                <div class="w-25">
                                     <input
                                         placeholder="1~100"
                                         type="text"
                                         class="h-100 w-100 input_progress"
-                                        id="progress my-2 skill_input"
+                                        id="progress my-2"
                                         v-model="progress"
                                     />
                                 </div>
-                                <div class="">
+                                <div class="w-25">
                                     <button type="submit" class="col skill_add_btn">
-                                        追加
+                                        ADD<i class="far fa-arrow-alt-circle-up ml-3"></i>
                                     </button>
                                 </div>
                             </form>
@@ -365,8 +365,8 @@ export default {
                 });
         },
         getSkill() {
-            const url = "/ajax/user/skill";
-            axios.get(url).then(response => {
+            const url = "/ajax/user/skill/";
+            axios.get(url + this.$userId ).then(response => {
                 this.progresses = response.data;
             });
         },

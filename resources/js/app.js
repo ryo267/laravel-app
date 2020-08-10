@@ -20,7 +20,7 @@ Vue.prototype.$userId = document.querySelector("meta[name='user-id']").getAttrib
 Vue.component('profile-component', require('./components/ProfileComponent.vue').default);
 Vue.component('form-component', require('./components/FormComponent.vue').default);
 
-Vue.component("all-tab-component",require("./common/AllTabComponent.vue").default);
+
 Vue.component('comments-component', require('./common/CommentsComponent.vue').default);
 Vue.component('delete-post-component', require('./common/DeletePostComponent.vue').default);
 Vue.component('thanks-component', require('./common/ThanksComponent.vue').default);
@@ -44,7 +44,8 @@ Vue.component("infos-count-component",require("./common/InfosCountComponent.vue"
 Vue.component("tag-component",require("./common/TagComponent.vue").default);
 Vue.component("user-tab-component",require("./common/UserTabComponent.vue").default);
 Vue.component("users-component",require("./common/UsersComponent.vue").default);
-Vue.component("user-component",require("./common/UserComponent.vue").default);
+Vue.component("user-component", require("./common/UserComponent.vue").default);
+Vue.component("all-tab-component",require("./common/AllTabComponent.vue").default);
 
 Vue.component("company-profile-component",require("./company/components/CompanyProfileComponent.vue").default);
 Vue.component("company-form-component",require("./company/components/CompanyFormComponent.vue").default);
@@ -108,7 +109,7 @@ $(function () {
 
             $.each(nav, function (index, value) {
                 if ( $(value).hasClass('active') ) {
-                    console.log(value);
+                    
                     nav_flag = false;
                     return false;
                 }
@@ -127,13 +128,13 @@ $(function () {
                 });
             }
             
-            console.log('close');
+            
         } else {
             $('#said_nav').css('width','100%');
             $(this).addClass('active');
             $('#r_nav_2').addClass('active');
             $('#r_icon_wrap').addClass('active');
-            console.log('open');
+            
         }
     })
 
@@ -144,7 +145,7 @@ $(function () {
             $('#o_icon_wrap').removeClass('active');
             $.each(nav, function (index, value) {
                 if ( $(value).hasClass('active') ) {
-                    console.log(value);
+                    
                     nav_flag = false;
                     return false;
                 }
@@ -163,13 +164,13 @@ $(function () {
                 });
             }
 
-            console.log('close');
+            
         } else {
             $('#said_nav').css('width','100%');
             $(this).addClass('active');
             $('#o_nav_2').addClass('active');
             $('#o_icon_wrap').addClass('active');
-            console.log('open');
+            
         }
     })
 
@@ -180,7 +181,7 @@ $(function () {
             $('#b_icon_wrap').removeClass('active');
             $.each(nav, function (index, value) {
                 if ( $(value).hasClass('active') ) {
-                    console.log(value);
+                    
                     nav_flag = false;
                     return false;
                 }
@@ -198,13 +199,13 @@ $(function () {
                     'transition': '1s'
                 });
             }
-            console.log('close');
+            
         } else {
             $('#said_nav').css('width','100%');
             $(this).addClass('active');
             $('#b_nav_2').addClass('active');
             $('#b_icon_wrap').addClass('active');
-            console.log('open');
+            
         }
     })
 
@@ -215,7 +216,7 @@ $(function () {
             $('#p_icon_wrap').removeClass('active');
             $.each(nav, function (index, value) {
                 if ( $(value).hasClass('active') ) {
-                    console.log(value);
+                    
                     nav_flag = false;
                     return false;
                 }
@@ -233,13 +234,13 @@ $(function () {
                     'transition': '1s'
                 });
             }
-            console.log('close');
+            
         } else {
             $('#said_nav').css('width','100%');
             $(this).addClass('active');
             $('#p_nav_2').addClass('active');
             $('#p_icon_wrap').addClass('active');
-            console.log('open');
+            
         }
     })
 
@@ -250,7 +251,7 @@ $(function () {
             $('#g_icon_wrap').removeClass('active');
             $.each(nav, function (index, value) {
                 if ( $(value).hasClass('active') ) {
-                    console.log(value);
+                    
                     nav_flag = false;
                     return false;
                 }
@@ -268,13 +269,13 @@ $(function () {
                     'transition': '1s'
                 });
             }
-            console.log('close');
+            
         } else {
             $('#said_nav').css('width','100%');
             $(this).addClass('active');
             $('#g_nav_2').addClass('active');
             $('#g_icon_wrap').addClass('active');
-            console.log('open');
+            
         }
     })
 

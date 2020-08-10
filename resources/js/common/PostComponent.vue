@@ -143,6 +143,7 @@
 
 <script>
 export default {
+    name: "post-component",
     props: {
         postID: [Number, String],
         userID: [Number, String]

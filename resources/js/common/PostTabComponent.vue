@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="text-right mx-3">
-            <button class="user_active_btn" @click="$emit('panretMessage')">
+            <button class="user_active_btn" @click="$emit('panret')">
                 USER<i class="fas fa-angle-double-right ml-3"></i>
             </button>
         </div>
@@ -34,7 +34,7 @@
 
 <script>
 export default {
-    name: "infos-component",
+    name: "post-tab-component",
     data: function() {
         return {
             tags: [],

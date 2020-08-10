@@ -27,7 +27,7 @@
 
 <script>
 export default {
-    name: "tab-component",
+    name: "user-tab-component",
     data: function() {
         return {
             tabs: [
