@@ -1,5 +1,10 @@
 <template>
     <div>
+        <div class="mx-3">
+            <button class="post_active_btn" @click="$emit('panret')">
+                <i class="fas fa-angle-double-left mr-3"></i>POST
+            </button>
+        </div>
         <div class="overflow-auto user_tabs">
             <ul class="d-flex align-items-center m-0">
                 <li

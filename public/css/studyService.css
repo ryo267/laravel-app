@@ -1,6 +1,8 @@
+/*
 * {
-  outline: solid 2px #fff;
+    outline: solid 2px #fff;
 }
+*/
 
 html body {
   min-width: 375px;
@@ -60,21 +62,40 @@ html body .all_tabs {
 html body .all_tabs .tabs {
   display: flex;
   overflow: hidden;
+  padding: 0;
+}
+
+html body .all_tabs .tabs .user_active_btn,
+html body .all_tabs .tabs .post_active_btn {
+  background: none;
+  border: none;
+  color: #fff;
 }
 
 html body .all_tabs .tabs > li {
   min-width: 100%;
+  transition: all 1s;
 }
 
 html body .all_tabs .tabs > li:nth-of-type(1) {
+  transform: translateX(-100%);
+}
+
+html body .all_tabs .tabs > li:nth-of-type(1).active {
   top: 0;
   left: 0;
+  transform: translateX(0%);
 }
 
 html body .all_tabs .tabs > li:nth-last-of-type(1) {
   top: 0;
   left: 0;
-  transform: translateX(100%);
+  transform: translateX(0%);
+}
+
+html body .all_tabs .tabs > li:nth-last-of-type(1).active {
+  transform: translateX(-100%);
+  transition: all 1s;
 }
 
 html body .post_tags #tags,

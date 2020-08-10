@@ -1,14 +1,26 @@
 <template>
     <div>
+        <div class="text-right mx-3">
+            <button class="user_active_btn" @click="$emit('panretMessage')">
+                USER<i class="fas fa-angle-double-right ml-3"></i>
+            </button>
+        </div>
         <div class="overflow-auto post_tags">
             <ul class="d-flex align-items-center m-0">
-                <li @click="activeTag('all_posts',0)" id="tags" :class="[ isActive === 0 ? 'active' : '' ]">All-POST</li>
+                <li
+                    @click="activeTag('all_posts', 0)"
+                    id="tags"
+                    :class="[isActive === 0 ? 'active' : '']"
+                >
+                    All-POST
+                </li>
                 <li
                     v-for="tag in tags"
                     :key="tag.id"
                     class="px-3"
                     id="tags"
-                    @click="activeTag(tag.name,tag.id)" :class="[ isActive === tag.id ? 'active' : '' ]"
+                    @click="activeTag(tag.name, tag.id)"
+                    :class="[isActive === tag.id ? 'active' : '']"
                 >
                     {{ tag.name }}
                 </li>
@@ -21,7 +33,6 @@
 </template>
 
 <script>
-
 export default {
     name: "infos-component",
     data: function() {
@@ -32,7 +43,7 @@ export default {
         };
     },
     methods: {
-        activeTag( tag_name, tag_id){
+        activeTag(tag_name, tag_id) {
             this.currentTag = tag_name;
             this.isActive = tag_id;
         },

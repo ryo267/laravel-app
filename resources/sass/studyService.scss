@@ -1,9 +1,9 @@
 @import "variables";
-
+/*
 * {
     outline: solid 2px #fff;
 }
-
+*/
 html body {
     min-width: 375px;
     margin: 0;
@@ -47,25 +47,42 @@ html body {
     }
     .all_tabs {
         transition: all 1s;
-        .tabs{
+        .tabs {
             display: flex;
             overflow: hidden;
-            >li {
+            padding: 0;
+            .user_active_btn, .post_active_btn {
+                background: none;
+                border: none;
+                color: #fff;
+            }
+            > li {
                 min-width: 100%;
-                &:nth-of-type(1){
-                    top: 0;
-                    left: 0;
+                transition: all 1s;
+                &:nth-of-type(1) {
+                    transform: translateX(-100%);
+                    &.active {
+                        top: 0;
+                        left: 0;
+                        transform: translateX(0%);
+                    }
                 }
-                &:nth-last-of-type(1){
+                &:nth-last-of-type(1) {
                     top: 0;
                     left: 0;
-                    transform: translateX(100%);
+                    transform: translateX(0%);
+                    &.active {
+                        transform: translateX(-100%);
+                        transition: all 1s;
+                    }
                 }
             }
         }
     }
-    .post_tags, .user_tabs {
-        #tags, #tabs {
+    .post_tags,
+    .user_tabs {
+        #tags,
+        #tabs {
             padding: 1rem;
             color: #fff;
             &.active {
@@ -194,7 +211,9 @@ html body {
                             height: 100%;
                         }
                     }
-                    .upload_btn, .update_btn, .skill_add_btn {
+                    .upload_btn,
+                    .update_btn,
+                    .skill_add_btn {
                         width: 100%;
                         border: none;
                         background: none;

@@ -1,8 +1,8 @@
 <template>
     <div class="all_tabs">
-        <ul class="tabs">
-            <li><post-tab-component/></li>
-            <li><user-tab-component/></li>
+        <ul class="tabs" >
+            <li class="post" :class="{ active: post_Active }"><post-tab-component v-on:panretMessage="userActive"/></li>
+            <li class="user" :class="{ active: user_Active }"><user-tab-component v-on:panret="postActive"/></li>
         </ul>
     </div>
 </template>
@@ -12,31 +12,20 @@ export default {
     name: "all-tab-component",
     data: function() {
         return {
-            tabs: [
-                {
-                    id: "1",
-                    name: "posts",
-                    link: "ajax/user/all/"
-                },
-                {
-                    id: "2",
-                    name: "users",
-                    link: "ajax/user/follower/"
-                },
-            ],
-            currentTab: "posts",
-            isActive: 0
+            post_Active: true,
+            user_Active: false,
         };
     },
-    filters: {
-        uppercase(value) {
-            return value.toUpperCase();
-        }
-    },
     methods: {
-        activeTab(tab_name, tab_id) {
-            this.currentTab = tab_name;
-            this.isActive = tab_id;
+        postActive() {
+            this.post_Active = true;
+            this.user_Active = false;
+            console.log('postActive');
+        },
+        userActive() {
+            this.post_Active = false;
+            this.user_Active = true;
+            console.log('userActive');
         }
     },
     mounted() {}
