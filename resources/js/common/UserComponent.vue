@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid post my-5">
+    <div class="container-fluid user my-5">
         <div class="row">
             <div class="col">
                 <div class="card">
@@ -8,6 +8,9 @@
                             :userID="userID"
                             :userNAME="userNAME"
                         />
+                    </div>
+                    <div class="loading_2" :id="'loading_' + userID ">
+                        <i class="fas fa-spinner fa-5x"></i>
                     </div>
                     <div class="card-body p-0">
                         <div class="col">
@@ -246,11 +249,20 @@ export default {
             axios.get(url + this.userID).then(response => {
                 this.progresses = response.data;
             });
+        },
+        loaded() {
+            var id = this.userID;
+            window.addEventListener("load", function(event) {
+                console.log("loading_"+ id);
+                const spinner = document.getElementById("loading_"+ id );
+                spinner.classList.add("loaded");
+            });
         }
     },
     mounted() {
         this.getProfile();
         this.getSkill();
+        this.loaded();
     }
 };
 </script>

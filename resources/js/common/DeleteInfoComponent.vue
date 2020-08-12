@@ -1,5 +1,5 @@
 <template>
-    <div class="w-100 d-flex justify-content-end m-0 p-0">
+    <div class="trash_btn_wrap m-0 p-0">
         <button class="trash" type="button" @click="deleteInfo()"><i class="fas fa-trash"></i></button>
     </div>
 </template>

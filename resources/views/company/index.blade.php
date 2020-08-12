@@ -48,37 +48,35 @@
                 <div class="r_icon_wrap" id="r_icon_wrap"><i class="far fa-id-card"></i></div>
             </div>
             <div class="r_nav_2" id="r_nav_2">
-                <company-profile-component />
+                <!--<company-profile-component />-->
             </div>
 
             <div class="o_nav" id="o_nav">
                 <div class="o_icon_wrap" id="o_icon_wrap"><i class="fas fa-pen-nib"></i></div>
             </div>
             <div class="o_nav_2" id="o_nav_2">
-                <company-form-component />
+                <!--<company-form-component />-->
             </div>
 
             <div class="b_nav" id="b_nav">
                 <div class="b_icon_wrap" id="b_icon_wrap"><i class="fas fa-building"></i></div>
             </div>
             <div class="b_nav_2" id="b_nav_2">
-                <infos-component />
+                <!--<infos-component />-->
             </div>
 
             <div class="p_nav" id="p_nav">
                 <div class="p_icon_wrap" id="p_icon_wrap"><i class="fas fa-mail-bulk"></i></i></div>
             </div>
             <div class="p_nav_2" id="p_nav_2">
-                <div class="container-fluid h-100">
-                    <google-form-component />
-                </div>
+                <!--<google-form-component />-->
             </div>
 
             <div class="g_nav" id="g_nav">
                 <div class="g_icon_wrap" id="g_icon_wrap"><i class="fas fa-sms"></i></div>
             </div>
             <div class="g_nav_2" id="g_nav_2">
-                <chat-component />
+                <!--<chat-component />-->
             </div>
 
         </section>

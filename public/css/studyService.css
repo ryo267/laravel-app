@@ -900,6 +900,51 @@ html body ul {
   visibility: hidden;
 }
 
+.loading_2 {
+  width: 100%;
+  height: 100%;
+  transition: all 1s;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+.loading_2.loaded {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loading_2 i {
+  color: #fff;
+  -webkit-animation: 3s linear infinite rotation1;
+          animation: 3s linear infinite rotation1;
+}
+
+@-webkit-keyframes rotation1 {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotation1 {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .border-loading-indicator {
   width: 0px;
   height: 0px;
@@ -973,29 +1018,34 @@ canvas {
 }
 
 .post .card,
-.info .card {
+.info .card,
+.user .card {
   border-radius: none !important;
   background: #ecf0f1;
 }
 
 .post .card:hover .background-image,
-.info .card:hover .background-image {
+.info .card:hover .background-image,
+.user .card:hover .background-image {
   transform: scale(1.5);
 }
 
 .post .card:hover .publication-details,
-.info .card:hover .publication-details {
+.info .card:hover .publication-details,
+.user .card:hover .publication-details {
   transform: translateX(0%);
 }
 
 .post .card .profile_image,
-.info .card .profile_image {
+.info .card .profile_image,
+.user .card .profile_image {
   width: 50px;
   height: 50px;
 }
 
 .post .image-data,
-.info .image-data {
+.info .image-data,
+.user .image-data {
   height: 25rem;
   position: relative;
   z-index: 1;
@@ -1005,51 +1055,59 @@ canvas {
 }
 
 .post .image-data.active,
-.info .image-data.active {
+.info .image-data.active,
+.user .image-data.active {
   width: 0%;
 }
 
 @media (max-width: 575px) {
   .post .image-data.active,
-  .info .image-data.active {
+  .info .image-data.active,
+  .user .image-data.active {
     width: 100%;
   }
 }
 
 @media (max-width: 575px) {
   .post .image-data,
-  .info .image-data {
+  .info .image-data,
+  .user .image-data {
     width: 100%;
     display: block;
   }
 }
 
 .post .image-data .title,
-.info .image-data .title {
+.info .image-data .title,
+.user .image-data .title {
   display: none;
 }
 
 @media (max-width: 575px) {
   .post .image-data .title,
-  .info .image-data .title {
+  .info .image-data .title,
+  .user .image-data .title {
     display: inherit;
   }
 }
 
 .post .image-data .cta,
-.info .image-data .cta {
+.info .image-data .cta,
+.user .image-data .cta {
   display: none;
 }
 
 @media (max-width: 575px) {
   .post .image-data .cta,
-  .info .image-data .cta {
+  .info .image-data .cta,
+  .user .image-data .cta {
     display: inherit;
   }
 }
 
 .post .background-image,
-.info .background-image {
+.info .background-image,
+.user .background-image {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -1061,7 +1119,8 @@ canvas {
 }
 
 .post .publication-details,
-.info .publication-details {
+.info .publication-details,
+.user .publication-details {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
@@ -1080,30 +1139,35 @@ canvas {
 
 @media (max-width: 575px) {
   .post .publication-details,
-  .info .publication-details {
+  .info .publication-details,
+  .user .publication-details {
     display: block;
   }
 }
 
 .post .publication-details i,
-.info .publication-details i {
+.info .publication-details i,
+.user .publication-details i {
   margin-right: 1rem;
 }
 
 .post .author,
-.info .author {
+.info .author,
+.user .author {
   display: inline-block;
   margin-bottom: 3rem;
   transition: all 0.5s;
 }
 
 .post .author:hover,
-.info .author:hover {
+.info .author:hover,
+.user .author:hover {
   color: rgba(255, 255, 255, 0.75);
 }
 
 .post .follow_submit_1 button,
-.info .follow_submit_1 button {
+.info .follow_submit_1 button,
+.user .follow_submit_1 button {
   color: #fff;
   border: solid 1px #fff;
   background: none;
@@ -1111,18 +1175,21 @@ canvas {
 
 @media (max-width: 575px) {
   .post .follow_submit_1,
-  .info .follow_submit_1 {
+  .info .follow_submit_1,
+  .user .follow_submit_1 {
     display: none;
   }
 }
 
 .post .follow_submit_2,
-.info .follow_submit_2 {
+.info .follow_submit_2,
+.user .follow_submit_2 {
   display: none;
 }
 
 .post .follow_submit_2 button,
-.info .follow_submit_2 button {
+.info .follow_submit_2 button,
+.user .follow_submit_2 button {
   color: #fff;
   border: solid 1px #fff;
   background: none;
@@ -1130,24 +1197,28 @@ canvas {
 
 @media (max-width: 575px) {
   .post .follow_submit_2,
-  .info .follow_submit_2 {
+  .info .follow_submit_2,
+  .user .follow_submit_2 {
     display: inherit;
   }
 }
 
 .post .post-row,
-.info .post-row {
+.info .post-row,
+.user .post-row {
   height: 400px;
   overflow: hidden;
 }
 
 .post .post-row.active,
-.info .post-row.active {
+.info .post-row.active,
+.user .post-row.active {
   height: 100%;
 }
 
 .post .post-data,
-.info .post-data {
+.info .post-data,
+.user .post-data {
   background-color: #ecf0f1;
   padding: 2rem 3rem;
   position: relative;
@@ -1156,25 +1227,29 @@ canvas {
 }
 
 .post .post-data .overview,
-.info .post-data .overview {
+.info .post-data .overview,
+.user .post-data .overview {
   height: 90%;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .post .post-data .overview.active,
-.info .post-data .overview.active {
+.info .post-data .overview.active,
+.user .post-data .overview.active {
   width: 100%;
   transition: 1s;
 }
 
 .post .post-data .overview.active .cta p,
-.info .post-data .overview.active .cta p {
+.info .post-data .overview.active .cta p,
+.user .post-data .overview.active .cta p {
   background: #000;
 }
 
 .post .post-data::before,
-.info .post-data::before {
+.info .post-data::before,
+.user .post-data::before {
   content: "";
   width: 3.5rem;
   height: 100%;
@@ -1187,38 +1262,44 @@ canvas {
 }
 
 .post .post-data::before.active,
-.info .post-data::before.active {
+.info .post-data::before.active,
+.user .post-data::before.active {
   width: 0;
   height: 0;
 }
 
 @media (max-width: 575px) {
   .post .post-data,
-  .info .post-data {
+  .info .post-data,
+  .user .post-data {
     height: 0;
   }
 }
 
 .post .post-data.active,
-.info .post-data.active {
+.info .post-data.active,
+.user .post-data.active {
   height: 100%;
   transition: 1s;
 }
 
 .post .post-data.active::before,
-.info .post-data.active::before {
+.info .post-data.active::before,
+.user .post-data.active::before {
   width: 0;
   height: 0;
 }
 
 .post .title,
-.info .title {
+.info .title,
+.user .title {
   font-size: 3rem;
   line-height: 1;
 }
 
 .post .subtitle,
-.info .subtitle {
+.info .subtitle,
+.user .subtitle {
   font-size: 1.2rem;
   font-weight: 400;
   text-transform: uppercase;
@@ -1227,17 +1308,20 @@ canvas {
 }
 
 .post .description,
-.info .description {
+.info .description,
+.user .description {
   position: relative;
 }
 
 .post .description::first-letter,
-.info .description::first-letter {
+.info .description::first-letter,
+.user .description::first-letter {
   margin-left: 1rem;
 }
 
 .post .description:before,
-.info .description:before {
+.info .description:before,
+.user .description:before {
   content: "";
   position: absolute;
   top: 0;
@@ -1249,12 +1333,14 @@ canvas {
 }
 
 .post .data,
-.info .data {
+.info .data,
+.user .data {
   display: block;
 }
 
 .post .cta,
-.info .cta {
+.info .cta,
+.user .cta {
   text-align: right;
   font-weight: bold;
   margin: 1rem 0;
@@ -1262,13 +1348,15 @@ canvas {
 }
 
 .post .cta button,
-.info .cta button {
+.info .cta button,
+.user .cta button {
   border-style: none;
   background: none;
 }
 
 .post .cta p,
-.info .cta p {
+.info .cta p,
+.user .cta p {
   display: inline-block;
   background: #7f8c8d;
   -webkit-background-clip: text;
@@ -1278,7 +1366,8 @@ canvas {
 }
 
 .post .cta p::before,
-.info .cta p::before {
+.info .cta p::before,
+.user .cta p::before {
   content: "";
   position: absolute;
   left: 0;
@@ -1292,41 +1381,48 @@ canvas {
 }
 
 .post .cta p:hover::before,
-.info .cta p:hover::before {
+.info .cta p:hover::before,
+.user .cta p:hover::before {
   transform: scaleX(1);
 }
 
 .post .delete_favo,
-.info .delete_favo {
+.info .delete_favo,
+.user .delete_favo {
   color: red;
 }
 
 .post #b_none,
-.info #b_none {
+.info #b_none,
+.user #b_none {
   border-style: none;
   background: none;
 }
 
 .post .trash,
-.info .trash {
+.info .trash,
+.user .trash {
   background-color: #000 !important;
   border-top-right-radius: 50% !important;
 }
 
 .post .skill_label,
-.info .skill_label {
+.info .skill_label,
+.user .skill_label {
   border-bottom: solid 2px #000;
 }
 
 .post .skills,
-.info .skills {
+.info .skills,
+.user .skills {
   position: relative;
   overflow: hidden;
   transition: 0.5s;
 }
 
 .post .skills .name,
-.info .skills .name {
+.info .skills .name,
+.user .skills .name {
   position: relative;
   color: #000;
   margin-top: -2px;
@@ -1334,7 +1430,8 @@ canvas {
 }
 
 .post .skills .value,
-.info .skills .value {
+.info .skills .value,
+.user .skills .value {
   position: relative;
   width: 40px;
   text-align: right;
@@ -1344,7 +1441,8 @@ canvas {
 }
 
 .post .skills .percent,
-.info .skills .percent {
+.info .skills .percent,
+.user .skills .percent {
   position: relative;
   width: calc(100% - 40px);
   height: 20px;
@@ -1355,7 +1453,8 @@ canvas {
 }
 
 .post .skills .percent .progress,
-.info .skills .percent .progress {
+.info .skills .percent .progress,
+.user .skills .percent .progress {
   position: absolute;
   top: 0;
   left: 0;
@@ -1458,5 +1557,13 @@ video {
 .modal button {
   background: none;
   border: none;
+}
+
+.trash_btn_wrap {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  color: #000;
 }
 

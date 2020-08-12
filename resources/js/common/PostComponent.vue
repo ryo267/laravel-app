@@ -3,6 +3,13 @@
         <div class="row">
             <div class="col">
                 <div class="card">
+                    <div class="loading_2" :id="'loading_' + userID">
+                        <i class="fas fa-spinner fa-5x"></i>
+                    </div>
+                    <delete-post-component
+                        v-if="post.user_id === this.$userId"
+                        :postID="postID"
+                    />
                     <div class="card-body p-0">
                         <div class="col">
                             <div
@@ -38,14 +45,19 @@
                                     ></div>
                                     <div class="publication-details">
                                         <div>
-                                            <img v-if=" user.profile_image != null || user.profile_image != undefined"
+                                            <img
+                                                v-if="
+                                                    user.profile_image !=
+                                                        null ||
+                                                        user.profile_image !=
+                                                            undefined
+                                                "
                                                 class="profile_image img-thumbnail rounded-circle"
                                                 :src="user.profile_image"
                                             />
-                                            <img v-else
-                                                class="profile_image img-thumbnail rounded-circle"
-                                                src=/sample/user.png
-                                            />
+                                            <img v-else class="profile_image
+                                            img-thumbnail rounded-circle"
+                                            src=/sample/user.png />
                                             <p></p>
                                             <p class="author">
                                                 {{ user.screen_name }}
@@ -54,7 +66,9 @@
                                                 class="follow_submit_1"
                                                 v-if="user.id != this.$userId"
                                             >
-                                                <follow-component :userID="userID"/>
+                                                <follow-component
+                                                    :userID="userID"
+                                                />
                                             </div>
                                         </div>
                                         <h5 class="title">{{ post.title }}</h5>
@@ -82,7 +96,9 @@
                                             class="follow_submit_2"
                                             v-if="user.id != this.$userId"
                                         >
-                                            <follow-component :userID="userID"/>
+                                            <follow-component
+                                                :userID="userID"
+                                            />
                                         </div>
                                     </div>
                                 </div>
@@ -95,7 +111,7 @@
                                         :class="{ active: isActive }"
                                     >
                                         <h5 class="title">{{ post.title }}</h5>
-                                        <tag-component :postID="postID"/>
+                                        <tag-component :postID="postID" />
                                         <p
                                             class="description"
                                             v-html="post.text"
@@ -125,14 +141,10 @@
                                 v-if="show"
                                 :postID="postID"
                             ></comments-component>
-                            <div
-                                v-if="show"
-                                class=" d-flex post_footer"
-                            >
-                                <favo-count-component :postID="postID"/>
-                                <comment-count-component :postID="postID"/>
+                            <div v-if="show" class=" d-flex post_footer">
+                                <favo-count-component :postID="postID" />
+                                <comment-count-component :postID="postID" />
                             </div>
-                            <delete-post-component v-if="show && post.user_id === this.$userId" :postID="postID"/>
                         </div>
                     </div>
                 </div>
@@ -190,11 +202,20 @@ export default {
             } catch (error) {
                 console.log(error);
             }
+        },
+        loaded() {
+            var id = this.userID;
+            window.addEventListener("load", function(event) {
+                console.log("loading_" + id);
+                const spinner = document.getElementById("loading_" + id);
+                spinner.classList.add("loaded");
+            });
         }
     },
     mounted() {
         this.getProfile();
         this.getPost();
+        this.loaded();
     }
 };
 </script>

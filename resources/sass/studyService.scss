@@ -780,6 +780,37 @@ html body {
     }
 }
 
+.loading_2 {
+    width: 100%;
+    height: 100%;
+    transition: all 1s;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    &.loaded {
+        opacity: 0;
+        visibility: hidden;
+    }
+    i {
+        color: #fff;
+        animation: 3s linear infinite rotation1;
+    }
+}
+
+@keyframes rotation1 {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 .border-loading-indicator {
     width: 0px;
     height: 0px;
@@ -824,7 +855,8 @@ canvas {
 }
 
 .post,
-.info {
+.info,
+.user {
     .card {
         border-radius: none !important;
         background: #ecf0f1;
@@ -1184,4 +1216,12 @@ video {
         background: none;
         border: none;
     }
+}
+
+.trash_btn_wrap {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    color: #000;
 }
