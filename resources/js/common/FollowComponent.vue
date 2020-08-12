@@ -46,7 +46,7 @@ export default {
         }
     },
     mounted() {
-        console.log(this.userID);
+        //console.log(this.userID);
         this.getFollow();
     }
 };

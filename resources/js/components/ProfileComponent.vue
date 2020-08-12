@@ -84,7 +84,7 @@
                                             for="screen_name"
                                             class=""
                                             id="label"
-                                            >アカウントネーム</label
+                                            >ACCOUNT-NAME</label
                                         >
                                     </div>
                                     <div>
@@ -107,7 +107,7 @@
                                 <div class="col">
                                     <div>
                                         <label for="name" class="" id="label"
-                                            >ユーザーネーム</label
+                                            >USER-NAME</label
                                         >
                                     </div>
                                     <div>
@@ -127,7 +127,7 @@
                                 <div class="col">
                                     <div>
                                         <label for="email" class="" id="label"
-                                            >メールアドレス</label
+                                            >MAIL</label
                                         >
                                     </div>
                                     <div>

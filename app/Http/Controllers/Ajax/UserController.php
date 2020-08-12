@@ -63,7 +63,7 @@ class UserController extends Controller
 
         if ($tab === 'all-users') {
             
-            $users = \App\User::orderBy('id', 'asc')->get(['id']);
+            $users = \App\User::orderBy('id', 'asc')->get(['id','screen_name']);
             
             return $users;
 
@@ -93,9 +93,6 @@ class UserController extends Controller
     public function update(UserRequest $request, User $user)
     {
 
-        //var_dump($user);
-        //dd($request->all());
-
         $user->update($request->all());
 
         return $user;
@@ -103,7 +100,6 @@ class UserController extends Controller
 
     public function profile(User $id)
     {
-
         return $id;
     }
 
@@ -142,8 +138,6 @@ class UserController extends Controller
 
     public function deleteSkill(Progress $progress)
     {
-        //var_dump($progress);
-
         Auth::user()->skills()->detach($progress->skill_id);
 
         $progress->delete();
@@ -163,16 +157,11 @@ class UserController extends Controller
 
     public function follow(Request $request)
     {
-        //var_dump($progress);
         if (Auth::id() != $request->userID) {
-
-            //echo ' trueeeeeeeeeeeeeeeeeeeeeeee';
 
             Auth::user()->follows()->attach($request->userID);
             $follower_count = \App\Follower::where('followed_id', $request->userID)->count();
             $follow_flag = \App\Follower::where('following_id', Auth::id())->where('followed_id', $request->userID)->exists();
-
-            //echo $follower_count.','.$follow_flag;
 
             return [$follower_count, $follow_flag];
         }
@@ -214,16 +203,35 @@ class UserController extends Controller
     public function getThanksCount(Int $id)
     {
         $user = \App\User::find($id);
-        //$comments = $user->comments()->get(['id']);
         $comments = $user->comments;
         $count = 0;
-        /*foreach( $comments as $comment){
-            $c = \App\Comment::find($comment->id);
-            $count += $c->thanks()->count();
-        }*/
         foreach ($comments as $comment) {
             $count += $comment->thanks()->count();
         }
         return $count;
+    }
+
+    public function getScout(Int $userID, Int $me)
+    {
+
+        $company = \App\Company::find($me);
+        $scout_flag = $company->scouts()->where('user_id', $userID )->exists();
+        
+        return $scout_flag;
+    }
+
+    public function scout(Request $request)
+    {
+
+        $scout = \App\Scout::create([
+            'company_id' => $request->companyID,
+            'user_id' => $request->userID,
+            'text' => $request->text,
+        ]);
+
+        $company = \App\Company::find($request->companyID);
+        $scout_flag = $company->scouts()->where('user_id', $request->userID )->exists();
+        
+        return $scout_flag;
     }
 }

@@ -5,7 +5,7 @@
             <div class="col">
                 <ul class="p-0">
                     <li v-for="user in getItems" :key="user.id">
-                        <user-component :userID ="user.id"></user-component>
+                        <user-component :userID ="user.id" :userNAME ="user.screen_name"></user-component>
                     </li>
                 </ul>
                 <paginate

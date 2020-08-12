@@ -16,6 +16,7 @@ window.Vue = require('vue')
 
 //Vue.use(VueRouter);
 Vue.prototype.$userId = document.querySelector("meta[name='user-id']").getAttribute('content');
+Vue.prototype.$userRole = document.querySelector("meta[name='role']").getAttribute('content');
 
 Vue.component('profile-component', require('./components/ProfileComponent.vue').default);
 Vue.component('form-component', require('./components/FormComponent.vue').default);
@@ -46,6 +47,7 @@ Vue.component("user-tab-component",require("./common/UserTabComponent.vue").defa
 Vue.component("users-component",require("./common/UsersComponent.vue").default);
 Vue.component("user-component", require("./common/UserComponent.vue").default);
 Vue.component("all-tab-component",require("./common/AllTabComponent.vue").default);
+Vue.component("scout-component",require("./common/ScoutComponent.vue").default);
 
 Vue.component("company-profile-component",require("./company/components/CompanyProfileComponent.vue").default);
 Vue.component("company-form-component",require("./company/components/CompanyFormComponent.vue").default);
@@ -89,10 +91,6 @@ const app = new Vue({
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-
-$(function () {
-    console.log('読込みました'); 
-});
 
 $(function () {
     
