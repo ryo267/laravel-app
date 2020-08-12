@@ -24,7 +24,7 @@
         <div class="row px-3">
             <div class="col text-center">
                 <button v-on:click="fileUpload_2" class="upload_btn">
-                    アップロード<i class="fas fa-cloud-upload-alt"></i>
+                    UPLOAD<i class="fas fa-cloud-upload-alt ml-3"></i>
                 </button>
             </div>
         </div>
@@ -65,8 +65,8 @@
                     <div class="row">
                         <div class="col">
                             <button v-on:click="fileUpload" class="upload_btn">
-                                アップロード<i
-                                    class="fas fa-cloud-upload-alt"
+                                UPLOAD<i
+                                    class="fas fa-cloud-upload-alt ml-3"
                                 ></i>
                             </button>
                         </div>
@@ -80,7 +80,7 @@
                                             for="screen_name"
                                             class=""
                                             id="label"
-                                            >アカウントネーム</label
+                                            >ACCOUNT-NAME</label
                                         >
                                     </div>
                                     <div>
@@ -95,7 +95,9 @@
                                         v-if="errors.screen_name"
                                         id="error_message"
                                     >
-                                        <div style="color:#e74c3c">{{ errors.screen_name[0] }}</div>
+                                        <div style="color:#e74c3c">
+                                            {{ errors.screen_name[0] }}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -103,7 +105,7 @@
                                 <div class="col">
                                     <div>
                                         <label for="name" class="" id="label"
-                                            >ユーザーネーム</label
+                                            >USER-NAME</label
                                         >
                                     </div>
                                     <div>
@@ -115,7 +117,9 @@
                                         />
                                     </div>
                                     <div v-if="errors.name" id="error_message">
-                                        <div style="color:#e74c3c">{{ errors.name[0] }}</div>
+                                        <div style="color:#e74c3c">
+                                            {{ errors.name[0] }}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -123,7 +127,7 @@
                                 <div class="col">
                                     <div>
                                         <label for="email" class="" id="label"
-                                            >メールアドレス</label
+                                            >MAIL</label
                                         >
                                     </div>
                                     <div>
@@ -135,14 +139,16 @@
                                         />
                                     </div>
                                     <div v-if="errors.email" id="error_message">
-                                        <div style="color:#e74c3c">{{ errors.email[0] }}</div>
+                                        <div style="color:#e74c3c">
+                                            {{ errors.email[0] }}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col follow">
+                        <div class="col info">
                             <infos-count-component :userID="$userId" />
                         </div>
                     </div>
@@ -150,8 +156,12 @@
 
                 <div class="row ">
                     <div class="col">
-                        <button type="submit" class="col" @click="submit()">
-                            更新
+                        <button
+                            type="submit"
+                            class="col update_btn"
+                            @click="submit()"
+                        >
+                            UPDATE<i class="fas fa-sync-alt ml-3"></i>
                         </button>
                     </div>
                 </div>
@@ -187,6 +197,17 @@
                         />
                     </li>
                 </ul>
+                <paginate
+                    :page-count="getPageCount"
+                    :page-range="3"
+                    :margin-pages="2"
+                    :click-handler="clickCallback"
+                    :prev-text="'＜'"
+                    :next-text="'＞'"
+                    :container-class="'pagination'"
+                    :page-class="'page-item'"
+                >
+                </paginate>
             </div>
         </div>
     </div>
@@ -205,7 +226,9 @@ export default {
             fileInfo_2: [],
             parPage: 5,
             currentPage: 1,
-            errors: []
+            errors: [],
+            modal_text: "",
+            isActive: false
         };
     },
     components: {
@@ -230,20 +253,32 @@ export default {
 
             formData.append("file", this.fileInfo);
 
-            axios.post("/company/profile", formData).then(response => {
-                this.user = response.data;
-                alert("プロフィール画像を変更しました");
-            });
+            axios
+                .post("/company/profile", formData)
+                .then(response => {
+                    this.user = response.data;
+                    this.modal_text = "プロフィール画像を変更しました";
+                })
+                .catch(e => {
+                    console.log(e.response.data.errors);
+                    this.errors = e.response.data.errors;
+                });
         },
         fileUpload_2() {
             const formData = new FormData();
 
             formData.append("file", this.fileInfo_2);
 
-            axios.post("/company/profile/back", formData).then(response => {
-                this.user = response.data;
-                alert("プロフィール背景画像を変更しました");
-            });
+            axios
+                .post("/company/profile/back", formData)
+                .then(response => {
+                    this.user = response.data;
+                    this.modal_text = "プロフィール背景画像を変更しました";
+                })
+                .catch(e => {
+                    console.log(e.response.data.errors);
+                    this.errors = e.response.data.errors;
+                });
         },
         fileSelected(event) {
             this.fileInfo = event.target.files[0];
@@ -275,7 +310,7 @@ export default {
                     console.log(e.response.data.errors);
                     this.errors = e.response.data.errors;
                 });
-        },
+        }
     },
     mounted() {
         this.getProfile();

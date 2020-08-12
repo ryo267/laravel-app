@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="user-id" content="{{ Auth::user()->id }}">
     <meta name="user-email" content="{{ Auth::user()->email }}">
+    <meta name="role" content="company">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -140,15 +141,8 @@
 
             <section id="canvas"></section>
 
-
-            <!--
-            <section class="my-3">
-                <users-component/>
-            </section>
-                    -->
-
             <section class="my-5">
-                <tab-component />
+                <all-tab-component />
             </section>
 
 

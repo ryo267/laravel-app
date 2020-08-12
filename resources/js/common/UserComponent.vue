@@ -3,6 +3,12 @@
         <div class="row">
             <div class="col">
                 <div class="card">
+                    <div v-if="this.$userRole == 'company'">
+                        <scout-component
+                            :userID="userID"
+                            :userNAME="userNAME"
+                        />
+                    </div>
                     <div class="card-body p-0">
                         <div class="col">
                             <div
@@ -77,12 +83,20 @@
                                                 </div>
                                             </div>
                                             <div
-                                                class="follow_submit_1 p-3"
-                                                v-if="user.id != this.$userId"
+                                                v-if="
+                                                    this.$userRole != 'company'
+                                                "
                                             >
-                                                <follow-component
-                                                    :userID="userID"
-                                                />
+                                                <div
+                                                    class="follow_submit_1 p-3"
+                                                    v-if="
+                                                        user.id != this.$userId
+                                                    "
+                                                >
+                                                    <follow-component
+                                                        :userID="userID"
+                                                    />
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="cta">
@@ -105,14 +119,14 @@
                                                 </p>
                                             </button>
                                         </div>
-                                        <div
+                                        <!--<div
                                             class="follow_submit_2"
                                             v-if="user.id != this.$userId"
                                         >
                                             <follow-component
                                                 :userID="userID"
                                             />
-                                        </div>
+                                        </div>-->
                                     </div>
                                 </div>
                                 <div
@@ -197,7 +211,8 @@
 export default {
     name: "user-component",
     props: {
-        userID: [Number, String]
+        userID: [Number, String],
+        userNAME: [String]
     },
     data: function() {
         return {
@@ -230,7 +245,6 @@ export default {
             const url = "/ajax/user/skill/";
             axios.get(url + this.userID).then(response => {
                 this.progresses = response.data;
-                console.log(this.progresses);
             });
         }
     },

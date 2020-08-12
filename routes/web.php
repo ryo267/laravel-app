@@ -55,9 +55,11 @@ Route::get('ajax/user/follow/count/{id}','Ajax\UserController@getFollowCount');
 Route::get('ajax/user/follower/count/{id}','Ajax\UserController@getFollowerCount');
 Route::get('ajax/user/thanks/count/{id}','Ajax\UserController@getThanksCount');
 Route::get('ajax/user/follow/{userID}/{me}','Ajax\UserController@getFollow');
+Route::get('ajax/user/scout/{userID}/{me}','Ajax\UserController@getScout');
 Route::put('ajax/user/{user}','Ajax\UserController@update');
 Route::post('ajax/user/skill','Ajax\UserController@addSkill');
 Route::post('ajax/user/follow','Ajax\UserController@follow');
+Route::post('ajax/user/scout','Ajax\UserController@scout');
 Route::delete('ajax/user/skill/delete/{progress}','Ajax\UserController@deleteSkill');
 Route::delete('ajax/user/follow/remove/{id}','Ajax\UserController@reFollow');
 

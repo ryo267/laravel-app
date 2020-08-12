@@ -53,4 +53,10 @@ class Company extends Authenticatable
     {
         return $this->belongsToMany(Comment::class, 'company_comment');
     }
+
+    public function scouts()
+    {
+        return $this->hasMany(Scout::class);
+    }
+
 }
