@@ -64,7 +64,7 @@
                                             </p>
                                             <div
                                                 class="follow_submit_1"
-                                                v-if="user.id != this.$userId"
+                                                v-if="user.id != this.$userId && this.$userRole != 'company'"
                                             >
                                                 <follow-component
                                                     :userID="userID"
@@ -94,7 +94,7 @@
                                         </div>
                                         <div
                                             class="follow_submit_2"
-                                            v-if="user.id != this.$userId"
+                                            v-if="user.id != this.$userId && this.$userRole != 'company'"
                                         >
                                             <follow-component
                                                 :userID="userID"
@@ -206,7 +206,6 @@ export default {
         loaded() {
             var id = this.userID;
             window.addEventListener("load", function(event) {
-                console.log("loading_" + id);
                 const spinner = document.getElementById("loading_" + id);
                 spinner.classList.add("loaded");
             });

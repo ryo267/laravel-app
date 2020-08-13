@@ -1088,10 +1088,6 @@ canvas {
         border-style: none;
         background: none;
     }
-    .trash {
-        background-color: #000 !important;
-        border-top-right-radius: 50% !important;
-    }
     .skill_label {
         border-bottom: solid 2px #000;
     }
@@ -1223,7 +1219,13 @@ video {
     z-index: 10;
     top: 0;
     right: 0;
-    color: #000;
+    button {
+        background: none;
+        border: none;
+        i {
+            color: #000;
+        }
+    }
 }
 .profile_tabs {
     .tabs_wrap {
@@ -1235,16 +1237,7 @@ video {
                 width: 100%;
                 text-align: center;
             }
-            .posts {
-                border-bottom: solid 2px #fff;
-                &.active {
-                    border-top: solid 2px #fff;
-                    border-right: solid 2px #fff;
-                    border-left: solid 2px #fff;
-                    border-bottom: none;
-                }
-            }
-            .scouts {
+            .posts, .scouts, .infos {
                 border-bottom: solid 2px #fff;
                 &.active {
                     border-top: solid 2px #fff;
@@ -1256,13 +1249,7 @@ video {
         }
     }
     .contents {
-        .posts_content {
-            display: none;
-            &.active {
-                display: inherit;
-            }
-        }
-        .scouts_content {
+        .posts_content, .scouts_content, .infos_content{
             display: none;
             &.active {
                 display: inherit;

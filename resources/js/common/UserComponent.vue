@@ -253,7 +253,6 @@ export default {
         loaded() {
             var id = this.userID;
             window.addEventListener("load", function(event) {
-                console.log("loading_"+ id);
                 const spinner = document.getElementById("loading_"+ id );
                 spinner.classList.add("loaded");
             });

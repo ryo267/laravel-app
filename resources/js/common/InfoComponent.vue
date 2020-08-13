@@ -3,6 +3,7 @@
         <div class="row">
             <div class="col">
                 <div class="card">
+                    <delete-info-component v-if="info.company_id == this.$userId" :infoID="infoID"/>
                     <div class="card-body p-0">
                         <div class="col">
                             <div
@@ -97,7 +98,6 @@
                                         </button>
                                     </div>
                                 </div>
-                                <delete-info-component v-if="info.company_id === this.$userId" :infoID="infoID"/>
                             </div>
                         </div>
                     </div>

@@ -13,7 +13,7 @@ class ScoutController extends Controller
     {
 
         $user = \App\User::find($id);
-        $scout = $user->scouts()->get(['id','company_id']);
+        $scout = $user->scouts()->orderBy('id', 'desc')->get(['id','company_id']);
         
         return $scout;
     }
@@ -27,7 +27,7 @@ class ScoutController extends Controller
     {
 
         $company = \App\Company::find($id);
-        $scout = $company->scouts()->get();
+        $scout = $company->scouts()->orderBy('id', 'desc')->get(['id','user_id']);
         
         return $scout;
     }

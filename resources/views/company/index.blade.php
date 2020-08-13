@@ -48,21 +48,21 @@
                 <div class="r_icon_wrap" id="r_icon_wrap"><i class="far fa-id-card"></i></div>
             </div>
             <div class="r_nav_2" id="r_nav_2">
-                <!--<company-profile-component />-->
+                <company-profile-component />
             </div>
 
             <div class="o_nav" id="o_nav">
                 <div class="o_icon_wrap" id="o_icon_wrap"><i class="fas fa-pen-nib"></i></div>
             </div>
             <div class="o_nav_2" id="o_nav_2">
-                <!--<company-form-component />-->
+                <company-form-component />
             </div>
 
             <div class="b_nav" id="b_nav">
                 <div class="b_icon_wrap" id="b_icon_wrap"><i class="fas fa-building"></i></div>
             </div>
             <div class="b_nav_2" id="b_nav_2">
-                <!--<infos-component />-->
+                <infos-component />
             </div>
 
             <div class="p_nav" id="p_nav">
