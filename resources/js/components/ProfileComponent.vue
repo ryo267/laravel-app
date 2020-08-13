@@ -256,16 +256,9 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row mt-5">
             <div class="col">
-                <ul class="p-0">
-                    <li v-for="post in getItems" :key="post.id">
-                        <post-component
-                            :postID="post.id"
-                            :userID="post.user_id"
-                        />
-                    </li>
-                </ul>
+                <in-profile-tab-component/>
             </div>
         </div>
     </div>
@@ -338,8 +331,7 @@ export default {
             try {
                 const url = "/ajax/user";
                 await axios.get(url).then(response => {
-                    this.user = response.data[0];
-                    this.posts = response.data[1];
+                    this.user = response.data;
                 });
                 //console.log('this.response ='+this.response);
             } catch (error) {

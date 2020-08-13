@@ -19,7 +19,10 @@ Vue.prototype.$userId = document.querySelector("meta[name='user-id']").getAttrib
 Vue.prototype.$userRole = document.querySelector("meta[name='role']").getAttribute('content');
 
 Vue.component('profile-component', require('./components/ProfileComponent.vue').default);
+Vue.component('in-profile-tab-component', require('./components/InProfileTabComponent.vue').default);
 Vue.component('form-component', require('./components/FormComponent.vue').default);
+Vue.component('user-scouts-component', require('./components/UserScoutsComponent.vue').default);
+Vue.component('user-scout-component', require('./components/UserScoutComponent.vue').default);
 
 
 Vue.component('comments-component', require('./common/CommentsComponent.vue').default);

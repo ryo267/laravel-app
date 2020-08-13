@@ -1460,3 +1460,52 @@ video {
   border: none;
 }
 
+.profile_tabs .tabs_wrap .tabs {
+  display: flex;
+  color: #fff;
+}
+
+.profile_tabs .tabs_wrap .tabs li {
+  padding: 1rem;
+  width: 100%;
+  text-align: center;
+}
+
+.profile_tabs .tabs_wrap .tabs .posts {
+  border-bottom: solid 2px #fff;
+}
+
+.profile_tabs .tabs_wrap .tabs .posts.active {
+  border-top: solid 2px #fff;
+  border-right: solid 2px #fff;
+  border-left: solid 2px #fff;
+  border-bottom: none;
+}
+
+.profile_tabs .tabs_wrap .tabs .scouts {
+  border-bottom: solid 2px #fff;
+}
+
+.profile_tabs .tabs_wrap .tabs .scouts.active {
+  border-top: solid 2px #fff;
+  border-right: solid 2px #fff;
+  border-left: solid 2px #fff;
+  border-bottom: none;
+}
+
+.profile_tabs .contents .posts_content {
+  display: none;
+}
+
+.profile_tabs .contents .posts_content.active {
+  display: inherit;
+}
+
+.profile_tabs .contents .scouts_content {
+  display: none;
+}
+
+.profile_tabs .contents .scouts_content.active {
+  display: inherit;
+}
+

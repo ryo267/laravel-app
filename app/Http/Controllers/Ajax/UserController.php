@@ -19,7 +19,6 @@ class UserController extends Controller
         if (Auth::check()) {
 
             $user = \App\User::find(Auth::id());
-            $posts = \App\Post::where('user_id', Auth::id())->orderBy('created_at', 'DESC')->get();
 
             //$client = new \GuzzleHttp\Client();
 
@@ -51,7 +50,7 @@ class UserController extends Controller
 
             //var_dump($responseBody);
 
-            return [$user, $posts];
+            return $user;
         } else {
             return \App\User::where('id', 1)->get();
         }
