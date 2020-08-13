@@ -31,7 +31,8 @@ import Paginate from "vuejs-paginate";
 export default {
     name: "posts-component",
     props: {
-        post_tag: [String]
+        post_tag: [String],
+        userID: [String, Number]
     },
     data: function() {
         return {
@@ -60,11 +61,17 @@ export default {
         async getPosts() {
             try {
                 //console.log('posts-component-getPosts');
-                
-                const url = "/ajax/post/all/";
-                await axios.get(url + this.post_tag).then(response => {
-                    this.posts = response.data;
-                });
+                if( this.post_tag != null &&  this.userID == null){
+                    const url = "/ajax/post/all/";
+                    await axios.get(url + this.post_tag).then(response => {
+                        this.posts = response.data;
+                    });
+                }else if( this.userID != null ){
+                    const url = "/ajax/post/user/";
+                    await axios.get(url + this.userID).then(response => {
+                        this.posts = response.data;
+                    });
+                }
                 //console.log('this.post' + this.posts);
                 
             } catch (error) {

@@ -29,6 +29,15 @@ class PostController extends Controller
         }
     }
 
+    public function getUserPosts(Int $id)
+    {
+        
+        //Posts-Component
+        $user = \App\User::find($id);
+        return $user->posts()->orderBy('id', 'desc')->get(['id','user_id']);
+
+    }
+
     public function reload()
     {
         //Posts-Component

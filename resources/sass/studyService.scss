@@ -1225,3 +1225,48 @@ video {
     right: 0;
     color: #000;
 }
+.profile_tabs {
+    .tabs_wrap {
+        .tabs {
+            display: flex;
+            color: #fff;
+            li {
+                padding: 1rem;
+                width: 100%;
+                text-align: center;
+            }
+            .posts {
+                border-bottom: solid 2px #fff;
+                &.active {
+                    border-top: solid 2px #fff;
+                    border-right: solid 2px #fff;
+                    border-left: solid 2px #fff;
+                    border-bottom: none;
+                }
+            }
+            .scouts {
+                border-bottom: solid 2px #fff;
+                &.active {
+                    border-top: solid 2px #fff;
+                    border-right: solid 2px #fff;
+                    border-left: solid 2px #fff;
+                    border-bottom: none;
+                }
+            }
+        }
+    }
+    .contents {
+        .posts_content {
+            display: none;
+            &.active {
+                display: inherit;
+            }
+        }
+        .scouts_content {
+            display: none;
+            &.active {
+                display: inherit;
+            }
+        }
+    }
+}

@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="user-id" content="{{ Auth::user()->id }}">
+	<meta name="role" content="user">
 
 	<!-- CSRF Token -->
 	<meta name="csrf-token" content="{{ csrf_token() }}">
@@ -46,35 +47,35 @@
 				<div class="r_icon_wrap" id="r_icon_wrap"><i class="far fa-id-card"></i></div>
 			</div>
 			<div class="r_nav_2" id="r_nav_2">
-				<!--<profile-component />-->
+				<profile-component />
 			</div>
 
 			<div class="o_nav" id="o_nav">
 				<div class="o_icon_wrap" id="o_icon_wrap"><i class="fas fa-pen-nib"></i></div>
 			</div>
 			<div class="o_nav_2" id="o_nav_2">
-				<!--<form-component />-->
+				<form-component />
 			</div>
 
 			<div class="b_nav" id="b_nav">
 				<div class="b_icon_wrap" id="b_icon_wrap"><i class="fas fa-building"></i></div>
 			</div>
 			<div class="b_nav_2" id="b_nav_2">
-				<!--<infos-component />-->
+				<infos-component />
 			</div>
 
 			<div class="p_nav" id="p_nav">
 				<div class="p_icon_wrap" id="p_icon_wrap"><i class="fas fa-mail-bulk"></i></i></div>
 			</div>
 			<div class="p_nav_2" id="p_nav_2">
-				<!--<google-form-component />-->
+				<google-form-component />
 			</div>
 
 			<div class="g_nav" id="g_nav">
 				<div class="g_icon_wrap" id="g_icon_wrap"><i class="fas fa-sms"></i></div>
 			</div>
 			<div class="g_nav_2" id="g_nav_2">
-				<!--<chat-component />-->
+				<chat-component />
 			</div>
 
 		</section>

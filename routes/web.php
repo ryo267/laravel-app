@@ -25,6 +25,9 @@ Route::get('/home/{any}', function () {
 Route::post('studyService/follow/{id}', 'studyServiceController@follow')->name('follow');
 Route::delete('studyService/unfollow/{id}', 'studyServiceController@unfollow')->name('unfollow');
 
+Route::get('ajax/scout/user/all/{id}','Ajax\ScoutController@getUserScouts');
+Route::get('ajax/scout/{scout}','Ajax\ScoutController@getScoutData');
+Route::get('ajax/scout/company/all/{id}','Ajax\ScoutController@getCompanyScout');
 
 Route::get('ajax/comment/{id}','Ajax\CommentController@index');
 Route::get('ajax/comments/{id}','Ajax\CommentController@getComments');
@@ -48,7 +51,6 @@ Route::post('ajax/chat','Ajax\ChatController@create');
 Route::get('ajax/user','Ajax\UserController@index');
 Route::get('ajax/user/all/{tab}','Ajax\UserController@getUsers');
 Route::get('ajax/user/skill/{id}','Ajax\UserController@getSkill');
-
 Route::get('ajax/user/{id}','Ajax\UserController@profile');
 Route::get('ajax/user/posts/count/{id}','Ajax\UserController@getPostsCount');
 Route::get('ajax/user/follow/count/{id}','Ajax\UserController@getFollowCount');
@@ -70,6 +72,7 @@ Route::get('ajax/company/{company}','Ajax\CompanyController@getCompany');
 Route::put('ajax/company/{company}','Ajax\CompanyController@update');
 
 Route::get('ajax/post/all/{tag}','Ajax\PostController@index');
+Route::get('ajax/post/user/{id}','Ajax\PostController@getUserPosts');
 //Route::post('ajax/post/reload','Ajax\PostController@reload');
 Route::get('ajax/post/{post}','Ajax\PostController@getPost');
 Route::put('ajax/post/{post}','Ajax\PostController@update');

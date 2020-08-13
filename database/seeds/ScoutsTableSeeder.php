@@ -14,7 +14,7 @@ class ScoutsTableSeeder extends Seeder
         //
         for ($i = 1; $i <= 10; $i++) {
             \App\Scout::create([
-                'company_id' => $i,
+                'company_id' => $i+10,
                 'user_id' => $i,
                 'text'       => 'これはスカウトテキスト' .$i,
                 'created_at' => now(),
