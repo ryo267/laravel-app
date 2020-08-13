@@ -86,11 +86,12 @@ html body {
         #tabs {
             padding: 1rem;
             color: #fff;
+            transition: 0.5s;
+            white-space: nowrap;
             &.active {
                 border-bottom: solid 2px #fff;
             }
             &:hover {
-                transition: 0.5s;
                 color: #000;
                 background-color: #fff;
             }
@@ -1237,7 +1238,9 @@ video {
                 width: 100%;
                 text-align: center;
             }
-            .posts, .scouts, .infos {
+            .posts,
+            .scouts,
+            .infos {
                 border-bottom: solid 2px #fff;
                 &.active {
                     border-top: solid 2px #fff;
@@ -1249,7 +1252,9 @@ video {
         }
     }
     .contents {
-        .posts_content, .scouts_content, .infos_content{
+        .posts_content,
+        .scouts_content,
+        .infos_content {
             display: none;
             &.active {
                 display: inherit;

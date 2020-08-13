@@ -104,6 +104,8 @@ html body .user_tabs #tags,
 html body .user_tabs #tabs {
   padding: 1rem;
   color: #fff;
+  transition: 0.5s;
+  white-space: nowrap;
 }
 
 html body .post_tags #tags.active,
@@ -117,7 +119,6 @@ html body .post_tags #tags:hover,
 html body .post_tags #tabs:hover,
 html body .user_tabs #tags:hover,
 html body .user_tabs #tabs:hover {
-  transition: 0.5s;
   color: #000;
   background-color: #fff;
 }

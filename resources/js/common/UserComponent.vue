@@ -9,9 +9,11 @@
                             :userNAME="userNAME"
                         />
                     </div>
+                    <!--
                     <div class="loading_2" :id="'loading_' + userID ">
                         <i class="fas fa-spinner fa-5x"></i>
                     </div>
+                    -->
                     <div class="card-body p-0">
                         <div class="col">
                             <div
@@ -122,14 +124,14 @@
                                                 </p>
                                             </button>
                                         </div>
-                                        <!--<div
+                                        <div
                                             class="follow_submit_2"
                                             v-if="user.id != this.$userId"
                                         >
                                             <follow-component
                                                 :userID="userID"
                                             />
-                                        </div>-->
+                                        </div>
                                     </div>
                                 </div>
                                 <div
@@ -261,7 +263,7 @@ export default {
     mounted() {
         this.getProfile();
         this.getSkill();
-        this.loaded();
+        //this.loaded();
     }
 };
 </script>

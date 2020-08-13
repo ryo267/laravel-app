@@ -3,13 +3,15 @@
         <div class="row">
             <div class="col">
                 <div class="card">
-                    <div class="loading_2" :id="'loading_' + userID">
-                        <i class="fas fa-spinner fa-5x"></i>
-                    </div>
                     <delete-post-component
                         v-if="post.user_id === this.$userId"
                         :postID="postID"
                     />
+                    <!--
+                        <div class="loading_2" :id="'loading_' + userID">
+                        <i class="fas fa-spinner fa-5x"></i>
+                        </div>
+                    -->
                     <div class="card-body p-0">
                         <div class="col">
                             <div
@@ -214,7 +216,7 @@ export default {
     mounted() {
         this.getProfile();
         this.getPost();
-        this.loaded();
+        //this.loaded();
     }
 };
 </script>
