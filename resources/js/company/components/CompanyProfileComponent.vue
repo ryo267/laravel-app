@@ -187,27 +187,9 @@
                 </div>
             </div>
         </div>
-        <div class="row px-3">
+        <div class="row px-3 mt-5">
             <div class="col">
-                <ul class="p-0 all_infos">
-                    <li v-for="info in getItems" :key="info.id">
-                        <info-component
-                            :infoID="info.id"
-                            :companyID="info.company_id"
-                        />
-                    </li>
-                </ul>
-                <paginate
-                    :page-count="getPageCount"
-                    :page-range="3"
-                    :margin-pages="2"
-                    :click-handler="clickCallback"
-                    :prev-text="'＜'"
-                    :next-text="'＞'"
-                    :container-class="'pagination'"
-                    :page-class="'page-item'"
-                >
-                </paginate>
+                <in-company-profile-tab-component/>
             </div>
         </div>
     </div>

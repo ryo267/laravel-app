@@ -1399,13 +1399,6 @@ canvas {
   background: none;
 }
 
-.post .trash,
-.info .trash,
-.user .trash {
-  background-color: #000 !important;
-  border-top-right-radius: 50% !important;
-}
-
 .post .skill_label,
 .info .skill_label,
 .user .skill_label {
@@ -1564,6 +1557,14 @@ video {
   z-index: 10;
   top: 0;
   right: 0;
+}
+
+.trash_btn_wrap button {
+  background: none;
+  border: none;
+}
+
+.trash_btn_wrap button i {
   color: #000;
 }
 
@@ -1578,41 +1579,30 @@ video {
   text-align: center;
 }
 
-.profile_tabs .tabs_wrap .tabs .posts {
+.profile_tabs .tabs_wrap .tabs .posts,
+.profile_tabs .tabs_wrap .tabs .scouts,
+.profile_tabs .tabs_wrap .tabs .infos {
   border-bottom: solid 2px #fff;
 }
 
-.profile_tabs .tabs_wrap .tabs .posts.active {
+.profile_tabs .tabs_wrap .tabs .posts.active,
+.profile_tabs .tabs_wrap .tabs .scouts.active,
+.profile_tabs .tabs_wrap .tabs .infos.active {
   border-top: solid 2px #fff;
   border-right: solid 2px #fff;
   border-left: solid 2px #fff;
   border-bottom: none;
 }
 
-.profile_tabs .tabs_wrap .tabs .scouts {
-  border-bottom: solid 2px #fff;
-}
-
-.profile_tabs .tabs_wrap .tabs .scouts.active {
-  border-top: solid 2px #fff;
-  border-right: solid 2px #fff;
-  border-left: solid 2px #fff;
-  border-bottom: none;
-}
-
-.profile_tabs .contents .posts_content {
+.profile_tabs .contents .posts_content,
+.profile_tabs .contents .scouts_content,
+.profile_tabs .contents .infos_content {
   display: none;
 }
 
-.profile_tabs .contents .posts_content.active {
-  display: inherit;
-}
-
-.profile_tabs .contents .scouts_content {
-  display: none;
-}
-
-.profile_tabs .contents .scouts_content.active {
+.profile_tabs .contents .posts_content.active,
+.profile_tabs .contents .scouts_content.active,
+.profile_tabs .contents .infos_content.active {
   display: inherit;
 }
 

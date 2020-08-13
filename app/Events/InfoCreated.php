@@ -15,6 +15,8 @@ class InfoCreated implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
+    public $info;
+
     /**
      * Create a new event instance.
      *

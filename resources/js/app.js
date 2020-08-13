@@ -24,9 +24,9 @@ Vue.component('form-component', require('./components/FormComponent.vue').defaul
 Vue.component('user-scouts-component', require('./components/UserScoutsComponent.vue').default);
 Vue.component('user-scout-component', require('./components/UserScoutComponent.vue').default);
 
-
 Vue.component('comments-component', require('./common/CommentsComponent.vue').default);
 Vue.component('delete-post-component', require('./common/DeletePostComponent.vue').default);
+Vue.component('delete-info-component', require('./common/DeleteInfoComponent.vue').default);
 Vue.component('thanks-component', require('./common/ThanksComponent.vue').default);
 Vue.component('infos-component', require('./common/InfosComponent.vue').default);
 Vue.component('info-component', require('./common/InfoComponent.vue').default);
@@ -54,6 +54,9 @@ Vue.component("scout-component",require("./common/ScoutComponent.vue").default);
 
 Vue.component("company-profile-component",require("./company/components/CompanyProfileComponent.vue").default);
 Vue.component("company-form-component",require("./company/components/CompanyFormComponent.vue").default);
+Vue.component('company-scouts-component', require('./company/components/CompanyScoutsComponent.vue').default);
+Vue.component('company-scout-component', require('./company/components/CompanyScoutComponent.vue').default);
+Vue.component('in-company-profile-tab-component', require('./company/components/InCompanyProfileTabComponent.vue').default);
 /*
 const router = new VueRouter({
     mode: 'history',

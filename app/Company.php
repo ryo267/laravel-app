@@ -59,4 +59,9 @@ class Company extends Authenticatable
         return $this->hasMany(Scout::class);
     }
 
+    public function infos()
+    {
+        return $this->hasMany(Info::class);
+    }
+
 }

@@ -4,7 +4,10 @@
             <div class="col">
                 <ul class="p-0">
                     <li v-for="info in getItems" :key="info.id">
-                        <info-component :companyID="info.company_id" :infoID="info.id"/>
+                        <info-component
+                            :companyID="info.company_id"
+                            :infoID="info.id"
+                        />
                     </li>
                 </ul>
                 <paginate
@@ -27,7 +30,10 @@
 import Paginate from "vuejs-paginate";
 
 export default {
-    name: "companies-component",
+    name: "infos-component",
+    props: {
+        companyID: [Number, String]
+    },
     data: function() {
         return {
             infos: [],
@@ -64,13 +70,17 @@ export default {
         },
         async getInfos() {
             try {
-                //console.log("companies-component-getCompanies");
-
-                const url = "/ajax/info";
-                await axios.get(url).then(response => {
-                    this.infos = response.data;
-                });
-                //console.log("this.infos" + this.infos);
+                if (this.companyID == null) {
+                    const url = "/ajax/info";
+                    await axios.get(url).then(response => {
+                        this.infos = response.data;
+                    });
+                } else {
+                    const url = "/ajax/info/company/";
+                    await axios.get(url + this.companyID).then(response => {
+                        this.infos = response.data;
+                    });
+                }
             } catch (error) {
                 console.log(error);
             }
@@ -79,8 +89,10 @@ export default {
     mounted() {
         this.getInfos();
 
-         Echo.channel("info").listen("InfoCreated", e => {
-            //console.log("InfoCreated");
+        Echo.channel("info").listen("InfoCreated", e => {
+            this.getInfos();
+        });
+        Echo.channel("info").listen("InfoDeleted", e => {
             this.getInfos();
         });
     }
