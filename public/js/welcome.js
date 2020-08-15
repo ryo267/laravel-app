@@ -127373,38 +127373,13 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); //require('../../node_modules/easy-pie-chart/dist/jquery.easypiechart');
-//require('../../node_modules/jquery.diamonds.js/src/jquery.diamonds');
-
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 Vue.component("welcome-component", __webpack_require__(/*! ./common/WelcomComponent.vue */ "./resources/js/common/WelcomComponent.vue")["default"]);
 var app = new Vue({
   el: '#app'
 });
-$(function () {
-  console.log("読込みました");
-});
-/*
-$(function() {
-    $(".chart").easyPieChart({
-        size: 180,
-        barColor: "#00ff43",
-        trackColor: "false",
-        scaleColor: "rgba(0,0,0,0)",
-        lineWidth: 15,
-        ainimate: 2000
-    });
-});
-
-$("#diamond-grid").diamonds({
-    size: 200, // Size of diamonds in pixels. Both width and height.
-    gap: 5, // Pixels between each square.
-    hideIncompleteRow: false, // Hide last row if there are not enough items to fill it completely.
-    autoRedraw: true, // Auto redraw diamonds when it detects resizing.
-    itemSelector: ".item" // the css selector to use to select diamonds-items.
-});
-*/
 
 var MatrixAnimation = /*#__PURE__*/function () {
   function MatrixAnimation(element, letterColor, letterSize, font, speed, fillColor) {
@@ -127486,6 +127461,64 @@ matrix2.init();
 window.addEventListener('resize', function () {
   matrix.createCanvas(document.querySelector('#matrix'));
   matrix2.createCanvas(document.querySelector('#matrix2'));
+});
+var r_btn = document.getElementById('register_btn');
+var l_btn = document.getElementById('login_btn');
+r_btn.addEventListener('click', function () {
+  var login = document.getElementById('login');
+  var register = document.getElementById('register');
+
+  if (login.classList.contains('active') == true) {
+    register.classList.add('active');
+    login.classList.remove('active');
+  }
+});
+l_btn.addEventListener('click', function () {
+  var login = document.getElementById('login');
+  var register = document.getElementById('register');
+
+  if (register.classList.contains('active') == true) {
+    register.classList.remove('active');
+    login.classList.add('active');
+  }
+});
+var companies = document.getElementById('companies');
+var users = document.getElementById('users');
+companies.addEventListener('click', function () {
+  console.log('click');
+  var cover = document.getElementById('cover');
+  var cover2 = document.getElementById('cover2');
+  var user_contents_wrap = document.getElementById('user_contents_wrap');
+  var company_contents_wrap = document.getElementById('company_contents_wrap');
+  var user_container_wrap = document.getElementById('user_container_wrap');
+  var compnay_container_wrap = document.getElementById('compnay_container_wrap');
+
+  if (cover.classList.contains('active') == true) {
+    cover.classList.remove('active');
+    user_contents_wrap.classList.remove('active');
+    company_contents_wrap.classList.add('active');
+    cover2.classList.add('active');
+    user_container_wrap.classList.remove('active');
+    compnay_container_wrap.classList.add('active');
+  }
+});
+users.addEventListener('click', function () {
+  console.log('click');
+  var cover = document.getElementById('cover');
+  var cover2 = document.getElementById('cover2');
+  var user_contents_wrap = document.getElementById('user_contents_wrap');
+  var company_contents_wrap = document.getElementById('company_contents_wrap');
+  var user_container_wrap = document.getElementById('user_container_wrap');
+  var compnay_container_wrap = document.getElementById('compnay_container_wrap');
+
+  if (cover2.classList.contains('active') == true) {
+    cover2.classList.remove('active');
+    user_contents_wrap.classList.add('active');
+    company_contents_wrap.classList.remove('active');
+    cover.classList.add('active');
+    user_container_wrap.classList.add('active');
+    compnay_container_wrap.classList.remove('active');
+  }
 });
 
 /***/ }),
