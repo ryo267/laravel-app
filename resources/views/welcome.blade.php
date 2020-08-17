@@ -44,14 +44,14 @@
                         </div>
                         <div class="mt-5" id="companies">
                             <i class="far fa-building fa-3x"></i>
-                            <p>企業の方はこちら</p>
+                            <p>企業の方はこちら<i class="fas fa-arrow-right ml-3"></i></p>
                         </div>
                     </div>
                 </li>
                 <li class="compnay_container_wrap" id="compnay_container_wrap">
                     <div class="login-form p-5 company_login active" id="company_login">
                         <div class="background"></div>
-                        <div class="user_icon"><i class="fas fa-user fa-4x"></i></div>
+                        <div class="user_icon"><i class="far fa-building fa-4x"></i></div>
                         <div class="">
 
                             <div class="">
@@ -127,7 +127,7 @@
                     </div>
                     <div class="register-form p-5 company_register" id="company_register">
                         <div class="background"></div>
-                        <div class="user_icon"><i class="fas fa-user fa-4x"></i></div>
+                        <div class="user_icon"><i class="far fa-building fa-4x"></i></div>
                         <div class="">
 
                             <div class="">
@@ -260,20 +260,7 @@
                 <div id="matrix2" class="matrix2 active"></div>
             </div>
             <ul>
-                <li class="company_contents_wrap" id="company_contents_wrap">
-                    <div class="company_content" id="user_content">
-                        <h3 class="title mt-5">「駆け出しエンジニア」<br>のための質問投稿サイト</h3>
-                        <div class="w-50 mt-5 mx-auto d-flex justify-content-between">
-                            <div class="button" id="register_btn">新規登録</div>
-                            <div class="button" id="login_btn">ログイン</div>
-                        </div>
-                        <div class="mt-5" id="users">
-                            <i class="far fa-building fa-3x"></i>
-                            <p>企業の方はこちら</p>
-                        </div>
-                    </div>
-                </li>
-                <li class="user_container_wrap active" id="user_container_wrap">
+            <li class="user_container_wrap active" id="user_container_wrap">
                     <div class="login-form p-5 login active" id="login">
                         <div class="background"></div>
                         <div class="user_icon"><i class="fas fa-user fa-4x"></i></div>
@@ -473,6 +460,19 @@
                                     </div>
                                 </form>
                             </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="company_contents_wrap" id="company_contents_wrap">
+                    <div class="company_content" id="user_content">
+                        <h3 class="title mt-5">「駆け出しエンジニア」<br>を見つける質問投稿サイト</h3>
+                        <div class="w-50 mt-5 mx-auto d-flex justify-content-between">
+                            <div class="button" id="company_register_btn">新規登録</div>
+                            <div class="button" id="company_login_btn">ログイン</div>
+                        </div>
+                        <div class="mt-5" id="users">
+                            <i class="fas fa-user fa-3x"></i>
+                            <p><i class="fas fa-arrow-left mr-3"></i>利用者の方はこちら</p>
                         </div>
                     </div>
                 </li>

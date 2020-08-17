@@ -127464,6 +127464,8 @@ window.addEventListener('resize', function () {
 });
 var r_btn = document.getElementById('register_btn');
 var l_btn = document.getElementById('login_btn');
+var c_r_btn = document.getElementById('company_register_btn');
+var c_l_btn = document.getElementById('company_login_btn');
 r_btn.addEventListener('click', function () {
   var login = document.getElementById('login');
   var register = document.getElementById('register');
@@ -127480,6 +127482,24 @@ l_btn.addEventListener('click', function () {
   if (register.classList.contains('active') == true) {
     register.classList.remove('active');
     login.classList.add('active');
+  }
+});
+c_r_btn.addEventListener('click', function () {
+  var company_login = document.getElementById('company_login');
+  var company_register = document.getElementById('company_register');
+
+  if (company_login.classList.contains('active') == true) {
+    company_register.classList.add('active');
+    company_login.classList.remove('active');
+  }
+});
+c_l_btn.addEventListener('click', function () {
+  var company_login = document.getElementById('company_login');
+  var company_register = document.getElementById('company_register');
+
+  if (company_register.classList.contains('active') == true) {
+    company_register.classList.remove('active');
+    company_login.classList.add('active');
   }
 });
 var companies = document.getElementById('companies');
