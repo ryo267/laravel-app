@@ -82,6 +82,19 @@ html body {
     }
     .post_tags,
     .user_tabs {
+        .search_form {
+            position: relative;
+            display: inline-block;
+            .search_button {
+                position: absolute;
+                top: 50%;
+                right: 5%;
+                background: none;
+                border: none;
+                outline: none;
+                transform: translateY(-50%);
+            }
+        }
         #tags,
         #tabs {
             padding: 1rem;
@@ -711,15 +724,6 @@ html body {
         z-index: 1000;
         width: calc(100% - 80px);
         background: none;
-    }
-    form {
-        position: relative;
-        display: inline-block;
-        .search_button {
-            position: absolute;
-            top: 0;
-            right: 5%;
-        }
     }
     .main_visual {
         min-height: 600px;

@@ -7,6 +7,20 @@
         </div>
         <div class="overflow-auto post_tags">
             <ul class="d-flex align-items-center m-0">
+                <li class="search_form">
+                    <form @submit.prevent="search">
+                        <input
+                            type="text"
+                            class="form"
+                            id="searchTab"
+                            placeholder="search"
+                            v-model="searchTab"
+                        />
+                        <button class="search_button" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </li>
                 <li
                     @click="activeTag('all_posts', 0)"
                     id="tags"
@@ -38,11 +52,15 @@ export default {
     data: function() {
         return {
             tags: [],
-            currentTag: "all_posts",
-            isActive: 0
+            currentTag: "",
+            searchTab: "",
+            isActive: ""
         };
     },
     methods: {
+        search() {
+            this.currentTag = this.searchTab;
+        },
         activeTag(tag_name, tag_id) {
             this.currentTag = tag_name;
             this.isActive = tag_id;
@@ -58,12 +76,6 @@ export default {
             } catch (error) {
                 console.log(error);
             }
-        },
-        isset(data) {
-            return typeof data != "undefined";
-        },
-        empty(data) {
-            return data.length != 0;
         }
     },
     mounted() {

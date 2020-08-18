@@ -60,8 +60,7 @@ export default {
         },
         async getPosts() {
             try {
-                //console.log('posts-component-getPosts');
-                if( this.post_tag != null &&  this.userID == null){
+                if( this.post_tag != null &&  this.post_tag != "" && this.userID == null){
                     const url = "/ajax/post/all/";
                     await axios.get(url + this.post_tag).then(response => {
                         this.posts = response.data;
@@ -72,37 +71,21 @@ export default {
                         this.posts = response.data;
                     });
                 }
-                //console.log('this.post' + this.posts);
                 
             } catch (error) {
                 console.log(error);
             }
         },
-        log(data) {
-            console.log("log = " + data);
-        },
-        isset(data) {
-            return typeof data != "undefined";
-        },
-        empty(data) {
-            return data.length != 0;
-        }
     },
     mounted() {
-        /*this.getProfile();*/
-        //console.log(this.post_tag);
-        
+
         this.getPosts();
 
         Echo.channel("post").listen("PostCreated", e => {
-            //console.log("PostCreated");
-            /*this.getProfile();*/
             this.getPosts();
         });
 
         Echo.channel("post").listen("PostDeleted", e => {
-            //console.log("Post");
-            /*this.getProfile();*/
             this.getPosts();
         });
     }

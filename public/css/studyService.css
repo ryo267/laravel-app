@@ -98,6 +98,23 @@ html body .all_tabs .tabs > li:nth-last-of-type(1).active {
   transition: all 1s;
 }
 
+html body .post_tags .search_form,
+html body .user_tabs .search_form {
+  position: relative;
+  display: inline-block;
+}
+
+html body .post_tags .search_form .search_button,
+html body .user_tabs .search_form .search_button {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  background: none;
+  border: none;
+  outline: none;
+  transform: translateY(-50%);
+}
+
 html body .post_tags #tags,
 html body .post_tags #tabs,
 html body .user_tabs #tags,
@@ -820,17 +837,6 @@ html body ul {
   z-index: 1000;
   width: calc(100% - 80px);
   background: none;
-}
-
-.main form {
-  position: relative;
-  display: inline-block;
-}
-
-.main form .search_button {
-  position: absolute;
-  top: 0;
-  right: 5%;
 }
 
 .main .main_visual {

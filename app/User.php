@@ -64,6 +64,11 @@ class User extends Authenticatable
         return $this->belongsToMany(Skill::class, 'user_skill', 'user_id', 'skill_id');
     }
 
+    public function progress()
+    {
+        return $this->hasMany(Progress::class);
+    }
+
     public function favorites()
     {
         return $this->hasMany(Favorite::class);

@@ -4,7 +4,7 @@
             <div class="col">
                 <div class="card">
                     <delete-post-component
-                        v-if="post.user_id === this.$userId"
+                        v-if="post.user_id == this.$userId"
                         :postID="postID"
                     />
                     <!--
