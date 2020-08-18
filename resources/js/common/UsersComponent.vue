@@ -1,27 +1,30 @@
 <template>
     <section class="all_users">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col">
-                <ul class="p-0">
-                    <li v-for="user in getItems" :key="user.id">
-                        <user-component :userID ="user.id" :userNAME ="user.screen_name"></user-component>
-                    </li>
-                </ul>
-                <paginate
-                    :page-count="getPageCount"
-                    :page-range="3"
-                    :margin-pages="2"
-                    :click-handler="clickCallback"
-                    :prev-text="'＜'"
-                    :next-text="'＞'"
-                    :container-class="'pagination'"
-                    :page-class="'page-item'"
-                >
-                </paginate>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <ul class="p-0">
+                        <li v-for="user in getItems" :key="user.id">
+                            <user-component
+                                :userID="user.id"
+                                :userNAME="user.screen_name"
+                            ></user-component>
+                        </li>
+                    </ul>
+                    <paginate
+                        :page-count="getPageCount"
+                        :page-range="3"
+                        :margin-pages="2"
+                        :click-handler="clickCallback"
+                        :prev-text="'＜'"
+                        :next-text="'＞'"
+                        :container-class="'pagination'"
+                        :page-class="'page-item'"
+                    >
+                    </paginate>
+                </div>
             </div>
         </div>
-    </div>
     </section>
 </template>
 
@@ -60,22 +63,21 @@ export default {
         async getUsers() {
             try {
                 //console.log('users-component-getUsers');
-                
-                const url = "/ajax/user/all/";
-                await axios.get(url + this.tab).then(response => {
-                    this.users = response.data;
-                });
+
+                if (this.tab != null && this.tab != "") {
+                    const url = "/ajax/user/all/";
+                    await axios.get(url + this.tab).then(response => {
+                        this.users = response.data;
+                    });
+                }
                 //console.log('this.post' + this.users);
-                
             } catch (error) {
                 console.log(error);
             }
-        },
+        }
     },
-    mounted() {        
-
+    mounted() {
         this.getUsers();
-
     }
 };
 </script>

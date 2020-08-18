@@ -13,29 +13,31 @@ class PostController extends Controller
     //
     public function index(Request $request)
     {
-        
-        //Posts-Component
-        if( $request->tag === 'all_posts' ){
-            return \App\Post::orderBy('id', 'desc')->get(['id','user_id']);
-        }
-        else {
 
-            $tag = Tag::where('name',$request->tag)->first();
-            //var_dump($tag);
-    
-            $post = $tag->post()->get();
-    
-            return $post;
+        //Posts-Component
+        if ($request->tag === 'all_posts') {
+            return \App\Post::orderBy('id', 'desc')->get(['id', 'user_id']);
+        } else {
+
+            $post1 = \App\Post::where('title', 'like', '%'.$request->tag.'%')->get();
+
+            if ( Tag::where('name', $request->tag)->exists() ) {
+                $tag = Tag::where('name', $request->tag)->first();
+                $post = $tag->post()->get();
+                $posts = $post1->concat($post)->unique()->sortByDesc('id')->values()->all();
+                return $posts;
+            }
+
+            return $post1;
         }
     }
 
     public function getUserPosts(Int $id)
     {
-        
+
         //Posts-Component
         $user = \App\User::find($id);
-        return $user->posts()->orderBy('id', 'desc')->get(['id','user_id']);
-
+        return $user->posts()->orderBy('id', 'desc')->get(['id', 'user_id']);
     }
 
     public function reload()
@@ -52,23 +54,23 @@ class PostController extends Controller
 
     public function create(Request $request)
     { // 
-        
+
         $all_tags = [];
-        foreach($request->tags as $tag) {
+        foreach ($request->tags as $tag) {
             //var_dump($tag['text']);
             array_push($all_tags, $tag['text']);
         }
         //dd($all_tags);
 
         //重複したタグを削除
-        $unique_tags = array_unique( $all_tags );
-        
+        $unique_tags = array_unique($all_tags);
+
         var_dump($unique_tags);
 
         $tags = [];
-        if( isset($unique_tags)){
+        if (isset($unique_tags)) {
             foreach ($unique_tags as $tag) {
-    
+
                 // firstOrCreateメソッドで、tags_tableのnameカラムに該当のない$tagは新規登録される。
                 $record = \App\Tag::firstOrCreate([
                     'name' => $tag
@@ -108,5 +110,4 @@ class PostController extends Controller
 
         event(new \App\Events\PostDeleted());
     }
-
 }

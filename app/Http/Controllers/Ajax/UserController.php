@@ -86,6 +86,25 @@ class UserController extends Controller
             $users = \App\User::orderBy('id', 'desc')->get(['id']);
 
             return $users;
+        } else {
+
+            $user1 = \App\User::where('screen_name', 'like', '%'.$tab.'%')->get();
+            $user2 = \App\User::where('profile_text', 'like', '%'.$tab.'%')->get();
+            $users = $user1->concat($user2)->unique()->sortByDesc('id')->values()->all();
+
+            if ( \App\Progress::where('name', $tab)->exists() ) {
+                $skills = \App\Progress::where('name', 'like', '%'.$tab.'%')->get();
+                $user3 = collect([]);
+                foreach($skills as $skill){
+                    $user4 = $skill->user()->get();
+                    $user5 = $user3->concat($user4);
+                }
+                $users = $user5->concat($user1)->concat($user2)->unique()->sortByDesc('id')->values()->all();
+                return $users;
+            }
+
+            return $users;
+
         }
     }
 

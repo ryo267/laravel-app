@@ -7,6 +7,20 @@
         </div>
         <div class="overflow-auto user_tabs">
             <ul class="d-flex align-items-center m-0">
+                <li class="search_form">
+                    <form @submit.prevent="search">
+                        <input
+                            type="text"
+                            class="form"
+                            id="searchTab"
+                            placeholder="search"
+                            v-model="searchTab"
+                        />
+                        <button class="search_button" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </li>
                 <li
                     v-for="tab in tabs"
                     :key="tab.id"
@@ -57,8 +71,9 @@ export default {
                     link: "ajax/user/registration/"
                 }
             ],
-            currentTab: "all-users",
-            isActive: 0
+            currentTab: "",
+            searchTab: "",
+            isActive: ""
         };
     },
     filters: {
@@ -67,6 +82,9 @@ export default {
         }
     },
     methods: {
+        search() {
+            this.currentTab = this.searchTab;
+        },
         activeTab(tab_name, tab_id) {
             this.currentTab = tab_name;
             this.isActive = tab_id;
