@@ -2,13 +2,22 @@
     <div class="profile_tabs">
         <div class="tabs_wrap">
             <ul class="tabs">
-                <li class="posts" id="tab" @click="postActive()" :class="{ active: post_Active }">POST</li>
-                <li class="scouts" id="tab" @click="scoutActive()" :class="{ active: scout_Active }">SCOUT</li>
+                <li
+                    v-for="tab in currentTab"
+                    :key="tab.id"
+                    class=""
+                    id="tab"
+                    @click="activeTab(tab.id)"
+                    :class="[isActive === tab.id ? 'active' : '']"
+                >
+                    {{ tab.name | uppercase }}
+                </li>
             </ul>
         </div>
         <div class="contents">
-            <posts-component class="posts_content" :class="{ active: post_Active }" :userID="this.$userId"/>
-            <user-scouts-component class="scouts_content" :class="{ active: scout_Active }" />
+            <posts-component id="content" :class="[isActive === 0 ? 'active' : '']" :userID="this.$userId"/>
+            <user-scouts-component id="content" :class="[isActive === 1 ? 'active' : '']" />
+            <user-applies-component id="content" :class="[isActive === 2 ? 'active' : '']" />
         </div>
     </div>
 </template>
@@ -18,18 +27,31 @@ export default {
     name: "profile-tab-component",
     data: function() {
         return {
-            post_Active: true,
-            scout_Active: false
+            currentTab: [
+                {
+                    id: 0,
+                    name: 'posts',
+                },
+                {
+                    id: 1,
+                    name: 'scouts',
+                },
+                {
+                    id: 2,
+                    name: 'applies',
+                }
+            ],
+            isActive: 0,
         };
     },
+    filters: {
+        uppercase(value) {
+            return value.toUpperCase();
+        }
+    },
     methods: {
-        postActive() {
-            this.post_Active = true;
-            this.scout_Active = false;
-        },
-        scoutActive() {
-            this.post_Active = false;
-            this.scout_Active = true;
+        activeTab(tab_id) {
+            this.isActive = tab_id;
         }
     },
     mounted() {}

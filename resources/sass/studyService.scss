@@ -259,7 +259,6 @@ html body {
                             left: calc(50% - 25px);
                             .input-item__label {
                                 position: relative;
-                                color: #fff;
                                 input {
                                     position: absolute;
                                     top: 0;
@@ -861,7 +860,7 @@ canvas {
 
 .post,
 .info,
-.user {
+.user, .applicant {
     .card {
         border-radius: none !important;
         background: #ecf0f1;
@@ -1093,8 +1092,8 @@ canvas {
         border-style: none;
         background: none;
     }
-    .skill_label {
-        border-bottom: solid 2px #000;
+    #label {
+        border-bottom: solid 2px #000 !important;
     }
     .skills {
         position: relative;
@@ -1237,14 +1236,11 @@ video {
         .tabs {
             display: flex;
             color: #fff;
+            padding: 0;
             li {
                 padding: 1rem;
                 width: 100%;
                 text-align: center;
-            }
-            .posts,
-            .scouts,
-            .infos {
                 border-bottom: solid 2px #fff;
                 &.active {
                     border-top: solid 2px #fff;
@@ -1256,9 +1252,7 @@ video {
         }
     }
     .contents {
-        .posts_content,
-        .scouts_content,
-        .infos_content {
+        #content {
             display: none;
             &.active {
                 display: inherit;

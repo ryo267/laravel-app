@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call(TagsTableSeeder::class);
         $this->call(InfosTableSeeder::class);
         $this->call(ScoutsTableSeeder::class);
+        $this->call(ApplicantsTableSeeder::class);
 
         
     }

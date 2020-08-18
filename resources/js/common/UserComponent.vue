@@ -145,18 +145,12 @@
                                         <h5 class="title">
                                             {{ user.screen_name }}
                                         </h5>
+                                        <h3 id="label">PROFILE</h3>
                                         <p
-                                            class="description mb-5"
+                                            class="description"
                                             v-html="user.profile_text"
                                         ></p>
-                                        <div class="skill_label">
-                                            <label
-                                                for="skill"
-                                                class=""
-                                                id="label"
-                                                ><h1>SKILL</h1></label
-                                            >
-                                        </div>
+                                        <h3 id="label">SKILL</h3>
                                         <div
                                             class="skills mt-3"
                                             v-for="progress in progresses"

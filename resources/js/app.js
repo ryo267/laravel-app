@@ -23,6 +23,8 @@ Vue.component('in-profile-tab-component', require('./components/InProfileTabComp
 Vue.component('form-component', require('./components/FormComponent.vue').default);
 Vue.component('user-scouts-component', require('./components/UserScoutsComponent.vue').default);
 Vue.component('user-scout-component', require('./components/UserScoutComponent.vue').default);
+Vue.component('user-applies-component', require('./components/UserAppliesComponent.vue').default);
+Vue.component('user-apply-component', require('./components/UserApplyComponent.vue').default);
 
 Vue.component('comments-component', require('./common/CommentsComponent.vue').default);
 Vue.component('delete-post-component', require('./common/DeletePostComponent.vue').default);
@@ -57,6 +59,8 @@ Vue.component("company-form-component",require("./company/components/CompanyForm
 Vue.component('company-scouts-component', require('./company/components/CompanyScoutsComponent.vue').default);
 Vue.component('company-scout-component', require('./company/components/CompanyScoutComponent.vue').default);
 Vue.component('in-company-profile-tab-component', require('./company/components/InCompanyProfileTabComponent.vue').default);
+Vue.component('company-applicants-component', require('./company/components/CompanyApplicantsComponent.vue').default);
+Vue.component('company-applicant-component', require('./company/components/CompanyApplicantComponent.vue').default);
 /*
 const router = new VueRouter({
     mode: 'history',
