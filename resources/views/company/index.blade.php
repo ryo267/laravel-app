@@ -127,10 +127,6 @@
                             </li>
                             @endguest
                         </ul>
-                        <form class="form-inline my-2 my-lg-0">
-                            <input class="search_form form-control mr-sm-2" type="search" placeholder="Search">
-                            <button class="search_button btn" type="submit"><i class="fas fa-search"></i></button>
-                        </form>
                     </div>
                 </nav>
             </section>

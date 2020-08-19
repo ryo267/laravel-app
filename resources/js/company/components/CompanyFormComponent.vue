@@ -1,9 +1,9 @@
 <template>
     <div class="container-fluid">
-        <div class="row">
+        <div class="row h-100">
             <div class="col">
-                <form v-on:submit.prevent="getHtml">
-                    <div class="form-group row m-0">
+                <form v-on:submit.prevent="getHtml" style="height:100%;">
+                    <div class="title_form row m-0">
                         <div class="col">
                             <div>
                                 <input
@@ -16,34 +16,21 @@
                             </div>
                         </div>
                     </div>
-                    <!--
-                    <div class="form-group row m-0">
-                        <div class="col">
-                            <div>
-                                <vue-tags-input
-                                    v-model="tag"
-                                    :tags="tags"
-                                    @tags-changed="newTags => (tags = newTags)"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                    -->
 
-                    <div class="form-group row m-0">
+                    <div class="row m-0" style="height: calc(100% - 80px);">
                         <div class="col" v-if="show">
                             <editor
                                 class="editor"
                                 :options="editorOptions"
                                 :initialValue="text"
-                                height="100vh"
+                                height="100%"
                                 ref="toastuiEditor"
                                 :plugin="plugins" 
                             />
                         </div>
                     </div>
 
-                    <div class="form-group row m-0">
+                    <div class="form_btn row m-0">
                         <div class="col">
                             <button type="submit" class="btn btn-success w-100">
                                 投稿する

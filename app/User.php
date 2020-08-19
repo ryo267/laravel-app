@@ -48,6 +48,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function applies()
+    {
+        return $this->belongsToMany(Company::class, 'applicants');
+    }
 
     public function posts()
     {

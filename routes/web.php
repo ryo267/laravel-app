@@ -25,6 +25,11 @@ Route::get('/home/{any}', function () {
 Route::post('studyService/follow/{id}', 'studyServiceController@follow')->name('follow');
 Route::delete('studyService/unfollow/{id}', 'studyServiceController@unfollow')->name('unfollow');
 
+Route::get('ajax/apply/user/all/{id}','Ajax\ApplyController@getUserApplies');
+Route::get('ajax/apply/user/{id}/{company}','Ajax\ApplyController@getApplyExists');
+Route::get('ajax/applicant/user/all/{id}','Ajax\ApplyController@getApplicants');
+Route::post('ajax/apply','Ajax\ApplyController@apply');
+
 Route::get('ajax/scout/user/all/{id}','Ajax\ScoutController@getUserScouts');
 Route::get('ajax/scout/{scout}','Ajax\ScoutController@getScoutData');
 Route::get('ajax/scout/company/all/{id}','Ajax\ScoutController@getCompanyScout');

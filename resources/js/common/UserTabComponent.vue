@@ -12,7 +12,7 @@
                         <input
                             type="text"
                             class="form"
-                            id="searchTab"
+                            id="user_search_form"
                             placeholder="search"
                             v-model="searchTab"
                         />

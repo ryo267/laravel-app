@@ -54,7 +54,7 @@
 				<div class="o_icon_wrap" id="o_icon_wrap"><i class="fas fa-pen-nib"></i></div>
 			</div>
 			<div class="o_nav_2" id="o_nav_2">
-				<!--<form-component />-->
+				<form-component />
 			</div>
 
 			<div class="b_nav" id="b_nav">

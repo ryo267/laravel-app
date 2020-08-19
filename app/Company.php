@@ -49,6 +49,11 @@ class Company extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function applicants()
+    {
+        return $this->belongsToMany(User::class, 'applicants');
+    }
+
     public function comments()
     {
         return $this->belongsToMany(Comment::class, 'company_comment');
@@ -63,5 +68,7 @@ class Company extends Authenticatable
     {
         return $this->hasMany(Info::class);
     }
+
+    
 
 }

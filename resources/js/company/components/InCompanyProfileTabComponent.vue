@@ -2,35 +2,57 @@
     <div class="profile_tabs">
         <div class="tabs_wrap">
             <ul class="tabs">
-                <li class="infos" id="tab" @click="infoActive()" :class="{ active: info_Active }">INFO</li>
-                <li class="scouts" id="tab" @click="scoutActive()" :class="{ active: scout_Active }">SCOUT</li>
+                <li
+                    v-for="tab in currentTab"
+                    :key="tab.id"
+                    class=""
+                    id="tab"
+                    @click="activeTab(tab.id)"
+                    :class="[isActive === tab.id ? 'active' : '']"
+                >
+                    {{ tab.name | uppercase }}
+                </li>
             </ul>
         </div>
         <div class="contents">
-            <infos-component class="infos_content" :class="{ active: info_Active }" :companyID="this.$userId"/>
-            <company-scouts-component class="scouts_content" :class="{ active: scout_Active }" />
+            <infos-component id="content" :class="[isActive === 0 ? 'active' : '']" :companyID="this.$userId"/>
+            <company-scouts-component id="content" :class="[isActive === 1 ? 'active' : '']" />
+            <company-applicants-component id="content" :class="[isActive === 2 ? 'active' : '']" />
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: "profile-tab-component",
+    name: "in-company-profile-tab-component",
     data: function() {
         return {
-            info_Active: true,
-            scout_Active: false
+            currentTab: [
+                {
+                    id: 0,
+                    name: '投稿',
+                },
+                {
+                    id: 1,
+                    name: 'スカウト',
+                },
+                {
+                    id: 2,
+                    name: '応募',
+                }
+            ],
+            isActive: 0,
         };
     },
-    methods: {
-        infoActive() {
-            this.info_Active = true;
-            this.scout_Active = false;
-        },
-        scoutActive() {
-            this.info_Active = false;
-            this.scout_Active = true;
+    filters: {
+        uppercase(value) {
+            return value.toUpperCase();
         }
+    },
+    methods: {
+        activeTab(tab_id) {
+            this.isActive = tab_id;
+        },
     },
     mounted() {}
 };

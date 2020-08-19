@@ -9,7 +9,7 @@
                                 user.back_image === undefined
                         "
                         class="back_photo"
-                        src="/storage/noimage.jpg"
+                        src="/sample/noimage.jpg"
                     />
                     <img v-else class="back_photo" :src="user.back_image" />
                     <div class="input-item">
@@ -42,7 +42,7 @@
                                         user.profile_image === undefined
                                 "
                                 class="my_profile_image"
-                                src="/storage/noimage.jpg"
+                                src="/sample/noimage.jpg"
                             />
                             <img
                                 v-else

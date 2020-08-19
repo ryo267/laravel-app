@@ -259,7 +259,6 @@ html body {
                             left: calc(50% - 25px);
                             .input-item__label {
                                 position: relative;
-                                color: #fff;
                                 input {
                                     position: absolute;
                                     top: 0;
@@ -861,7 +860,8 @@ canvas {
 
 .post,
 .info,
-.user {
+.user,
+.applicant {
     .card {
         border-radius: none !important;
         background: #ecf0f1;
@@ -1093,8 +1093,8 @@ canvas {
         border-style: none;
         background: none;
     }
-    .skill_label {
-        border-bottom: solid 2px #000;
+    #label {
+        border-bottom: solid 2px #000 !important;
     }
     .skills {
         position: relative;
@@ -1137,6 +1137,18 @@ canvas {
             from {
                 width: 0;
             }
+        }
+    }
+    .apply_btn_wrap {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        .apply_btn {
+            border: none;
+            background: #000;
+            color: #fff;
+            border-radius: 40px;
         }
     }
 }
@@ -1225,10 +1237,12 @@ video {
     top: 0;
     right: 0;
     button {
-        background: none;
+        background: #000;
         border: none;
+        border-radius: 40px;
+        color: #fff;
         i {
-            color: #000;
+            color: #fff;
         }
     }
 }
@@ -1237,14 +1251,11 @@ video {
         .tabs {
             display: flex;
             color: #fff;
+            padding: 0;
             li {
                 padding: 1rem;
                 width: 100%;
                 text-align: center;
-            }
-            .posts,
-            .scouts,
-            .infos {
                 border-bottom: solid 2px #fff;
                 &.active {
                     border-top: solid 2px #fff;
@@ -1256,13 +1267,17 @@ video {
         }
     }
     .contents {
-        .posts_content,
-        .scouts_content,
-        .infos_content {
+        #content {
             display: none;
             &.active {
                 display: inherit;
             }
         }
+    }
+}
+
+.post_form {
+    .title_form, .tag_form, .form_btn {
+        height: 40px;
     }
 }
