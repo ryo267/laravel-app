@@ -25,6 +25,7 @@ Vue.component('user-scouts-component', require('./components/UserScoutsComponent
 Vue.component('user-scout-component', require('./components/UserScoutComponent.vue').default);
 Vue.component('user-applies-component', require('./components/UserAppliesComponent.vue').default);
 Vue.component('user-apply-component', require('./components/UserApplyComponent.vue').default);
+Vue.component('apply-component', require('./components/ApplyComponent.vue').default);
 
 Vue.component('comments-component', require('./common/CommentsComponent.vue').default);
 Vue.component('delete-post-component', require('./common/DeletePostComponent.vue').default);

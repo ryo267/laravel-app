@@ -3,6 +3,7 @@
         <div class="row">
             <div class="col">
                 <div class="card">
+                    <apply-component :companyID="companyID"/>
                     <div class="card-body p-0">
                         <div class="col">
                             <div

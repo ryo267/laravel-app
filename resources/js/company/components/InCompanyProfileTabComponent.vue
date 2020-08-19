@@ -30,20 +30,18 @@ export default {
             currentTab: [
                 {
                     id: 0,
-                    name: 'info',
+                    name: '投稿',
                 },
                 {
                     id: 1,
-                    name: 'scouts',
+                    name: 'スカウト',
                 },
                 {
                     id: 2,
-                    name: 'applicants',
+                    name: '応募',
                 }
             ],
             isActive: 0,
-            info_Active: true,
-            scout_Active: false
         };
     },
     filters: {
@@ -55,14 +53,6 @@ export default {
         activeTab(tab_id) {
             this.isActive = tab_id;
         },
-        infoActive() {
-            this.info_Active = true;
-            this.scout_Active = false;
-        },
-        scoutActive() {
-            this.info_Active = false;
-            this.scout_Active = true;
-        }
     },
     mounted() {}
 };

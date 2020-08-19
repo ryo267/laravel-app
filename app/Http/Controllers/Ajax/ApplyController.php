@@ -25,4 +25,23 @@ class ApplyController extends Controller
         
         return $applicants;
     }
+
+    public function getApplyExists(Int $id, Int $company)
+    {
+
+        $user = \App\User::find($id);
+        $apply = $user->applies()->where('company_id',$company)->exists();
+        
+        return $apply;
+    }
+
+    public function apply(Request $request)
+    {
+
+        $user = \App\User::find($request->userID);
+        $user->applies()->attach($request->companyID);
+        $apply = $user->applies()->where('company_id',$request->companyID)->exists();
+        
+        return $apply;
+    }
 }

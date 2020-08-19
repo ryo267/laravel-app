@@ -860,7 +860,8 @@ canvas {
 
 .post,
 .info,
-.user, .applicant {
+.user,
+.applicant {
     .card {
         border-radius: none !important;
         background: #ecf0f1;
@@ -1138,6 +1139,18 @@ canvas {
             }
         }
     }
+    .apply_btn_wrap {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        .apply_btn {
+            border: none;
+            background: #000;
+            color: #fff;
+            border-radius: 40px;
+        }
+    }
 }
 
 .video_container {
@@ -1224,10 +1237,12 @@ video {
     top: 0;
     right: 0;
     button {
-        background: none;
+        background: #000;
         border: none;
+        border-radius: 40px;
+        color: #fff;
         i {
-            color: #000;
+            color: #fff;
         }
     }
 }
@@ -1258,5 +1273,11 @@ video {
                 display: inherit;
             }
         }
+    }
+}
+
+.post_form {
+    .title_form, .tag_form, .form_btn {
+        height: 40px;
     }
 }

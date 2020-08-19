@@ -10,7 +10,7 @@
                     @click="activeTab(tab.id)"
                     :class="[isActive === tab.id ? 'active' : '']"
                 >
-                    {{ tab.name | uppercase }}
+                    {{ tab.name }}
                 </li>
             </ul>
         </div>
@@ -30,15 +30,15 @@ export default {
             currentTab: [
                 {
                     id: 0,
-                    name: 'posts',
+                    name: '投稿',
                 },
                 {
                     id: 1,
-                    name: 'scouts',
+                    name: 'スカウト',
                 },
                 {
                     id: 2,
-                    name: 'applies',
+                    name: '応募',
                 }
             ],
             isActive: 0,

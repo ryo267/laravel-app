@@ -1,9 +1,9 @@
 <template>
     <div class="container-fluid">
-        <div class="row">
+        <div class="row h-100">
             <div class="col">
-                <form v-on:submit.prevent="getHtml">
-                    <div class="form-group row m-0">
+                <form v-on:submit.prevent="getHtml" style="height:100%;">
+                    <div class="title_form row m-0">
                         <div class="col">
                             <div>
                                 <input
@@ -17,7 +17,9 @@
                         </div>
                     </div>
 
-                    <div class="form-group row m-0">
+                    <div
+                        class="tag_form row m-0"
+                    >
                         <div class="col">
                             <div>
                                 <vue-tags-input
@@ -29,20 +31,20 @@
                         </div>
                     </div>
 
-                    <div class="form-group row m-0">
+                    <div class="row m-0" style="height: calc(100% - 120px);">
                         <div class="col" v-if="show">
                             <editor
                                 class="editor"
                                 :options="editorOptions"
                                 :initialValue="text"
-                                height="100vh"
+                                height="100%"
                                 ref="toastuiEditor"
-                                :plugin="plugins" 
+                                :plugin="plugins"
                             />
                         </div>
                     </div>
 
-                    <div class="form-group row m-0">
+                    <div class="form_btn row m-0">
                         <div class="col">
                             <button type="submit" class="btn btn-success w-100">
                                 投稿する
@@ -59,9 +61,9 @@
 import { Editor } from "@toast-ui/vue-editor";
 import VueTagsInput from "@johmun/vue-tags-input";
 import Chart from "@toast-ui/editor-plugin-chart";
-import 'codemirror/lib/codemirror.css';
-import '@toast-ui/editor/dist/toastui-editor.css';
-import 'tui-chart/dist/tui-chart.css';
+import "codemirror/lib/codemirror.css";
+import "@toast-ui/editor/dist/toastui-editor.css";
+import "tui-chart/dist/tui-chart.css";
 
 export default {
     name: "chat-component",
@@ -109,7 +111,7 @@ export default {
 
             this.show = true;
             //console.log(html);
-        },
+        }
     },
     mounted() {}
 };

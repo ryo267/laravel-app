@@ -1524,6 +1524,26 @@ canvas {
   }
 }
 
+.post .apply_btn_wrap,
+.info .apply_btn_wrap,
+.user .apply_btn_wrap,
+.applicant .apply_btn_wrap {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  right: 0;
+}
+
+.post .apply_btn_wrap .apply_btn,
+.info .apply_btn_wrap .apply_btn,
+.user .apply_btn_wrap .apply_btn,
+.applicant .apply_btn_wrap .apply_btn {
+  border: none;
+  background: #000;
+  color: #fff;
+  border-radius: 40px;
+}
+
 .video_container {
   position: absolute;
   width: 100%;
@@ -1619,12 +1639,14 @@ video {
 }
 
 .trash_btn_wrap button {
-  background: none;
+  background: #000;
   border: none;
+  border-radius: 40px;
+  color: #fff;
 }
 
 .trash_btn_wrap button i {
-  color: #000;
+  color: #fff;
 }
 
 .profile_tabs .tabs_wrap .tabs {
@@ -1653,5 +1675,11 @@ video {
 
 .profile_tabs .contents #content.active {
   display: inherit;
+}
+
+.post_form .title_form,
+.post_form .tag_form,
+.post_form .form_btn {
+  height: 40px;
 }
 

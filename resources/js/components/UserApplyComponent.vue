@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid info my-5">
+    <div class="container-fluid applicant my-5">
         <div class="row">
             <div class="col">
                 <div class="card">
