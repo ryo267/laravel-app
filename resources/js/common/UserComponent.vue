@@ -5,12 +5,12 @@
                 <div class="card">
                     <div v-if="this.$userRole == 'company'">
                         <scout-component
-                            :userID="userID"
-                            :userNAME="userNAME"
+                            :userID="user.id"
+                            :userNAME="user.screen_name"
                         />
                     </div>
                     <!--
-                    <div class="loading_2" :id="'loading_' + userID ">
+                    <div class="loading_2" :id="'loading_' + user.id ">
                         <i class="fas fa-spinner fa-5x"></i>
                     </div>
                     -->
@@ -69,21 +69,21 @@
                                             <div class="row">
                                                 <div class="col posts_count">
                                                     <posts-count-component
-                                                        :userID="userID"
+                                                        :userID="user.id"
                                                     />
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col follower">
                                                     <follower-count-component
-                                                        :userID="userID"
+                                                        :userID="user.id"
                                                     />
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col thanks">
                                                     <thanks-count-component
-                                                        :userID="userID"
+                                                        :userID="user.id"
                                                     />
                                                 </div>
                                             </div>
@@ -99,7 +99,7 @@
                                                     "
                                                 >
                                                     <follow-component
-                                                        :userID="userID"
+                                                        :userID="user.id"
                                                     />
                                                 </div>
                                             </div>
@@ -129,7 +129,7 @@
                                             v-if="user.id != this.$userId"
                                         >
                                             <follow-component
-                                                :userID="userID"
+                                                :userID="user.id"
                                             />
                                         </div>
                                     </div>
@@ -210,12 +210,14 @@
 export default {
     name: "user-component",
     props: {
-        userID: [Number, String],
-        userNAME: [String]
+        user: {
+            type     : Object,
+            require  : false,
+            'default': () => ({ count: 0 })
+        },
     },
     data: function() {
         return {
-            user: [],
             progresses: [],
             show: false,
             isActive: false
@@ -230,24 +232,14 @@ export default {
             this.show = false;
             this.isActive = false;
         },
-        getProfile() {
-            try {
-                const url = "/ajax/user/";
-                axios.get(url + this.userID).then(response => {
-                    this.user = response.data;
-                });
-            } catch (error) {
-                console.log(error);
-            }
-        },
         getSkill() {
             const url = "/ajax/user/skill/";
-            axios.get(url + this.userID).then(response => {
+            axios.get(url + this.user.id).then(response => {
                 this.progresses = response.data;
             });
         },
         loaded() {
-            var id = this.userID;
+            var id = this.user.id;
             window.addEventListener("load", function(event) {
                 const spinner = document.getElementById("loading_"+ id );
                 spinner.classList.add("loaded");
@@ -255,9 +247,7 @@ export default {
         }
     },
     mounted() {
-        this.getProfile();
         this.getSkill();
-        //this.loaded();
     }
 };
 </script>

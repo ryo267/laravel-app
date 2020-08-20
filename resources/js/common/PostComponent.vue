@@ -5,7 +5,7 @@
                 <div class="card">
                     <delete-post-component
                         v-if="post.user_id == this.$userId"
-                        :postID="postID"
+                        :postID="post.id"
                     />
                     <!--
                         <div class="loading_2" :id="'loading_' + userID">
@@ -66,7 +66,11 @@
                                             </p>
                                             <div
                                                 class="follow_submit_1"
-                                                v-if="user.id != this.$userId && this.$userRole != 'company'"
+                                                v-if="
+                                                    user.id != this.$userId &&
+                                                        this.$userRole !=
+                                                            'company'
+                                                "
                                             >
                                                 <follow-component
                                                     :userID="userID"
@@ -96,7 +100,10 @@
                                         </div>
                                         <div
                                             class="follow_submit_2"
-                                            v-if="user.id != this.$userId && this.$userRole != 'company'"
+                                            v-if="
+                                                user.id != this.$userId &&
+                                                    this.$userRole != 'company'
+                                            "
                                         >
                                             <follow-component
                                                 :userID="userID"
@@ -113,7 +120,7 @@
                                         :class="{ active: isActive }"
                                     >
                                         <h5 class="title">{{ post.title }}</h5>
-                                        <tag-component :postID="postID" />
+                                        <tag-component :postID="post.id" />
                                         <p
                                             class="description"
                                             v-html="post.text"
@@ -141,11 +148,11 @@
                             </div>
                             <comments-component
                                 v-if="show"
-                                :postID="postID"
+                                :postID="post.id"
                             ></comments-component>
-                            <div v-if="show" class=" d-flex post_footer">
-                                <favo-count-component :postID="postID" />
-                                <comment-count-component :postID="postID" />
+                            <div v-if="show" class="mt-3 d-flex post_footer">
+                                <favo-count-component :postID="post.id" />
+                                <comment-count-component :postID="post.id" />
                             </div>
                         </div>
                     </div>
@@ -159,13 +166,16 @@
 export default {
     name: "post-component",
     props: {
-        postID: [Number, String],
+        post: {
+            type: Object,
+            require: false,
+            default: () => ({ count: 0 }) // Objectを生成する関数を指定する
+        },
         userID: [Number, String]
     },
     data: function() {
         return {
             user: [],
-            post: [],
             tags: [],
             show: false,
             isActive: false
@@ -180,23 +190,8 @@ export default {
             this.show = false;
             this.isActive = false;
         },
-        getPost() {
-            try {
-                //console.log("post-component-getPost");
-                //console.log(this.postID);
-                const url = "/ajax/post/";
-
-                axios.get(url + this.postID).then(response => {
-                    this.post = response.data;
-                });
-            } catch (error) {
-                console.log(error);
-            }
-        },
         getProfile() {
             try {
-                //console.log("post-component-getProfile");
-
                 const url = "/ajax/user/";
                 axios.get(url + this.userID).then(response => {
                     this.user = response.data;
@@ -215,8 +210,6 @@ export default {
     },
     mounted() {
         this.getProfile();
-        this.getPost();
-        //this.loaded();
     }
 };
 </script>

@@ -16,8 +16,8 @@ class PostController extends Controller
     {
 
         //Posts-Component
-        if ($request->tag === 'all_posts') {
-            return \App\Post::orderBy('id', 'desc')->get(['id', 'user_id']);
+        if ($request->tag === 'all-posts') {
+            return \App\Post::orderBy('id', 'desc')->get();
         } else {
 
             $post1 = \App\Post::where('title', 'like', '%'.$request->tag.'%')->get();
@@ -38,19 +38,7 @@ class PostController extends Controller
 
         //Posts-Component
         $user = \App\User::find($id);
-        return $user->posts()->orderBy('id', 'desc')->get(['id', 'user_id']);
-    }
-
-    public function reload()
-    {
-        //Posts-Component
-        event(new \App\Events\PostReload());
-    }
-
-    public function getPost(Post $post)
-    {
-        //Post-Component
-        return $post;
+        return $user->posts()->orderBy('id', 'desc')->get();
     }
 
     public function create(PostRequest $request)

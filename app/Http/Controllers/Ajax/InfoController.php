@@ -23,7 +23,7 @@ class InfoController extends Controller
 
     public function getCompanyInfo(Int $id){
         $company = \App\Company::find($id);
-        $info = $company->infos()->orderBy('id', 'desc')->get(['id','company_id']);
+        $info = $company->infos()->orderBy('id', 'desc')->get();
         return $info;
     }
 

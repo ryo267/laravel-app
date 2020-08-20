@@ -431,10 +431,6 @@ export default {
         this.getProfile();
         this.getSkill();
 
-        Echo.channel("post").listen("PostCreated", e => {
-            this.getProfile();
-        });
-
         Echo.channel("post").listen("PostDeleted", e => {
             this.getProfile();
         });

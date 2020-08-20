@@ -5,7 +5,7 @@
             <div v-if="posts.length" class="col">
                 <ul class="p-0">
                     <li v-for="post in getItems" :key="post.id">
-                        <post-component :postID ="post.id" :userID="post.user_id"></post-component>
+                        <post-component :post ="post" :userID="post.user_id"></post-component>
                     </li>
                 </ul>
                 <paginate

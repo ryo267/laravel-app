@@ -3,7 +3,10 @@
         <div class="row">
             <div class="col">
                 <div class="card">
-                    <delete-info-component v-if="info.company_id == this.$userId" :infoID="infoID"/>
+                    <delete-info-component
+                        v-if="info.company_id == this.$userId"
+                        :infoID="info.id"
+                    />
                     <div class="card-body p-0">
                         <div class="col">
                             <div
@@ -110,12 +113,15 @@
 <script>
 export default {
     props: {
-        infoID: [Number, String],
-        companyID: [Number, String]
+        companyID: [Number, String],
+        info: {
+            type: Object,
+            require: false,
+            default: () => ({ count: 0 }) // Objectを生成する関数を指定する
+        }
     },
     data: function() {
         return {
-            info:[],
             company: [],
             show: false,
             isActive: false
@@ -142,24 +148,9 @@ export default {
                 console.log(error);
             }
         },
-        async getInfo() {
-            try {
-                //console.log("info-component-getInfo");
-
-                const url = "/ajax/info/";
-                await axios.get(url + this.infoID).then(response => {
-                    this.info = response.data;
-                });
-            } catch (error) {
-                console.log(error);
-            }
-        }
     },
     mounted() {
-        //console.log('this.infoID'+this.infoID);
-        //console.log('this.companyID'+this.companyID);
         this.getCompany();
-        this.getInfo();
     }
 };
 </script>
