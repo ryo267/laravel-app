@@ -50,7 +50,7 @@
                                             <img
                                                 v-if="
                                                     user.profile_image !=
-                                                        null ||
+                                                        null &&
                                                         user.profile_image !=
                                                             undefined
                                                 "
@@ -150,7 +150,7 @@
                                 v-if="show"
                                 :postID="post.id"
                             ></comments-component>
-                            <div v-if="show" class="mt-3 d-flex post_footer">
+                            <div v-if="show" class="px-3 mt-3 d-flex post_footer">
                                 <favo-count-component :postID="post.id" />
                                 <comment-count-component :postID="post.id" />
                             </div>

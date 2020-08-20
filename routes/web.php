@@ -36,6 +36,7 @@ Route::get('ajax/scout/company/all/{id}','Ajax\ScoutController@getCompanyScout')
 
 Route::get('ajax/comment/{id}','Ajax\CommentController@index');
 Route::get('ajax/comments/{id}','Ajax\CommentController@getComments');
+Route::get('ajax/comment/user/{id}','Ajax\CommentController@getUser');
 Route::post('ajax/comment','Ajax\CommentController@store');
 
 Route::get('ajax/thanks/{comment}','Ajax\ThankController@getThanks');

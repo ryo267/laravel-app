@@ -1,24 +1,12 @@
 <template>
-    <div class="row comment_group">
-        <div class="col">
-            <div
-                class="row mt-3"
-                v-for="comment in comments"
-                :key="comment.id"
-            >
-                <div class="col">
-                    <div class="col comment_text">
-                        <!-- メッセージ内容 -->
-                        <p v-html="comment.text"></p>
-                    </div>
-                    <div class="col comment_created_at">
-                        <!-- 登録された日時 -->
-                        <p>{{ comment.created_at }}</p>
-                    </div>
-                </div>
-                <thanks-component :commentID="comment.id" />
-            </div>
-            <div class="row mt-3">
+    <div class="row ">
+        <div class="col comment_group">
+            <ul class="px-3">
+                <li v-for="comment in comments" :key="comment.id">
+                    <comment-component :comment="comment" />
+                </li>
+            </ul>
+            <div v-if="this.$userRole != 'company'" class="mt-3">
                 <div class="col">
                     <form v-on:submit.prevent="getHtml" style="width:100%">
                         <div class="form-group row m-0">
@@ -54,7 +42,7 @@
 import { Editor } from "@toast-ui/vue-editor";
 
 export default {
-    name: "log-component",
+    name: "comments-component",
     props: {
         postID: [Number, String]
     },
