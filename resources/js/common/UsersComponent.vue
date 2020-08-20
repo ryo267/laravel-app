@@ -2,7 +2,7 @@
     <section class="all_users">
         <div class="container-fluid">
             <div class="row">
-                <div class="col">
+                <div v-if="users.length" class="col">
                     <ul class="p-0">
                         <li v-for="user in getItems" :key="user.id">
                             <user-component
@@ -22,6 +22,9 @@
                         :page-class="'page-item'"
                     >
                     </paginate>
+                </div>
+                <div v-else class="col text-white text-center">
+                    <h3>検索結果：0件</h3>
                 </div>
             </div>
         </div>

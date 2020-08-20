@@ -26,6 +26,9 @@
                 <button v-on:click="fileUpload_2" class="upload_btn">
                     UPLOAD<i class="fas fa-cloud-upload-alt ml-3"></i>
                 </button>
+                <div class="text-center" v-if="errors.file" id="error_message">
+                    <div style="color:#e74c3c">{{ errors.file[0] }}</div>
+                </div>
             </div>
         </div>
         <div class="row px-3 profile">
@@ -63,12 +66,17 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col">
+                        <div class="col text-center">
                             <button v-on:click="fileUpload" class="upload_btn">
                                 UPLOAD<i
                                     class="fas fa-cloud-upload-alt ml-3"
                                 ></i>
                             </button>
+                            <div class="text-center" v-if="errors.file" id="error_message">
+                                <div style="color:#e74c3c">
+                                    {{ errors.file[0] }}
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -116,7 +124,7 @@
                                             v-model="user.name"
                                         />
                                     </div>
-                                    <div v-if="errors.name" id="error_message">
+                                    <div class="text-center" v-if="errors.name" id="error_message">
                                         <div style="color:#e74c3c">
                                             {{ errors.name[0] }}
                                         </div>
@@ -138,7 +146,7 @@
                                             v-model="user.email"
                                         />
                                     </div>
-                                    <div v-if="errors.email" id="error_message">
+                                    <div class="text-center" v-if="errors.email" id="error_message">
                                         <div style="color:#e74c3c">
                                             {{ errors.email[0] }}
                                         </div>
@@ -189,7 +197,7 @@
         </div>
         <div class="row px-3 mt-5">
             <div class="col">
-                <in-company-profile-tab-component/>
+                <in-company-profile-tab-component />
             </div>
         </div>
     </div>

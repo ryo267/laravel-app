@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Ajax;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use \App\Http\Requests\PostRequest;
 use App\Info;
 
 class InfoController extends Controller
@@ -26,7 +27,7 @@ class InfoController extends Controller
         return $info;
     }
 
-    public function createInfo(Request $request)
+    public function createInfo(PostRequest $request)
     { 
 
         $info = Info::create([

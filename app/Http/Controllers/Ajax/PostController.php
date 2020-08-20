@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Ajax;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use \App\Http\Requests\PostRequest;
 use App\Post;
 use App\Tag;
 
@@ -52,7 +53,7 @@ class PostController extends Controller
         return $post;
     }
 
-    public function create(Request $request)
+    public function create(PostRequest $request)
     { // 
 
         $all_tags = [];

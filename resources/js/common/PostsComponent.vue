@@ -2,7 +2,7 @@
     <section class="all_posts">
     <div class="container-fluid">
         <div class="row">
-            <div class="col">
+            <div v-if="posts.length" class="col">
                 <ul class="p-0">
                     <li v-for="post in getItems" :key="post.id">
                         <post-component :postID ="post.id" :userID="post.user_id"></post-component>
@@ -19,6 +19,9 @@
                     :page-class="'page-item'"
                 >
                 </paginate>
+            </div>
+            <div v-else class="col text-white text-center">
+                <h3>検索結果：0件</h3>
             </div>
         </div>
     </div>

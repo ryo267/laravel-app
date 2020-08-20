@@ -1,5 +1,24 @@
 <template>
-    <div class="container-fluid">
+    <div class="container-fluid info_form">
+        <div
+            v-if="errors.text || errors.title"
+            id="error_message"
+            class="error_modal"
+        >
+            <div class="wrap">
+                <div v-if="errors.title" style="color:#e74c3c">
+                    {{ errors.title[0] }}
+                </div>
+                <div v-if="errors.text" style="color:#e74c3c">
+                    {{ errors.text[0] }}
+                </div>
+                <div>
+                    <button class="btn" type="button" @click="errors = []">
+                        閉じる
+                    </button>
+                </div>
+            </div>
+        </div>
         <div class="row h-100">
             <div class="col">
                 <form v-on:submit.prevent="getHtml" style="height:100%;">
@@ -25,7 +44,7 @@
                                 :initialValue="text"
                                 height="100%"
                                 ref="toastuiEditor"
-                                :plugin="plugins" 
+                                :plugin="plugins"
                             />
                         </div>
                     </div>
@@ -47,9 +66,9 @@
 import { Editor } from "@toast-ui/vue-editor";
 //import VueTagsInput from "@johmun/vue-tags-input";
 import Chart from "@toast-ui/editor-plugin-chart";
-import 'codemirror/lib/codemirror.css';
-import '@toast-ui/editor/dist/toastui-editor.css';
-import 'tui-chart/dist/tui-chart.css';
+import "codemirror/lib/codemirror.css";
+import "@toast-ui/editor/dist/toastui-editor.css";
+import "tui-chart/dist/tui-chart.css";
 
 export default {
     name: "chat-component",
@@ -67,7 +86,8 @@ export default {
             tags: [],
             text: "",
             input: "",
-            show: true
+            show: true,
+            errors: [],
         };
     },
     components: {
@@ -87,15 +107,21 @@ export default {
                 title: this.title,
                 text: html
             };
-            await axios.post(url, params).then(response => {
-                // 成功したらメッセージをクリア
-                this.title = "";
-                this.show = false;
-            });
+            await axios
+                .post(url, params)
+                .then(response => {
+                    // 成功したらメッセージをクリア
+                    this.title = "";
+                    this.show = false;
+                })
+                .catch(e => {
+                    console.log(e.response.data.errors);
+                    this.errors = e.response.data.errors;
+                });
 
             this.show = true;
             //console.log(html);
-        },
+        }
     },
     mounted() {}
 };

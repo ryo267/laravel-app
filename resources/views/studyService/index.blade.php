@@ -68,7 +68,7 @@
 				<div class="p_icon_wrap" id="p_icon_wrap"><i class="fas fa-mail-bulk"></i></i></div>
 			</div>
 			<div class="p_nav_2" id="p_nav_2">
-				<!--<google-form-component />-->
+				<google-form-component />
 			</div>
 
 			<div class="g_nav" id="g_nav">
