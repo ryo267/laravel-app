@@ -222,9 +222,9 @@ video {
   min-height: 100%;
 }
 
-@media (max-width: 425px) {
+@media (min-width: 768px) {
   .section1 {
-    overflow: hidden;
+    width: 50%;
   }
 }
 
@@ -302,6 +302,12 @@ video {
   align-items: center;
   justify-content: center;
   min-height: 100%;
+}
+
+@media (min-width: 768px) {
+  .section2 {
+    width: 50%;
+  }
 }
 
 .section2 ul {
@@ -385,16 +391,15 @@ video {
 }
 
 .section_wrap {
-  display: flex;
   overflow: hidden;
-  width: 100vw;
-  height: 100vh;
+  min-width: 100%;
+  height: auto;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .section_wrap {
-    display: block;
-    overflow: inherit;
+    display: flex;
+    height: 100vh;
   }
 }
 

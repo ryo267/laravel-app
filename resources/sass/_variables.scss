@@ -44,6 +44,18 @@ $tablet: 768px;
     }
 }
 
+@mixin tablet_2 {
+    @media (min-width: ($tablet)) {
+            @content;
+    }
+}
+
+@mixin mobile_2 {
+    @media (min-width: ($mobile)) {
+            @content;
+    }
+}
+
 //font-awesome
 //$fa-font-path: "../webfonts";
 

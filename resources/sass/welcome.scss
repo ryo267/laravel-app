@@ -170,8 +170,8 @@ video {
     align-items: center;
     justify-content: center;
     min-height: 100%;
-    @include mobile {
-        overflow: hidden;
+    @include tablet_2 {
+        width: 50%;
     }
     ul {
         display: flex;
@@ -244,6 +244,9 @@ video {
     align-items: center;
     justify-content: center;
     min-height: 100%;
+    @include tablet_2 {
+        width: 50%;
+    }
     ul {
         display: flex;
         padding: 0;
@@ -324,13 +327,12 @@ video {
 }
 
 .section_wrap {
-    display: flex;
     overflow: hidden;
-    width: 100vw;
-    height: 100vh;
-    @include tablet {
-        display: block;
-        overflow: inherit;
+    min-width: 100%;
+    height: auto;
+    @include tablet_2 {
+        display: flex;
+        height: 100vh;
     }
 }
 
