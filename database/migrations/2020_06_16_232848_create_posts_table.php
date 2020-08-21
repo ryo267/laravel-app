@@ -17,7 +17,7 @@ class CreatePostsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('user_id')->comment('ユーザID');
             $table->string('title')->comment('タイトル');
-            $table->string('text')->comment('本文');
+            $table->text('text')->comment('本文');
             $table->softDeletes();
 
             $table->index('id');

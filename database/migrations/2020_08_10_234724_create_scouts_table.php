@@ -17,7 +17,7 @@ class CreateScoutsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('company_id')->comment('企業ID');
             $table->unsignedInteger('user_id')->comment('ユーザID');
-            $table->string('text')->comment('本文');
+            $table->text('text')->comment('本文');
             $table->softDeletes();
             $table->timestamps();
         });

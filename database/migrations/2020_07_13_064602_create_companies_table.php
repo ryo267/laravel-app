@@ -17,7 +17,7 @@ class CreateCompaniesTable extends Migration
             $table->unsignedInteger('id')->unique();
             $table->string('screen_name')->unique()->comment('アカウント名');
             $table->string('name');
-            $table->string('profile_text')->nullable()->comment('プロフィールテキスト');
+            $table->text('profile_text')->nullable()->comment('プロフィールテキスト');
             $table->string('profile_image')->nullable()->comment('プロフィール画像');
             $table->string('back_image')->nullable()->comment('背景画像');
             $table->string('email')->unique();

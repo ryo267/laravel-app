@@ -17,7 +17,7 @@ class CreateInfosTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('company_id')->comment('会社ID');
             $table->string('title')->comment('タイトル');
-            $table->string('text')->comment('本文');
+            $table->text('text')->comment('本文');
             $table->softDeletes();
 
             $table->index('id');

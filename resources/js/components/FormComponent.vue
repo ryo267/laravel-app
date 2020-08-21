@@ -50,14 +50,7 @@
 
                     <div class="row m-0" style="height: calc(100% - 120px);">
                         <div class="col" v-if="show">
-                            <editor
-                                class="editor"
-                                :options="editorOptions"
-                                :initialValue="text"
-                                height="100%"
-                                ref="toastuiEditor"
-                                :plugin="plugins"
-                            />
+                            <div class="editor" id="editor"></div>
                         </div>
                     </div>
 
@@ -75,36 +68,54 @@
 </template>
 
 <script>
-import { Editor } from "@toast-ui/vue-editor";
+import Editor from "@toast-ui/editor";
 import VueTagsInput from "@johmun/vue-tags-input";
-import Chart from "@toast-ui/editor-plugin-chart";
+import chart from "@toast-ui/editor-plugin-chart";
+import codeSyntaxHighlight from '@toast-ui/editor-plugin-code-syntax-highlight';
+import hljs from 'highlight.js';
+import tableMergedCell from '@toast-ui/editor-plugin-table-merged-cell';
 import "codemirror/lib/codemirror.css";
 import "@toast-ui/editor/dist/toastui-editor.css";
 import "tui-chart/dist/tui-chart.css";
+import 'highlight.js/styles/github.css';
 
 export default {
-    name: "chat-component",
+    name: "form-component",
     data: function() {
         return {
             editorText: this.text,
             editorOptions: {
                 hideModeSwitch: false
             },
-            plugins: {
-                chart: Chart
-            },
             title: "",
             tag: "",
             tags: [],
-            text: "",
+            text: "テキスト",
             input: "",
             show: true,
-            errors: []
+            errors: [],
+            chartOptions: [
+                {
+                    minWidth: 100
+                },
+                {
+                    maxWidth: 600
+                },
+                {
+                    minHeight: 100
+                },
+                {
+                    maxHeight: 300
+                }
+            ],
+            editor: "",
         };
     },
+    /*
     components: {
         editor: Editor
     },
+    */
     methods: {
         scroll() {
             this.$refs.toastuiEditor.invoke("scrollTop", 10);
@@ -113,7 +124,7 @@ export default {
             this.$refs.toastuiEditor.invoke("moveCursorToStart");
         },
         async getHtml() {
-            let html = this.$refs.toastuiEditor.invoke("getHtml");
+            let html = this.editor.getHtml();
             const url = "/ajax/post";
             const params = {
                 title: this.title,
@@ -123,20 +134,38 @@ export default {
             await axios
                 .post(url, params)
                 .then(response => {
-                    // 成功したらメッセージをクリア
                     this.title = "";
                     this.tags = [];
                     this.show = false;
+                    this.show = true;
+                    this.createEditor();
                 })
                 .catch(e => {
                     console.log(e.response.data.errors);
                     this.errors = e.response.data.errors;
                 });
-
-            this.show = true;
-            //console.log(html);
-        }
+                
+        },
+        createEditor() {
+            this.editor = new Editor({
+                el: document.querySelector("#editor"),
+                previewStyle: "vertical",
+                height: "100%",
+                initialValue: this.text,
+                plugins: [
+                    [chart, this.chartOptions],
+                    [codeSyntaxHighlight, { hljs }],
+                    tableMergedCell,
+                    /*
+                    colorSyntax,
+                    uml
+                    */
+                ]
+            });
+        },
     },
-    mounted() {}
+    mounted() {
+        this.createEditor();
+    }
 };
 </script>
