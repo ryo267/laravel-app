@@ -12,7 +12,7 @@ export default {
     },
     data: function() {
         return {
-            follower_count: [],
+            follower_count: 0,
         };
     },
     methods: {

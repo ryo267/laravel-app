@@ -12,7 +12,7 @@ export default {
     },
     data: function() {
         return {
-            posts_count: [],
+            posts_count: 0,
         };
     },
     methods: {

@@ -6,7 +6,7 @@
                     <li v-for="info in getItems" :key="info.id">
                         <info-component
                             :companyID="info.company_id"
-                            :infoID="info.id"
+                            :info="info"
                         />
                     </li>
                 </ul>

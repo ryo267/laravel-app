@@ -41,7 +41,6 @@ export default {
             const url = "/ajax/favo/add";
             const params = { postID: this.postID, userID: this.$userId };
             axios.post(url, params).then(response => {
-                console.log(response.data);
                 this.favo_count = response.data[0];
                 this.favo_flag = response.data[1];
             });
@@ -49,20 +48,17 @@ export default {
         deleteFavo() {
             const url = "/ajax/favo/delete/";
             axios.delete(url + this.postID+'/'+ this.$userId).then(response => {
-                console.log(response.data);
                 this.favo_count = response.data[0];
                 this.favo_flag = response.data[1];
             });
         },
         getFavo() {
             try {
-                console.log("favo-component-getFavo");
                 const url = "/ajax/favo/";
                 axios.get(url + this.postID+'/'+ this.$userId).then(response => {
                     this.favo_flag = response.data[0];
                     this.favo_count = response.data[1];
                 });
-                console.log(this.favo_count);
             } catch (error) {
                 console.log(error);
             }

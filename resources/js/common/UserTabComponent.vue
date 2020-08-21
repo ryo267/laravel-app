@@ -67,7 +67,7 @@ export default {
                 },
                 {
                     id: "5",
-                    name: "new-registration",
+                    name: "new",
                     link: "ajax/user/registration/"
                 }
             ],

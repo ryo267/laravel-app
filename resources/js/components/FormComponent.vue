@@ -1,5 +1,24 @@
 <template>
-    <div class="container-fluid">
+    <div class="container-fluid post_form">
+        <div
+            v-if="errors.text || errors.title"
+            id="error_message"
+            class="error_modal"
+        >
+            <div class="wrap">
+                <div v-if="errors.title" style="color:#e74c3c">
+                    {{ errors.title[0] }}
+                </div>
+                <div v-if="errors.text" style="color:#e74c3c">
+                    {{ errors.text[0] }}
+                </div>
+                <div>
+                    <button class="btn" type="button" @click="errors = []">
+                        閉じる
+                    </button>
+                </div>
+            </div>
+        </div>
         <div class="row h-100">
             <div class="col">
                 <form v-on:submit.prevent="getHtml" style="height:100%;">
@@ -17,9 +36,7 @@
                         </div>
                     </div>
 
-                    <div
-                        class="tag_form row m-0"
-                    >
+                    <div class="tag_form row m-0">
                         <div class="col">
                             <div>
                                 <vue-tags-input
@@ -81,7 +98,8 @@ export default {
             tags: [],
             text: "",
             input: "",
-            show: true
+            show: true,
+            errors: []
         };
     },
     components: {
@@ -102,12 +120,18 @@ export default {
                 tags: this.tags,
                 text: html
             };
-            await axios.post(url, params).then(response => {
-                // 成功したらメッセージをクリア
-                this.title = "";
-                this.tags = [];
-                this.show = false;
-            });
+            await axios
+                .post(url, params)
+                .then(response => {
+                    // 成功したらメッセージをクリア
+                    this.title = "";
+                    this.tags = [];
+                    this.show = false;
+                })
+                .catch(e => {
+                    console.log(e.response.data.errors);
+                    this.errors = e.response.data.errors;
+                });
 
             this.show = true;
             //console.log(html);

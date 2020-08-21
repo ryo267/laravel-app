@@ -1,5 +1,5 @@
 <template>
-    <div class="w-100 d-flex align-items-center m-0 p-0">
+    <div class="w-100 d-flex align-items-center justify-content-end m-0 p-0">
         <div>
             <button class="" type="button" id="b_none">
                 <i class="far fa-comments"></i>

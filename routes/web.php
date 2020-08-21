@@ -36,6 +36,7 @@ Route::get('ajax/scout/company/all/{id}','Ajax\ScoutController@getCompanyScout')
 
 Route::get('ajax/comment/{id}','Ajax\CommentController@index');
 Route::get('ajax/comments/{id}','Ajax\CommentController@getComments');
+Route::get('ajax/comment/user/{id}','Ajax\CommentController@getUser');
 Route::post('ajax/comment','Ajax\CommentController@store');
 
 Route::get('ajax/thanks/{comment}','Ajax\ThankController@getThanks');
@@ -46,7 +47,6 @@ Route::post('ajax/favo/add','Ajax\FavoriteController@addFavo');
 Route::delete('ajax/favo/delete/{postID}/{userID}','Ajax\FavoriteController@deleteFavo');
 
 Route::get('ajax/info','Ajax\InfoController@index');
-Route::get('ajax/info/{info}','Ajax\InfoController@getInfo');
 Route::get('ajax/info/company/{id}','Ajax\InfoController@getCompanyInfo');
 Route::post('ajax/info/company','Ajax\InfoController@createInfo');
 Route::delete('ajax/info/delete/{id}','Ajax\InfoController@deleteInfo');
@@ -69,7 +69,7 @@ Route::post('ajax/user/skill','Ajax\UserController@addSkill');
 Route::post('ajax/user/follow','Ajax\UserController@follow');
 Route::post('ajax/user/scout','Ajax\UserController@scout');
 Route::delete('ajax/user/skill/delete/{progress}','Ajax\UserController@deleteSkill');
-Route::delete('ajax/user/follow/remove/{id}','Ajax\UserController@reFollow');
+Route::delete('ajax/user/follow/remove/{id}','Ajax\UserController@unFollow');
 
 Route::get('ajax/company','Ajax\CompanyController@getProfile');
 Route::get('ajax/company/all/','Ajax\CompanyController@index');
@@ -79,8 +79,6 @@ Route::put('ajax/company/{company}','Ajax\CompanyController@update');
 
 Route::get('ajax/post/all/{tag}','Ajax\PostController@index');
 Route::get('ajax/post/user/{id}','Ajax\PostController@getUserPosts');
-//Route::post('ajax/post/reload','Ajax\PostController@reload');
-Route::get('ajax/post/{post}','Ajax\PostController@getPost');
 Route::put('ajax/post/{post}','Ajax\PostController@update');
 Route::post('ajax/post','Ajax\PostController@create');
 

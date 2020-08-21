@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Ajax;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use \App\Http\Requests\PostRequest;
 use App\Post;
 use App\Tag;
 
@@ -15,8 +16,8 @@ class PostController extends Controller
     {
 
         //Posts-Component
-        if ($request->tag === 'all_posts') {
-            return \App\Post::orderBy('id', 'desc')->get(['id', 'user_id']);
+        if ($request->tag === 'all-posts') {
+            return \App\Post::orderBy('id', 'desc')->get();
         } else {
 
             $post1 = \App\Post::where('title', 'like', '%'.$request->tag.'%')->get();
@@ -37,22 +38,10 @@ class PostController extends Controller
 
         //Posts-Component
         $user = \App\User::find($id);
-        return $user->posts()->orderBy('id', 'desc')->get(['id', 'user_id']);
+        return $user->posts()->orderBy('id', 'desc')->get();
     }
 
-    public function reload()
-    {
-        //Posts-Component
-        event(new \App\Events\PostReload());
-    }
-
-    public function getPost(Post $post)
-    {
-        //Post-Component
-        return $post;
-    }
-
-    public function create(Request $request)
+    public function create(PostRequest $request)
     { // 
 
         $all_tags = [];

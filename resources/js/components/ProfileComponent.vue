@@ -11,11 +11,7 @@
                         class="back_photo"
                         :src="user.back_image"
                     />
-                    <img
-                        v-else
-                        class="back_photo"
-                        src="/sample/noimage.jpg"
-                    />
+                    <img v-else class="back_photo" src="/sample/noimage.jpg" />
                     <div class="input-item">
                         <label class="input-item__label">
                             <i class="fas fa-camera fa-3x"></i>
@@ -30,6 +26,9 @@
                 <button v-on:click="fileUpload_2" class="upload_btn">
                     UPLOAD<i class="fas fa-cloud-upload-alt ml-3"></i>
                 </button>
+                <div class="text-center" v-if="errors.file" id="error_message">
+                    <div style="color:#e74c3c">{{ errors.file[0] }}</div>
+                </div>
             </div>
         </div>
         <div class="row px-3 profile">
@@ -73,6 +72,11 @@
                                     class="fas fa-cloud-upload-alt ml-3"
                                 ></i>
                             </button>
+                            <div class="text-center" v-if="errors.file" id="error_message">
+                                <div style="color:#e74c3c">
+                                    {{ errors.file[0] }}
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -99,7 +103,9 @@
                                         v-if="errors.screen_name"
                                         id="error_message"
                                     >
-                                        <div style="color:#e74c3c">{{ errors.screen_name[0] }}</div>
+                                        <div style="color:#e74c3c">
+                                            {{ errors.screen_name[0] }}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -118,8 +124,10 @@
                                             v-model="user.name"
                                         />
                                     </div>
-                                    <div v-if="errors.name" id="error_message">
-                                        <div style="color:#e74c3c">{{ errors.name[0] }}</div>
+                                    <div class="text-center" v-if="errors.name" id="error_message">
+                                        <div style="color:#e74c3c">
+                                            {{ errors.name[0] }}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -138,8 +146,10 @@
                                             v-model="user.email"
                                         />
                                     </div>
-                                    <div v-if="errors.email" id="error_message">
-                                        <div style="color:#e74c3c">{{ errors.email[0] }}</div>
+                                    <div class="text-center" v-if="errors.email" id="error_message">
+                                        <div style="color:#e74c3c">
+                                            {{ errors.email[0] }}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -169,7 +179,11 @@
 
                 <div class="row ">
                     <div class="col">
-                        <button type="submit" class="col update_btn" @click="submit()">
+                        <button
+                            type="submit"
+                            class="col update_btn"
+                            @click="submit()"
+                        >
                             UPDATE<i class="fas fa-sync-alt ml-3"></i>
                         </button>
                     </div>
@@ -246,11 +260,26 @@
                                     />
                                 </div>
                                 <div class="w-25">
-                                    <button type="submit" class="col skill_add_btn">
-                                        ADD<i class="far fa-arrow-alt-circle-up ml-3"></i>
+                                    <button
+                                        type="submit"
+                                        class="col skill_add_btn"
+                                    >
+                                        ADD<i
+                                            class="far fa-arrow-alt-circle-up ml-3"
+                                        ></i>
                                     </button>
                                 </div>
                             </form>
+                        </div>
+                        <div class="text-center" v-if="errors.progress" id="error_message">
+                            <div style="color:#e74c3c">
+                                {{ errors.progress[0] }}
+                            </div>
+                        </div>
+                        <div class="text-center" v-if="errors.skill_name" id="error_message">
+                            <div style="color:#e74c3c">
+                                {{ errors.skill_name[0] }}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -258,7 +287,7 @@
         </div>
         <div class="row mt-5">
             <div class="col">
-                <in-profile-tab-component/>
+                <in-profile-tab-component />
             </div>
         </div>
     </div>
@@ -306,20 +335,30 @@ export default {
 
             formData.append("file", this.fileInfo);
 
-            axios.post("/profile", formData).then(response => {
-                this.user = response.data;
-                alert("プロフィール画像を変更しました");
-            });
+            axios
+                .post("/profile", formData)
+                .then(response => {
+                    this.user = response.data;
+                })
+                .catch(e => {
+                    console.log(e.response.data.errors);
+                    this.errors = e.response.data.errors;
+                });
         },
         fileUpload_2() {
             const formData = new FormData();
 
             formData.append("file", this.fileInfo_2);
 
-            axios.post("/profile/back", formData).then(response => {
-                this.user = response.data;
-                alert("プロフィール背景画像を変更しました");
-            });
+            axios
+                .post("/profile/back", formData)
+                .then(response => {
+                    this.user = response.data;
+                })
+                .catch(e => {
+                    console.log(e.response.data.errors);
+                    this.errors = e.response.data.errors;
+                });
         },
         fileSelected(event) {
             this.fileInfo = event.target.files[0];
@@ -358,7 +397,7 @@ export default {
         },
         getSkill() {
             const url = "/ajax/user/skill/";
-            axios.get(url + this.$userId ).then(response => {
+            axios.get(url + this.$userId).then(response => {
                 this.progresses = response.data;
             });
         },
@@ -386,15 +425,11 @@ export default {
                     console.log(e.response.data.errors);
                     this.errors = e.response.data.errors;
                 });
-        },
+        }
     },
     mounted() {
         this.getProfile();
         this.getSkill();
-
-        Echo.channel("post").listen("PostCreated", e => {
-            this.getProfile();
-        });
 
         Echo.channel("post").listen("PostDeleted", e => {
             this.getProfile();

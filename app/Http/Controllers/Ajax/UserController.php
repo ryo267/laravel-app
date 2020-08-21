@@ -62,28 +62,28 @@ class UserController extends Controller
 
         if ($tab === 'all-users') {
             
-            $users = \App\User::orderBy('id', 'asc')->get(['id','screen_name']);
+            $users = \App\User::orderBy('id', 'asc')->get();
             
             return $users;
 
         } else if ($tab === 'follower') {
 
-            $users = \App\User::withCount('followers')->orderBy('followers_count', 'desc')->get(['id']);
+            $users = \App\User::withCount('followers')->orderBy('followers_count', 'desc')->get();
 
             return $users;
         } else if ($tab === 'thanks') {
 
-            $users = \App\User::withCount('thanks')->orderBy('thanks_count', 'desc')->get(['id']);
+            $users = \App\User::withCount('thanks')->orderBy('thanks_count', 'desc')->get();
 
             return $users;
         } else if ($tab === 'post') {
 
-            $users = \App\User::withCount('posts')->orderBy('posts_count', 'desc')->get(['id']);
+            $users = \App\User::withCount('posts')->orderBy('posts_count', 'desc')->get();
 
             return $users;
-        } else if ($tab === 'new-registration') {
+        } else if ($tab === 'new') {
 
-            $users = \App\User::orderBy('id', 'desc')->get(['id']);
+            $users = \App\User::orderBy('id', 'desc')->get();
 
             return $users;
         } else {
@@ -190,7 +190,7 @@ class UserController extends Controller
         return [$follower_count, $follow_flag];
     }
 
-    public function reFollow(Int $id)
+    public function unFollow(Int $id)
     {
         Auth::user()->follows()->detach($id);
 

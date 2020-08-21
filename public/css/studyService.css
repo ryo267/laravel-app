@@ -102,6 +102,7 @@ html body .post_tags .search_form,
 html body .user_tabs .search_form {
   position: relative;
   display: inline-block;
+  margin-right: 1rem;
 }
 
 html body .post_tags .search_form .search_button,
@@ -1677,9 +1678,41 @@ video {
   display: inherit;
 }
 
+.post_form .error_modal,
+.info_form .error_modal {
+  position: absolute;
+  height: 100%;
+  width: calc(100% - 80px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.post_form .error_modal .wrap,
+.info_form .error_modal .wrap {
+  background-color: #fff;
+  border-radius: 4px;
+  text-align: center;
+  padding: 1rem;
+}
+
 .post_form .title_form,
 .post_form .tag_form,
-.post_form .form_btn {
+.post_form .form_btn,
+.info_form .title_form,
+.info_form .tag_form,
+.info_form .form_btn {
   height: 40px;
+}
+
+.post_form .title_form *,
+.post_form .tag_form *,
+.post_form .form_btn *,
+.info_form .title_form *,
+.info_form .tag_form *,
+.info_form .form_btn * {
+  height: 100%;
 }
 

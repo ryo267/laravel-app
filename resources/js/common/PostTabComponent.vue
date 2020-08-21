@@ -22,11 +22,11 @@
                     </form>
                 </li>
                 <li
-                    @click="activeTag('all_posts', 0)"
+                    @click="activeTag('all-posts', 0)"
                     id="tags"
                     :class="[isActive === 0 ? 'active' : '']"
                 >
-                    All-POST
+                    ALL-POSTS
                 </li>
                 <li
                     v-for="tag in tags"
@@ -68,8 +68,7 @@ export default {
         getTags() {
             try {
                 const url = "/ajax/tag";
-                //console.log("getTags");
-
+                
                 axios.get(url).then(response => {
                     this.tags = response.data;
                 });
@@ -82,8 +81,6 @@ export default {
         this.getTags();
 
         Echo.channel("post").listen("PostCreated", e => {
-            //console.log("PostCreated");
-            /*this.getProfile();*/
             this.getTags();
         });
     }

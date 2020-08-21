@@ -1,5 +1,5 @@
 <template>
-    <div class="col-sm-3 text-center">
+    <span class="text-center">
         <button
             class="give_thanks"
             id="b_none"
@@ -9,7 +9,7 @@
             <i class="far fa-thumbs-up"></i>
         </button>
         <span v-text="thanks" />
-    </div>
+    </span>
 </template>
 
 <script>
