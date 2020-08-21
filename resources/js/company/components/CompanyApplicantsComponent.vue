@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid all_applicants">
         <div class="row">
-            <div class="col">
+            <div v-if="applicants.length" class="col">
                 <ul class="p-0">
                     <li v-for="apply in getItems" :key="apply.id">
                         <company-applicant-component :userID="apply.id" />
@@ -18,6 +18,9 @@
                     :page-class="'page-item'"
                 >
                 </paginate>
+            </div>
+            <div v-else class="col text-white text-center">
+                <h3>検索結果：0件</h3>
             </div>
         </div>
     </div>
