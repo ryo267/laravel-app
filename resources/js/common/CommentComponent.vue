@@ -1,24 +1,25 @@
 <template>
     <div class="row mt-3 comment">
-        <div class="col">
-            <div class="d-flex justify-content-between align-items-center">
-                <div>
-                    <img
-                        v-if="
-                            user.profile_image != null &&
-                                user.profile_image != undefined
-                        "
-                        class="profile_image img-thumbnail rounded-circle"
-                        :src="user.profile_image"
-                    />
-                    <img v-else class="profile_image img-thumbnail
-                    rounded-circle" src=/sample/user.png />
-                    <span>{{ user.screen_name }}</span>
-                </div>
-                <thanks-component v-if="user.id != this.$userId" :commentID="comment.id" />
+        <div class="col d-flex">
+            <div class="w-25 text-center">
+                <img
+                    v-if="
+                        user.profile_image != null &&
+                            user.profile_image != undefined
+                    "
+                    class="profile_image img-thumbnail rounded-circle"
+                    :src="user.profile_image"
+                />
+                <img v-else class="profile_image img-thumbnail rounded-circle"
+                src=/sample/user.png />
             </div>
-            <div class="comment_text">
+            <div class="w-75 comment_text">
+                <p>{{ user.screen_name }}</p>
                 <p v-html="comment.text"></p>
+                <thanks-component
+                    v-if="user.id != this.$userId"
+                    :commentID="comment.id"
+                />
             </div>
         </div>
     </div>
