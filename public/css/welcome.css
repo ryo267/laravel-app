@@ -392,7 +392,7 @@ video {
 
 .section_wrap {
   overflow: hidden;
-  min-width: 100%;
+  width: 100vw;
   height: auto;
 }
 
