@@ -99,14 +99,16 @@ html body .all_tabs .tabs > li:nth-last-of-type(1).active {
 }
 
 html body .post_tags .search_form,
-html body .user_tabs .search_form {
+html body .user_tabs .search_form,
+html body .info_tabs .search_form {
   position: relative;
   display: inline-block;
   margin-right: 1rem;
 }
 
 html body .post_tags .search_form .search_button,
-html body .user_tabs .search_form .search_button {
+html body .user_tabs .search_form .search_button,
+html body .info_tabs .search_form .search_button {
   position: absolute;
   top: 50%;
   right: 5%;
@@ -119,7 +121,9 @@ html body .user_tabs .search_form .search_button {
 html body .post_tags #tags,
 html body .post_tags #tabs,
 html body .user_tabs #tags,
-html body .user_tabs #tabs {
+html body .user_tabs #tabs,
+html body .info_tabs #tags,
+html body .info_tabs #tabs {
   padding: 1rem;
   color: #fff;
   transition: 0.5s;
@@ -129,14 +133,18 @@ html body .user_tabs #tabs {
 html body .post_tags #tags.active,
 html body .post_tags #tabs.active,
 html body .user_tabs #tags.active,
-html body .user_tabs #tabs.active {
+html body .user_tabs #tabs.active,
+html body .info_tabs #tags.active,
+html body .info_tabs #tabs.active {
   border-bottom: solid 2px #fff;
 }
 
 html body .post_tags #tags:hover,
 html body .post_tags #tabs:hover,
 html body .user_tabs #tags:hover,
-html body .user_tabs #tabs:hover {
+html body .user_tabs #tabs:hover,
+html body .info_tabs #tags:hover,
+html body .info_tabs #tabs:hover {
   color: #000;
   background-color: #fff;
 }

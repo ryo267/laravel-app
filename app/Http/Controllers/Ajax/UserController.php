@@ -97,9 +97,9 @@ class UserController extends Controller
                 $user3 = collect([]);
                 foreach($skills as $skill){
                     $user4 = $skill->user()->get();
-                    $user5 = $user3->concat($user4);
+                    $user3 = $user3->concat($user4);
                 }
-                $users = $user5->concat($user1)->concat($user2)->unique()->sortByDesc('id')->values()->all();
+                $users = $user3->concat($user1)->concat($user2)->unique()->sortByDesc('id')->values()->all();
                 return $users;
             }
 

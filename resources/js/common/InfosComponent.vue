@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid all_infos">
         <div class="row">
-            <div class="col">
+            <div v-if="infos.length" class="col">
                 <ul class="p-0">
                     <li v-for="info in getItems" :key="info.id">
                         <info-component
@@ -22,6 +22,9 @@
                 >
                 </paginate>
             </div>
+            <div v-else class="col text-white text-center">
+                <h3>検索結果：0件</h3>
+            </div>
         </div>
     </div>
 </template>
@@ -32,6 +35,7 @@ import Paginate from "vuejs-paginate";
 export default {
     name: "infos-component",
     props: {
+        tab: [String],
         companyID: [Number, String]
     },
     data: function() {
@@ -70,12 +74,12 @@ export default {
         },
         async getInfos() {
             try {
-                if (this.companyID == null) {
-                    const url = "/ajax/info";
-                    await axios.get(url).then(response => {
+                if (this.tab != null &&  this.tab != "" && this.companyID == null) {
+                    const url = "/ajax/info/";
+                    await axios.get(url + this.tab).then(response => {
                         this.infos = response.data;
                     });
-                } else {
+                } else if( this.companyID != null ){
                     const url = "/ajax/info/company/";
                     await axios.get(url + this.companyID).then(response => {
                         this.infos = response.data;

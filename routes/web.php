@@ -46,7 +46,7 @@ Route::get('ajax/favo/{postID}/{userID}','Ajax\FavoriteController@index');
 Route::post('ajax/favo/add','Ajax\FavoriteController@addFavo');
 Route::delete('ajax/favo/delete/{postID}/{userID}','Ajax\FavoriteController@deleteFavo');
 
-Route::get('ajax/info','Ajax\InfoController@index');
+Route::get('ajax/info/{tab}','Ajax\InfoController@index');
 Route::get('ajax/info/company/{id}','Ajax\InfoController@getCompanyInfo');
 Route::post('ajax/info/company','Ajax\InfoController@createInfo');
 Route::delete('ajax/info/delete/{id}','Ajax\InfoController@deleteInfo');
