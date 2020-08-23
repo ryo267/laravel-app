@@ -7,6 +7,7 @@
                         <info-component
                             :companyID="info.company_id"
                             :info="info"
+                            :call="call"
                         />
                     </li>
                 </ul>
@@ -36,7 +37,8 @@ export default {
     name: "infos-component",
     props: {
         tab: [String],
-        companyID: [Number, String]
+        companyID: [Number, String],
+        call: [String]
     },
     data: function() {
         return {
@@ -74,12 +76,12 @@ export default {
         },
         async getInfos() {
             try {
-                if (this.tab != null &&  this.tab != "" && this.companyID == null) {
+                if (this.tab != null && this.tab != "" && this.call == "tab") {
                     const url = "/ajax/info/";
                     await axios.get(url + this.tab).then(response => {
                         this.infos = response.data;
                     });
-                } else if( this.companyID != null ){
+                } else if (this.call == "profile") {
                     const url = "/ajax/info/company/";
                     await axios.get(url + this.companyID).then(response => {
                         this.infos = response.data;

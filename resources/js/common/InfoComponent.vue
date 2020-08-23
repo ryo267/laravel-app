@@ -77,7 +77,7 @@
                                         :class="{ active: isActive }"
                                     >
                                         <h5 class="title">{{ info.title }}</h5>
-                                        <div :id="'viewer' + info.id" ></div>
+                                        <div :id="'viewer' + info.id + call" ></div>
                                     </div>
                                     <div class="cta">
                                         <button
@@ -124,7 +124,8 @@ export default {
             type: Object,
             require: false,
             default: () => ({ count: 0 }) // Objectを生成する関数を指定する
-        }
+        },
+        call: [String]
     },
     data: function() {
         return {
@@ -157,7 +158,7 @@ export default {
         },
         createViewer () {
             this.viewer = Editor.factory({
-                el: document.querySelector("#viewer"+this.info.id),
+                el: document.querySelector("#viewer"+this.info.id+this.call),
                 viewer: true,
                 height: "100%",
                 initialValue: this.info.text,

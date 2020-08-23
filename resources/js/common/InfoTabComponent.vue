@@ -29,7 +29,7 @@
             </ul>
         </div>
         <div class="contents">
-            <infos-component :key="currentTab" :tab="currentTab" />
+            <infos-component :key="currentTab" :tab="currentTab" :call="'tab'"/>
         </div>
     </div>
 </template>

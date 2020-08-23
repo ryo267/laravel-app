@@ -33,7 +33,7 @@ export default {
     name: "company-applicants-component",
     data: function() {
         return {
-            applies: [],
+            applicants: [],
             parPage: 5,
             currentPage: 1
         };
@@ -45,10 +45,10 @@ export default {
         getItems() {
             let current = this.currentPage * this.parPage;
             let start = current - this.parPage;
-            return this.applies.slice(start, current);
+            return this.applicants.slice(start, current);
         },
         getPageCount() {
-            return Math.ceil(this.applies.length / this.parPage);
+            return Math.ceil(this.applicants.length / this.parPage);
         }
     },
     methods: {
@@ -68,7 +68,7 @@ export default {
 
                 const url = "/ajax/applicant/user/all/";
                 await axios.get(url+this.$userId).then(response => {
-                    this.applies = response.data;
+                    this.applicants = response.data;
                 });
 
             } catch (error) {
