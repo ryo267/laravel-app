@@ -7,6 +7,9 @@
 html body {
     min-width: 375px;
     margin: 0;
+    * {
+        font-family: 'Quicksand', 'M PLUS 1p', sans-serif;
+    }
     ::-webkit-scrollbar {
         overflow: hidden;
         width: 5px;
@@ -81,7 +84,7 @@ html body {
         }
     }
     .post_tags,
-    .user_tabs {
+    .user_tabs, .info_tabs {
         .search_form {
             position: relative;
             display: inline-block;
@@ -924,8 +927,7 @@ canvas {
         width: 100%;
         height: 100%;
         background: rgba(0, 0, 0, 0.5);
-        font-size: 1.4rem;
-        font-weight: bold;
+        font-size: 1rem;
         color: #fff;
         position: absolute;
         top: 0;
@@ -988,6 +990,12 @@ canvas {
             height: 90%;
             overflow: hidden;
             text-overflow: ellipsis;
+            #tag {
+                background-color: #000;
+                color: #fff;
+                border-radius: 4px;
+                padding: 0 0.5rem;
+            }
             &.active {
                 width: 100%;
                 transition: 1s;
@@ -1156,16 +1164,16 @@ canvas {
 
 .video_container {
     position: absolute;
-    width: 100%;
-    height: 100vh;
+    min-width: 100%;
+    min-height: 100%;
     z-index: -9999;
 }
 video {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: auto;
+    min-width: 100%;
+    min-height: 100%;
 }
 
 .scout {
@@ -1285,7 +1293,7 @@ video {
         display: flex;
         justify-content: center;
         align-items: center;
-        z-index: 1;
+        z-index: 10;
         background: rgba(0, 0, 0, 0.5);
         .wrap {
             background-color: #fff;

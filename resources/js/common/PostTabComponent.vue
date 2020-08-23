@@ -41,7 +41,7 @@
             </ul>
         </div>
         <div class="contents">
-            <posts-component :key="currentTag" :post_tag="currentTag" />
+            <posts-component :key="currentTag" :post_tag="currentTag" :call="'tab'" />
         </div>
     </div>
 </template>

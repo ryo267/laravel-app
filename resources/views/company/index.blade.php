@@ -15,13 +15,13 @@
 
     <!-- Scripts -->
     <script src="https://kit.fontawesome.com/f8f423cc2c.js" crossorigin="anonymous"></script>
-    <!--<script src="{{ asset('js/app.js') }}" defer></script>-->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <!--<script src="{{ asset('js/company/three.js') }}" defer></script>-->
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300&family=Quicksand:wght@300&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
@@ -62,21 +62,21 @@
                 <div class="b_icon_wrap" id="b_icon_wrap"><i class="fas fa-building"></i></div>
             </div>
             <div class="b_nav_2" id="b_nav_2">
-                <infos-component />
+                <info-tab-component />
             </div>
 
             <div class="p_nav" id="p_nav">
                 <div class="p_icon_wrap" id="p_icon_wrap"><i class="fas fa-mail-bulk"></i></i></div>
             </div>
             <div class="p_nav_2" id="p_nav_2">
-                <!--<google-form-component />-->
+                <google-form-component />
             </div>
 
             <div class="g_nav" id="g_nav">
                 <div class="g_icon_wrap" id="g_icon_wrap"><i class="fas fa-sms"></i></div>
             </div>
             <div class="g_nav_2" id="g_nav_2">
-                <!--<chat-component />-->
+                <chat-component />
             </div>
 
         </section>

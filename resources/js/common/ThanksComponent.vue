@@ -1,5 +1,5 @@
 <template>
-    <span class="text-center">
+    <span class="">
         <button
             class="give_thanks"
             id="b_none"

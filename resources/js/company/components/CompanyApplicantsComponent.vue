@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid all_applicants">
         <div class="row">
-            <div class="col">
+            <div v-if="applicants.length" class="col">
                 <ul class="p-0">
                     <li v-for="apply in getItems" :key="apply.id">
                         <company-applicant-component :userID="apply.id" />
@@ -19,6 +19,9 @@
                 >
                 </paginate>
             </div>
+            <div v-else class="col text-white text-center">
+                <h3>検索結果：0件</h3>
+            </div>
         </div>
     </div>
 </template>
@@ -30,7 +33,7 @@ export default {
     name: "company-applicants-component",
     data: function() {
         return {
-            applies: [],
+            applicants: [],
             parPage: 5,
             currentPage: 1
         };
@@ -42,10 +45,10 @@ export default {
         getItems() {
             let current = this.currentPage * this.parPage;
             let start = current - this.parPage;
-            return this.applies.slice(start, current);
+            return this.applicants.slice(start, current);
         },
         getPageCount() {
-            return Math.ceil(this.applies.length / this.parPage);
+            return Math.ceil(this.applicants.length / this.parPage);
         }
     },
     methods: {
@@ -65,7 +68,7 @@ export default {
 
                 const url = "/ajax/applicant/user/all/";
                 await axios.get(url+this.$userId).then(response => {
-                    this.applies = response.data;
+                    this.applicants = response.data;
                 });
 
             } catch (error) {

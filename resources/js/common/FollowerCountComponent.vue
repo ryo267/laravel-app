@@ -1,6 +1,6 @@
 <template>
     <div class="w-100 d-flex justify-content-between m-0 p-0">
-        <span>FOLLOWER</span>
+        <span>フォロワー</span>
         <span>{{ follower_count }}</span>
     </div>
 </template>

@@ -15,7 +15,7 @@
             </ul>
         </div>
         <div class="contents">
-            <infos-component id="content" :class="[isActive === 0 ? 'active' : '']" :companyID="this.$userId"/>
+            <infos-component id="content" :class="[isActive === 0 ? 'active' : '']" :companyID="this.$userId" :call="'profile'"/>
             <company-scouts-component id="content" :class="[isActive === 1 ? 'active' : '']" />
             <company-applicants-component id="content" :class="[isActive === 2 ? 'active' : '']" />
         </div>

@@ -15,6 +15,11 @@
     position: absolute;
 }
 */
+html body {
+    * {
+        font-family: 'Quicksand', 'M PLUS 1p', sans-serif;
+    }
+}
 .user {
     width: 300px;
     height: 300px;
@@ -127,9 +132,9 @@ video {
         width: 100%;
         height: 100%;
         z-index: 1;
-        transition: all 1s;
-        top:0;
-        left:-100%;
+        transition: transform 1s;
+        top: 0;
+        left: -100%;
         &.active {
             transform: translate(100%);
         }
@@ -154,7 +159,7 @@ video {
         width: 100%;
         height: 100%;
         z-index: 1;
-        transition: all 1s;
+        transition: transform 1s;
         top: 0;
         left: 100%;
         &.active {
@@ -170,8 +175,8 @@ video {
     align-items: center;
     justify-content: center;
     min-height: 100%;
-    @include mobile {
-        overflow: hidden;
+    @include tablet_2 {
+        width: 50%;
     }
     ul {
         display: flex;
@@ -185,7 +190,7 @@ video {
         }
     }
     .user_contents_wrap {
-        transition: all 1s;
+        transition: transform 1s;
         text-align: center;
         transform: translateX(-1000%);
         &.active {
@@ -201,18 +206,22 @@ video {
         }
     }
     .compnay_container_wrap {
-        transition: all 1s;
+        transition: transform 1s;
         padding-top: 3rem;
         display: flex;
         overflow: hidden;
         align-items: center;
         transform: translateX(-1000%);
+        visibility: hidden;
+        opacity: 0;
         &.active {
             transform: translateX(-100%);
+            visibility: inherit;
+            opacity: 1;
         }
         .company_login,
         .company_register {
-            transition: all 1s;
+            transition: transform 1s, visibility 1s, opacity 1s;
             min-width: 100%;
             transform: translateX(200%);
             visibility: hidden;
@@ -244,6 +253,9 @@ video {
     align-items: center;
     justify-content: center;
     min-height: 100%;
+    @include tablet_2 {
+        width: 50%;
+    }
     ul {
         display: flex;
         padding: 0;
@@ -256,7 +268,7 @@ video {
         }
     }
     .company_contents_wrap {
-        transition: all 1s;
+        transition: transform 1s;
         text-align: center;
         transform: translateX(1000%);
         &.active {
@@ -272,7 +284,7 @@ video {
         }
     }
     .user_container_wrap {
-        transition: all 1s;
+        transition: transform 1s;
         padding-top: 3rem;
         display: flex;
         overflow: hidden;
@@ -283,7 +295,7 @@ video {
         }
         .login,
         .register {
-            transition: all 1s;
+            transition: transform 1s, visibility 1s, opacity 1s;
             min-width: 100%;
             transform: translateX(200%);
             visibility: hidden;
@@ -324,13 +336,12 @@ video {
 }
 
 .section_wrap {
-    display: flex;
     overflow: hidden;
     width: 100vw;
-    height: 100vh;
-    @include tablet {
-        display: block;
-        overflow: inherit;
+    height: auto;
+    @include tablet_2 {
+        display: flex;
+        height: 100vh;
     }
 }
 

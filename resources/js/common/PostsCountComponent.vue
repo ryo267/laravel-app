@@ -1,6 +1,6 @@
 <template>
     <div class="w-100 d-flex justify-content-between m-0 p-0">
-        <span>POST</span>
+        <span>投稿数</span>
         <span>{{ posts_count }}</span>
     </div>
 </template>

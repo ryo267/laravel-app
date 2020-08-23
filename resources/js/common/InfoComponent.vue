@@ -77,10 +77,7 @@
                                         :class="{ active: isActive }"
                                     >
                                         <h5 class="title">{{ info.title }}</h5>
-                                        <p
-                                            class="description"
-                                            v-html="info.text"
-                                        ></p>
+                                        <div :id="'viewer' + info.id + call" ></div>
                                     </div>
                                     <div class="cta">
                                         <button
@@ -111,20 +108,31 @@
 </template>
 
 <script>
+import Editor from "@toast-ui/editor";
+import codeSyntaxHighlight from '@toast-ui/editor-plugin-code-syntax-highlight';
+import hljs from 'highlight.js';
+import tableMergedCell from '@toast-ui/editor-plugin-table-merged-cell';
+import "codemirror/lib/codemirror.css";
+import "@toast-ui/editor/dist/toastui-editor.css";
+import 'highlight.js/styles/github.css';
+
 export default {
+    name: "info-component",
     props: {
         companyID: [Number, String],
         info: {
             type: Object,
             require: false,
             default: () => ({ count: 0 }) // Objectを生成する関数を指定する
-        }
+        },
+        call: [String]
     },
     data: function() {
         return {
             company: [],
             show: false,
-            isActive: false
+            isActive: false,
+            viewer: "",
         };
     },
     methods: {
@@ -148,9 +156,22 @@ export default {
                 console.log(error);
             }
         },
+        createViewer () {
+            this.viewer = Editor.factory({
+                el: document.querySelector("#viewer"+this.info.id+this.call),
+                viewer: true,
+                height: "100%",
+                initialValue: this.info.text,
+                plugins: [
+                    [codeSyntaxHighlight, { hljs }],
+                    tableMergedCell,
+                ]
+            });
+        },
     },
     mounted() {
         this.getCompany();
+        this.createViewer();
     }
 };
 </script>

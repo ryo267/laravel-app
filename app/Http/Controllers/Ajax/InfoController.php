@@ -11,9 +11,33 @@ use App\Info;
 class InfoController extends Controller
 {
     //
-    public function index(){
+    public function index(Request $request){
 
-        return \App\Info::orderBy('id', 'desc')->get();
+        $tab = $request->tab;
+
+        if ($tab === 'all-info') {
+            return \App\Info::get();
+        } else if ($tab === 'new') {
+            return \App\Info::orderBy('id', 'desc')->get();
+        } else {
+
+            $info1 = \App\Info::where('title', 'like', '%'.$tab.'%')->get();
+            $info2 = \App\Info::where('text', 'like', '%'.$tab.'%')->get();
+            $infos = $info1->concat($info2)->unique()->sortByDesc('id')->values()->all();
+                
+            if ( \App\Company::where('screen_name', 'like', '%'.$tab.'%')->exists() ) {
+                $companies = \App\Company::where('screen_name', 'like', '%'.$tab.'%')->get();
+                $info3 = collect([]);
+                foreach($companies as $company){
+                    $info4 = $company->infos()->get();
+                    $info3 = $info3->concat($info4);
+                }
+                $infos = $info3->concat($info1)->concat($info2)->unique()->sortByDesc('id')->values()->all();
+                return $infos;
+            }
+
+            return $infos;
+        }
     }
 
     public function getInfo(Info $info){

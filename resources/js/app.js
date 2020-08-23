@@ -8,8 +8,6 @@
 
 //import HomeComponent from './components/HomeComponent.vue';
 
-//import { Editor } from "@toast-ui/vue-editor";
-
 require('./bootstrap');
 
 window.Vue = require('vue')
@@ -32,6 +30,7 @@ Vue.component('comment-component', require('./common/CommentComponent.vue').defa
 Vue.component('delete-post-component', require('./common/DeletePostComponent.vue').default);
 Vue.component('delete-info-component', require('./common/DeleteInfoComponent.vue').default);
 Vue.component('thanks-component', require('./common/ThanksComponent.vue').default);
+Vue.component("info-tab-component",require("./common/InfoTabComponent.vue").default);
 Vue.component('infos-component', require('./common/InfosComponent.vue').default);
 Vue.component('info-component', require('./common/InfoComponent.vue').default);
 Vue.component('chat-component', require('./common/ChatComponent.vue').default);

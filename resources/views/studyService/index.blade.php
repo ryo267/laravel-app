@@ -20,6 +20,7 @@
 	<!-- Fonts -->
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300&family=Quicksand:wght@300&display=swap" rel="stylesheet">
 
 	<!-- Styles -->
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
@@ -61,7 +62,7 @@
 				<div class="b_icon_wrap" id="b_icon_wrap"><i class="fas fa-building"></i></div>
 			</div>
 			<div class="b_nav_2" id="b_nav_2">
-				<infos-component />
+				<info-tab-component />
 			</div>
 
 			<div class="p_nav" id="p_nav">
@@ -75,7 +76,7 @@
 				<div class="g_icon_wrap" id="g_icon_wrap"><i class="fas fa-sms"></i></div>
 			</div>
 			<div class="g_nav_2" id="g_nav_2">
-				<chat-component />
+				<chat-component />-->
 			</div>
 
 		</section>
@@ -134,7 +135,9 @@
 
 			<section id="canvas"></section>
 
-			<all-tab-component/>
+			<section class="my-5">
+                <all-tab-component />
+            </section>
 
 			@section('footer')
 			<section class="footer">

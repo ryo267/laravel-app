@@ -15,7 +15,7 @@
             </ul>
         </div>
         <div class="contents">
-            <posts-component id="content" :class="[isActive === 0 ? 'active' : '']" :userID="this.$userId"/>
+            <posts-component id="content" :class="[isActive === 0 ? 'active' : '']" :userID="this.$userId" :call="'profile'" />
             <user-scouts-component id="content" :class="[isActive === 1 ? 'active' : '']" />
             <user-applies-component id="content" :class="[isActive === 2 ? 'active' : '']" />
         </div>

@@ -9,10 +9,10 @@
             />
             <div class="w-75 send_btn_wrap">
                 <button type="submit" class="" @click="cancel()">
-                    CANCEL
+                    キャンセル
                 </button>
                 <button type="submit" class="" @click="scout()">
-                    SEND
+                    スカウト
                 </button>
             </div>
         </div>

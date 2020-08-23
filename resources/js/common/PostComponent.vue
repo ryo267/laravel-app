@@ -121,10 +121,7 @@
                                     >
                                         <h5 class="title">{{ post.title }}</h5>
                                         <tag-component :postID="post.id" />
-                                        <p
-                                            class="description"
-                                            v-html="post.text"
-                                        ></p>
+                                        <div :id="'viewer' + post.id + call" ></div>
                                     </div>
                                     <div class="cta">
                                         <button
@@ -163,6 +160,14 @@
 </template>
 
 <script>
+import Editor from "@toast-ui/editor";
+import codeSyntaxHighlight from '@toast-ui/editor-plugin-code-syntax-highlight';
+import hljs from 'highlight.js';
+import tableMergedCell from '@toast-ui/editor-plugin-table-merged-cell';
+import "codemirror/lib/codemirror.css";
+import "@toast-ui/editor/dist/toastui-editor.css";
+import 'highlight.js/styles/github.css';
+
 export default {
     name: "post-component",
     props: {
@@ -171,14 +176,16 @@ export default {
             require: false,
             default: () => ({ count: 0 }) // Objectを生成する関数を指定する
         },
-        userID: [Number, String]
+        userID: [Number, String],
+        call: [String]
     },
     data: function() {
         return {
             user: [],
             tags: [],
             show: false,
-            isActive: false
+            isActive: false,
+            viewer: "",
         };
     },
     methods: {
@@ -200,6 +207,18 @@ export default {
                 console.log(error);
             }
         },
+        createViewer () {
+            this.viewer = Editor.factory({
+                el: document.querySelector("#viewer"+this.post.id+this.call),
+                viewer: true,
+                height: "100%",
+                initialValue: this.post.text,
+                plugins: [
+                    [codeSyntaxHighlight, { hljs }],
+                    tableMergedCell,
+                ]
+            });
+        },
         loaded() {
             var id = this.userID;
             window.addEventListener("load", function(event) {
@@ -210,6 +229,7 @@ export default {
     },
     mounted() {
         this.getProfile();
+        this.createViewer();
     }
 };
 </script>

@@ -45,6 +45,7 @@
                     <div class="form-group row">
                         <div class="col text-center">
                             <button
+                            v-if="screen_name != ''  && text != ''"
                                 type="submit"
                                 name="button"
                                 value="送信する"
@@ -64,6 +65,9 @@
         <div v-if="submitted" class="text-center" id="" style="color: #fff">
             <h1>お問い合わせを受け付けました</h1>
         </div>
+        <div v-if="error && submitted != true" class="text-center" id="" style="color: #fff">
+            <h1>アカウント名とお問い合わせ内容を入力してください</h1>
+        </div>
     </div>
 </template>
 
@@ -74,14 +78,19 @@ export default {
         return {
             submitted: false,
             screen_name: "",
-            text: ""
+            text: "",
+            error: false,
         };
     },
     methods: {
         onSubmit() {
-            this.submitted = true;
-            this.screen_name = "";
-            this.text = "";
+            if( this.screen_name != "" && this.text != "" ){
+                this.submitted = true;
+                this.screen_name = "";
+                this.text = "";
+            }else {
+                error = true;
+            }
         }
     },
     mounted() {}

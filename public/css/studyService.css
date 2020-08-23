@@ -9,6 +9,10 @@ html body {
   margin: 0;
 }
 
+html body * {
+  font-family: 'Quicksand', 'M PLUS 1p', sans-serif;
+}
+
 html body ::-webkit-scrollbar {
   overflow: hidden;
   width: 5px;
@@ -99,14 +103,16 @@ html body .all_tabs .tabs > li:nth-last-of-type(1).active {
 }
 
 html body .post_tags .search_form,
-html body .user_tabs .search_form {
+html body .user_tabs .search_form,
+html body .info_tabs .search_form {
   position: relative;
   display: inline-block;
   margin-right: 1rem;
 }
 
 html body .post_tags .search_form .search_button,
-html body .user_tabs .search_form .search_button {
+html body .user_tabs .search_form .search_button,
+html body .info_tabs .search_form .search_button {
   position: absolute;
   top: 50%;
   right: 5%;
@@ -119,7 +125,9 @@ html body .user_tabs .search_form .search_button {
 html body .post_tags #tags,
 html body .post_tags #tabs,
 html body .user_tabs #tags,
-html body .user_tabs #tabs {
+html body .user_tabs #tabs,
+html body .info_tabs #tags,
+html body .info_tabs #tabs {
   padding: 1rem;
   color: #fff;
   transition: 0.5s;
@@ -129,14 +137,18 @@ html body .user_tabs #tabs {
 html body .post_tags #tags.active,
 html body .post_tags #tabs.active,
 html body .user_tabs #tags.active,
-html body .user_tabs #tabs.active {
+html body .user_tabs #tabs.active,
+html body .info_tabs #tags.active,
+html body .info_tabs #tabs.active {
   border-bottom: solid 2px #fff;
 }
 
 html body .post_tags #tags:hover,
 html body .post_tags #tabs:hover,
 html body .user_tabs #tags:hover,
-html body .user_tabs #tabs:hover {
+html body .user_tabs #tabs:hover,
+html body .info_tabs #tags:hover,
+html body .info_tabs #tabs:hover {
   color: #000;
   background-color: #fff;
 }
@@ -1145,8 +1157,7 @@ canvas {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  font-size: 1.4rem;
-  font-weight: bold;
+  font-size: 1rem;
   color: #fff;
   position: absolute;
   top: 0;
@@ -1266,6 +1277,16 @@ canvas {
   height: 90%;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.post .post-data .overview #tag,
+.info .post-data .overview #tag,
+.user .post-data .overview #tag,
+.applicant .post-data .overview #tag {
+  background-color: #000;
+  color: #fff;
+  border-radius: 4px;
+  padding: 0 0.5rem;
 }
 
 .post .post-data .overview.active,
@@ -1547,8 +1568,8 @@ canvas {
 
 .video_container {
   position: absolute;
-  width: 100%;
-  height: 100vh;
+  min-width: 100%;
+  min-height: 100%;
   z-index: -9999;
 }
 
@@ -1556,8 +1577,8 @@ video {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: auto;
+  min-width: 100%;
+  min-height: 100%;
 }
 
 .scout .input_form {
@@ -1686,7 +1707,7 @@ video {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1;
+  z-index: 10;
   background: rgba(0, 0, 0, 0.5);
 }
 
