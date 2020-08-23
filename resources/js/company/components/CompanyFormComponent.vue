@@ -57,13 +57,11 @@
 
 <script>
 import Editor from "@toast-ui/editor";
-import chart from "@toast-ui/editor-plugin-chart";
 import codeSyntaxHighlight from "@toast-ui/editor-plugin-code-syntax-highlight";
 import hljs from "highlight.js";
 import tableMergedCell from "@toast-ui/editor-plugin-table-merged-cell";
 import "codemirror/lib/codemirror.css";
 import "@toast-ui/editor/dist/toastui-editor.css";
-import "tui-chart/dist/tui-chart.css";
 import "highlight.js/styles/github.css";
 
 export default {
@@ -77,20 +75,6 @@ export default {
             input: "",
             show: true,
             errors: [],
-            chartOptions: [
-                {
-                    minWidth: 100
-                },
-                {
-                    maxWidth: 600
-                },
-                {
-                    minHeight: 100
-                },
-                {
-                    maxHeight: 300
-                }
-            ],
             editor: ""
         };
     },
@@ -129,13 +113,8 @@ export default {
                 height: "100%",
                 initialValue: this.text,
                 plugins: [
-                    [chart, this.chartOptions],
                     [codeSyntaxHighlight, { hljs }],
                     tableMergedCell
-                    /*
-                    colorSyntax,
-                    uml
-                    */
                 ]
             });
         }

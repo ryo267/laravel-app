@@ -8,8 +8,6 @@
 
 //import HomeComponent from './components/HomeComponent.vue';
 
-//import { Editor } from "@toast-ui/vue-editor";
-
 require('./bootstrap');
 
 window.Vue = require('vue')

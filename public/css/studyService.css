@@ -1276,6 +1276,16 @@ canvas {
   text-overflow: ellipsis;
 }
 
+.post .post-data .overview #tag,
+.info .post-data .overview #tag,
+.user .post-data .overview #tag,
+.applicant .post-data .overview #tag {
+  background-color: #000;
+  color: #fff;
+  border-radius: 4px;
+  padding: 0 0.5rem;
+}
+
 .post .post-data .overview.active,
 .info .post-data .overview.active,
 .user .post-data .overview.active,

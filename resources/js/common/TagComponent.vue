@@ -1,8 +1,8 @@
 <template>
     <div>
-        <span class="tag" v-for="tag in tags" :key="tag.id">{{
+        <span class="mr-1" id="tag" v-for="tag in tags" :key="tag.id">{{
             tag.name
-        }}</span>
+        }}<i class="fas fa-tag ml-3"></i></span>
     </div>
 </template>
 
