@@ -15,13 +15,13 @@
 
     <!-- Scripts -->
     <script src="https://kit.fontawesome.com/f8f423cc2c.js" crossorigin="anonymous"></script>
-    <!--<script src="{{ asset('js/app.js') }}" defer></script>-->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <!--<script src="{{ asset('js/company/three.js') }}" defer></script>-->
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300&family=Quicksand:wght@300&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">

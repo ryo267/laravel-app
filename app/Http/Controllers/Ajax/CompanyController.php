@@ -25,11 +25,9 @@ class CompanyController extends Controller
     public function getProfile()
     {
 
-        //echo Auth::guard('company')->user()->name;
-        
         $company = Auth::guard('company')->user();
-        //var_dump($company);
-        $infos = \App\Info::where('company_id', Auth::guard('company')->user()->id )->orderBy('created_at', 'DESC')->get();
+        
+        //$infos = \App\Info::where('company_id', Auth::guard('company')->user()->id )->orderBy('created_at', 'DESC')->get();
 
         /*
         $url = 'http://qiita.com/api/v2/items?page=1&per_page=10';
@@ -42,8 +40,7 @@ class CompanyController extends Controller
         $responseBody = $response->json();
         */
 
-        //return [$company, $posts, $posts_count, $follow, $follow_count, $follower, $follower_count, $thanks_count, $responseBody];
-        return [$company, $infos];
+        return $company;
     }
 
     public function update(CompanyRequest $request, Company $company)

@@ -17,6 +17,10 @@
 }
 */
 
+html body * {
+  font-family: 'Quicksand', 'M PLUS 1p', sans-serif;
+}
+
 .user {
   width: 300px;
   height: 300px;
@@ -280,6 +284,7 @@ video {
 
 .section1 .compnay_container_wrap .company_login,
 .section1 .compnay_container_wrap .company_register {
+  transition: transform 1s, visibility 1s, opacity 1s;
   min-width: 100%;
   transform: translateX(200%);
   visibility: hidden;
@@ -361,6 +366,7 @@ video {
 
 .section2 .user_container_wrap .login,
 .section2 .user_container_wrap .register {
+  transition: transform 1s, visibility 1s, opacity 1s;
   min-width: 100%;
   transform: translateX(200%);
   visibility: hidden;

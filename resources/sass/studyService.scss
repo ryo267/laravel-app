@@ -7,6 +7,9 @@
 html body {
     min-width: 375px;
     margin: 0;
+    * {
+        font-family: 'Quicksand', 'M PLUS 1p', sans-serif;
+    }
     ::-webkit-scrollbar {
         overflow: hidden;
         width: 5px;
@@ -924,8 +927,7 @@ canvas {
         width: 100%;
         height: 100%;
         background: rgba(0, 0, 0, 0.5);
-        font-size: 1.4rem;
-        font-weight: bold;
+        font-size: 1rem;
         color: #fff;
         position: absolute;
         top: 0;

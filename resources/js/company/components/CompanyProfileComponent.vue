@@ -280,8 +280,8 @@ export default {
             try {
                 const url = "/ajax/company";
                 await axios.get(url).then(response => {
-                    this.user = response.data[0];
-                    this.infos = response.data[1];
+                    this.user = response.data;
+                    //this.infos = response.data[1];
                     //console.log(this.infos);
                 });
             } catch (error) {
@@ -304,6 +304,10 @@ export default {
     },
     mounted() {
         this.getProfile();
+
+        Echo.channel("info").listen("InfoDeleted", e => {
+            this.getProfile();
+        });
     }
 };
 </script>

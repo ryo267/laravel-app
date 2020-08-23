@@ -11,18 +11,17 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <!--<script src="{{ asset('js/app.js') }}" defer></script>-->
     <script src="{{ asset('js/welcome.js') }}" defer></script>
     <script src="https://kit.fontawesome.com/f8f423cc2c.js" crossorigin="anonymous"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300&family=Quicksand:wght@300&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/diamonds.css') }}" rel="stylesheet">
 </head>
 
 
@@ -465,7 +464,7 @@
                 </li>
                 <li class="company_contents_wrap" id="company_contents_wrap">
                     <div class="company_content" id="user_content">
-                        <h3 class="title mt-5">「駆け出しエンジニア」<br>を見つける質問投稿サイト</h3>
+                        <h3 class="title mt-5">「駆け出しエンジニア」<br>を見つける採用サイト</h3>
                         <div class="w-50 mt-5 mx-auto d-flex justify-content-between">
                             <div class="button" id="company_register_btn">新規登録</div>
                             <div class="button" id="company_login_btn">ログイン</div>
@@ -477,33 +476,6 @@
                     </div>
                 </li>
             </ul>
-
-            <!--@if (Route::has('login'))
-        <div class="" id="login">
-            @auth
-            <a href="{{ url('/home') }}">Home</a>
-            @else
-            <a href="{{ route('login') }}">Login</a>
-
-            @if (Route::has('register'))
-            <a href="{{ route('register') }}">Register</a>
-            @endif
-            @endauth
-        </div>
-        @endif
-        @if (Route::has('company/login'))
-        <div class="" id="login">
-            @auth
-            <a href="{{ url('/company_home') }}">Home</a>
-            @else
-            <a href="{{ route('company.login') }}">Login</a>
-
-            @if (Route::has('company/register'))
-            <a href="{{ route('company.register') }}">Register</a>
-            @endif
-            @endauth
-        </div>
-        @endif-->
         </div>
     </div>
 

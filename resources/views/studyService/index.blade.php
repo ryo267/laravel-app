@@ -20,6 +20,7 @@
 	<!-- Fonts -->
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300&family=Quicksand:wght@300&display=swap" rel="stylesheet">
 
 	<!-- Styles -->
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
@@ -134,7 +135,9 @@
 
 			<section id="canvas"></section>
 
-			<all-tab-component/>
+			<section class="my-5">
+                <all-tab-component />
+            </section>
 
 			@section('footer')
 			<section class="footer">
