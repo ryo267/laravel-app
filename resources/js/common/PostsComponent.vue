@@ -5,7 +5,7 @@
             <div v-if="posts.length" class="col">
                 <ul class="p-0">
                     <li v-for="post in getItems" :key="post.id">
-                        <post-component :post ="post" :userID="post.user_id"></post-component>
+                        <post-component :post ="post" :userID="post.user_id" :call="call"></post-component>
                     </li>
                 </ul>
                 <paginate
@@ -35,7 +35,8 @@ export default {
     name: "posts-component",
     props: {
         post_tag: [String],
-        userID: [String, Number]
+        userID: [String, Number],
+        call: [String]
     },
     data: function() {
         return {
@@ -63,12 +64,12 @@ export default {
         },
         async getPosts() {
             try {
-                if( this.post_tag != null &&  this.post_tag != "" && this.userID == null){
+                if( this.post_tag != null &&  this.post_tag != "" && this.call == 'tab'){
                     const url = "/ajax/post/all/";
                     await axios.get(url + this.post_tag).then(response => {
                         this.posts = response.data;
                     });
-                }else if( this.userID != null ){
+                }else if( this.call == 'profile' ){
                     const url = "/ajax/post/user/";
                     await axios.get(url + this.userID).then(response => {
                         this.posts = response.data;

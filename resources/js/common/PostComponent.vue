@@ -121,7 +121,7 @@
                                     >
                                         <h5 class="title">{{ post.title }}</h5>
                                         <tag-component :postID="post.id" />
-                                        <div :id="'viewer' + post.id" ></div>
+                                        <div :id="'viewer' + post.id + call" ></div>
                                     </div>
                                     <div class="cta">
                                         <button
@@ -176,7 +176,8 @@ export default {
             require: false,
             default: () => ({ count: 0 }) // Objectを生成する関数を指定する
         },
-        userID: [Number, String]
+        userID: [Number, String],
+        call: [String]
     },
     data: function() {
         return {
@@ -184,20 +185,6 @@ export default {
             tags: [],
             show: false,
             isActive: false,
-            chartOptions: [
-                {
-                    minWidth: 100
-                },
-                {
-                    maxWidth: 600
-                },
-                {
-                    minHeight: 100
-                },
-                {
-                    maxHeight: 300
-                }
-            ],
             viewer: "",
         };
     },
@@ -222,7 +209,7 @@ export default {
         },
         createViewer () {
             this.viewer = Editor.factory({
-                el: document.querySelector("#viewer"+this.post.id),
+                el: document.querySelector("#viewer"+this.post.id+this.call),
                 viewer: true,
                 height: "100%",
                 initialValue: this.post.text,
