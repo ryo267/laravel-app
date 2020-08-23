@@ -1268,6 +1268,16 @@ canvas {
   text-overflow: ellipsis;
 }
 
+.post .post-data .overview #tag,
+.info .post-data .overview #tag,
+.user .post-data .overview #tag,
+.applicant .post-data .overview #tag {
+  background-color: #000;
+  color: #fff;
+  border-radius: 4px;
+  padding: 0 0.5rem;
+}
+
 .post .post-data .overview.active,
 .info .post-data .overview.active,
 .user .post-data .overview.active,
@@ -1547,8 +1557,8 @@ canvas {
 
 .video_container {
   position: absolute;
-  width: 100%;
-  height: 100vh;
+  min-width: 100%;
+  min-height: 100%;
   z-index: -9999;
 }
 
@@ -1556,8 +1566,8 @@ video {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: auto;
+  min-width: 100%;
+  min-height: 100%;
 }
 
 .scout .input_form {

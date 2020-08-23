@@ -988,6 +988,12 @@ canvas {
             height: 90%;
             overflow: hidden;
             text-overflow: ellipsis;
+            #tag {
+                background-color: #000;
+                color: #fff;
+                border-radius: 4px;
+                padding: 0 0.5rem;
+            }
             &.active {
                 width: 100%;
                 transition: 1s;
