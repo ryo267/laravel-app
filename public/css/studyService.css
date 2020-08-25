@@ -695,7 +695,7 @@ html body > div .said_nav .p_nav_2 > .container-fluid button {
 }
 
 html body > div .said_nav .p_nav_2 > .container-fluid button:hover {
-  border-bottom: solid 2px #000;
+  border-bottom: solid 2px #fff;
 }
 
 html body > div .said_nav .p_nav_2 > .container-fluid textarea {
