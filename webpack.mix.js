@@ -19,6 +19,10 @@ mix.sass('resources/sass/studyService.scss', 'public/css');
 
 mix.js('resources/js/welcome.js', 'public/js').sass('resources/sass/welcome.scss', 'public/css');
 
+mix.js('resources/js/login_register.js', 'public/js');
+mix.js('resources/js/company/login_register.js', 'public/js/company');
+
+
 mix.js('resources/js/company/app.js', 'public/js/company');
 
 mix.js('resources/js/company/three.js', 'public/js/company');

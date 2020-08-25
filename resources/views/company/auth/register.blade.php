@@ -12,7 +12,7 @@
     </div>
     @endif
     <div class="row justify-content-center">
-        <div class="col-md-8 register-form p-5">
+        <div class="col-md-8 company-register-form p-5">
             <div class="background"></div>
             <div class="user_icon"><i class="fas fa-user fa-4x"></i></div>
             <div class="">

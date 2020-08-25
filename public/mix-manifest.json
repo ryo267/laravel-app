@@ -5,6 +5,8 @@
     "/css/studyService.css": "/css/studyService.css",
     "/css/welcome.css": "/css/welcome.css",
     "/js/company/app.js": "/js/company/app.js",
+    "/js/company/login_register.js": "/js/company/login_register.js",
     "/js/company/three.js": "/js/company/three.js",
+    "/js/login_register.js": "/js/login_register.js",
     "/js/welcome.js": "/js/welcome.js"
 }
