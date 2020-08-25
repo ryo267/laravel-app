@@ -23,7 +23,6 @@ class CreateInfosTable extends Migration
             $table->index('id');
             $table->index('company_id');
             $table->index('title');
-            $table->index('text');
 
             $table->foreign('company_id')
                 ->references('id')
