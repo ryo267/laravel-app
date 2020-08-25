@@ -4,7 +4,10 @@
             <div v-if="scouts.length" class="col">
                 <ul class="p-0">
                     <li v-for="scout in getItems" :key="scout.id">
-                        <company-scout-component :userID="scout.user_id" :scoutID="scout.id"/>
+                        <company-scout-component
+                            :userID="scout.user_id"
+                            :scoutID="scout.id"
+                        />
                     </li>
                 </ul>
                 <paginate
@@ -19,7 +22,7 @@
                 >
                 </paginate>
             </div>
-            <div v-else class="col text-white text-center">
+            <div v-if="flag" class="col text-white text-center">
                 <h3>検索結果：0件</h3>
             </div>
         </div>
@@ -35,7 +38,8 @@ export default {
         return {
             scouts: [],
             parPage: 5,
-            currentPage: 1
+            currentPage: 1,
+            flag: false
         };
     },
     components: {
@@ -65,12 +69,15 @@ export default {
         },
         async getScouts() {
             try {
-
                 const url = "/ajax/scout/company/all/";
-                await axios.get(url+this.$userId).then(response => {
-                    this.scouts = response.data;
+                await axios.get(url + this.$userId).then(response => {
+                    if (response.data.length) {
+                        this.flag = false;
+                        this.scouts = response.data;
+                    } else {
+                        this.flag = true;
+                    }
                 });
-
             } catch (error) {
                 console.log(error);
             }

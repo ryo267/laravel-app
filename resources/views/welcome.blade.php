@@ -27,6 +27,10 @@
 
 <body>
 
+    <div class="loading" id="loading">
+        <div class="border-loading-indicator col-2 row-2"></div>
+    </div>
+
     <div class="section_wrap">
         <div class="section1">
             <div class="wrap">
@@ -43,7 +47,7 @@
                         </div>
                         <div class="mt-5" id="companies">
                             <i class="far fa-building fa-3x"></i>
-                            <p>企業の方はこちら<i class="fas fa-arrow-right ml-3"></i></p>
+                            <p>企業の方はこちら<i class="fas fa-arrow-left mr-3"></i></p>
                         </div>
                     </div>
                 </li>
@@ -259,7 +263,7 @@
                 <div id="matrix2" class="matrix2 active"></div>
             </div>
             <ul>
-            <li class="user_container_wrap active" id="user_container_wrap">
+                <li class="user_container_wrap active" id="user_container_wrap">
                     <div class="login-form p-5 login active" id="login">
                         <div class="background"></div>
                         <div class="user_icon"><i class="fas fa-user fa-4x"></i></div>
@@ -471,7 +475,7 @@
                         </div>
                         <div class="mt-5" id="users">
                             <i class="fas fa-user fa-3x"></i>
-                            <p><i class="fas fa-arrow-left mr-3"></i>利用者の方はこちら</p>
+                            <p><i class="fas fa-arrow-right ml-3"></i>利用者の方はこちら</p>
                         </div>
                     </div>
                 </li>

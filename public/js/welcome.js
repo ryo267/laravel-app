@@ -127541,6 +127541,11 @@ users.addEventListener('click', function () {
   }
 });
 
+window.onload = function () {
+  var spinner = document.getElementById("loading");
+  spinner.classList.add("loaded");
+};
+
 /***/ }),
 
 /***/ 1:

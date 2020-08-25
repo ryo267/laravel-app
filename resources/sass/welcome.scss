@@ -17,7 +17,7 @@
 */
 html body {
     * {
-        font-family: 'Quicksand', 'M PLUS 1p', sans-serif;
+        font-family: "Quicksand", "M PLUS 1p", sans-serif;
     }
 }
 .user {
@@ -175,6 +175,9 @@ video {
     align-items: center;
     justify-content: center;
     min-height: 100%;
+    @include tablet {
+        overflow: hidden;
+    }
     @include tablet_2 {
         width: 50%;
     }
@@ -202,6 +205,9 @@ video {
             color: #fff;
             .title {
                 text-shadow: 1px 1px 1px #7f8c8d;
+                @include mobile {
+                    font-size: 1.4rem;
+                }
             }
         }
     }
@@ -253,6 +259,9 @@ video {
     align-items: center;
     justify-content: center;
     min-height: 100%;
+    @include tablet {
+        overflow: hidden;
+    }
     @include tablet_2 {
         width: 50%;
     }
@@ -280,6 +289,9 @@ video {
             color: #fff;
             .title {
                 text-shadow: 1px 1px 1px #7f8c8d;
+                @include mobile {
+                    font-size: 1.4rem;
+                }
             }
         }
     }
@@ -336,10 +348,10 @@ video {
 }
 
 .section_wrap {
-    overflow: hidden;
     width: 100vw;
     height: auto;
     @include tablet_2 {
+        overflow: hidden;
         display: flex;
         height: 100vh;
     }

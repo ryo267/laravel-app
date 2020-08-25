@@ -18,7 +18,7 @@
 */
 
 html body * {
-  font-family: 'Quicksand', 'M PLUS 1p', sans-serif;
+  font-family: "Quicksand", "M PLUS 1p", sans-serif;
 }
 
 .user {
@@ -226,6 +226,12 @@ video {
   min-height: 100%;
 }
 
+@media (max-width: 768px) {
+  .section1 {
+    overflow: hidden;
+  }
+}
+
 @media (min-width: 768px) {
   .section1 {
     width: 50%;
@@ -263,6 +269,12 @@ video {
 
 .section1 .user_contents_wrap .user_content .title {
   text-shadow: 1px 1px 1px #7f8c8d;
+}
+
+@media (max-width: 425px) {
+  .section1 .user_contents_wrap .user_content .title {
+    font-size: 1.4rem;
+  }
 }
 
 .section1 .compnay_container_wrap {
@@ -312,6 +324,12 @@ video {
   min-height: 100%;
 }
 
+@media (max-width: 768px) {
+  .section2 {
+    overflow: hidden;
+  }
+}
+
 @media (min-width: 768px) {
   .section2 {
     width: 50%;
@@ -349,6 +367,12 @@ video {
 
 .section2 .company_contents_wrap .company_content .title {
   text-shadow: 1px 1px 1px #7f8c8d;
+}
+
+@media (max-width: 425px) {
+  .section2 .company_contents_wrap .company_content .title {
+    font-size: 1.4rem;
+  }
 }
 
 .section2 .user_container_wrap {
@@ -399,13 +423,13 @@ video {
 }
 
 .section_wrap {
-  overflow: hidden;
   width: 100vw;
   height: auto;
 }
 
 @media (min-width: 768px) {
   .section_wrap {
+    overflow: hidden;
     display: flex;
     height: 100vh;
   }
