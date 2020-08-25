@@ -36,7 +36,7 @@
                     @click="activeTag(tag.name, tag.id)"
                     :class="[isActive === tag.id ? 'active' : '']"
                 >
-                    {{ tag.name }}
+                    {{ tag.name }}<i class="fas fa-tag ml-2"></i>
                 </li>
             </ul>
         </div>

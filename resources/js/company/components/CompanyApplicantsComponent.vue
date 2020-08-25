@@ -19,7 +19,7 @@
                 >
                 </paginate>
             </div>
-            <div v-else class="col text-white text-center">
+            <div v-if="flag" class="col text-white text-center">
                 <h3>検索結果：0件</h3>
             </div>
         </div>
@@ -35,7 +35,8 @@ export default {
         return {
             applicants: [],
             parPage: 5,
-            currentPage: 1
+            currentPage: 1,
+            flag: false,
         };
     },
     components: {
@@ -65,12 +66,15 @@ export default {
         },
         async getApplies() {
             try {
-
                 const url = "/ajax/applicant/user/all/";
-                await axios.get(url+this.$userId).then(response => {
-                    this.applicants = response.data;
+                await axios.get(url + this.$userId).then(response => {
+                    if (response.data.length) {
+                        this.flag = false;
+                        this.applicants = response.data;
+                    } else {
+                        this.flag = true;
+                    }
                 });
-
             } catch (error) {
                 console.log(error);
             }

@@ -21,7 +21,7 @@
                 <i class="fas fa-check"></i>
             </button>
             <button type="submit" class="" v-else @click="openInput()">
-                <i class="far fa-paper-plane"></i>
+                <i class="fas fa-mail-bulk"></i>
             </button>
         </div>
     </div>

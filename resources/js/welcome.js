@@ -169,3 +169,8 @@ users.addEventListener('click', () => {
         compnay_container_wrap.classList.remove('active');
     } 
 });
+
+window.onload = function() {
+    const spinner = document.getElementById("loading");
+    spinner.classList.add("loaded");
+};

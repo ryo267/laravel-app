@@ -22,7 +22,7 @@
                     >
                     </paginate>
                 </div>
-                <div v-else class="col text-white text-center">
+                <div v-if="flag" class="col text-white text-center">
                     <h3>検索結果：0件</h3>
                 </div>
             </div>
@@ -42,7 +42,8 @@ export default {
         return {
             users: [],
             parPage: 5,
-            currentPage: 1
+            currentPage: 1,
+            flag: false,
         };
     },
     components: {
@@ -64,15 +65,17 @@ export default {
         },
         async getUsers() {
             try {
-                //console.log('users-component-getUsers');
-
                 if (this.tab != null && this.tab != "") {
                     const url = "/ajax/user/all/";
                     await axios.get(url + this.tab).then(response => {
-                        this.users = response.data;
+                        if (response.data.length) {
+                            this.flag = false;
+                            this.users = response.data;
+                        } else {
+                            this.flag = true;
+                        }
                     });
                 }
-                //console.log('this.post' + this.users);
             } catch (error) {
                 console.log(error);
             }
