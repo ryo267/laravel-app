@@ -1,18 +1,23 @@
-@charset "UTF-8";
+html body * {
+  font-family: "Quicksand", "M PLUS 1p", sans-serif;
+}
 
-html body {
-  /* 画像ファイルの指定 */
-  background-image: url("/sample/work-5382501_1920.jpg");
-  /* 画像を常に天地左右の中央に配置 */
-  background-position: center center;
-  /* 画像をタイル状に繰り返し表示しない */
-  background-repeat: no-repeat;
-  /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
-  background-attachment: fixed;
-  /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
-  background-size: cover;
-  /* 背景画像が読み込まれる前に表示される背景のカラー */
-  background-color: #464646;
+.matrix {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: bottom left;
+}
+
+.matrix2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: bottom left;
 }
 
 .navbar-light .navbar-brand {
@@ -33,14 +38,13 @@ html body {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -10;
   opacity: 0.7;
   background-color: #000;
 }
 
 .login-form .user_icon {
   position: absolute;
-  background-color: red;
+  background-color: #fff;
   top: 0;
   left: 50%;
   width: 6rem;
@@ -71,7 +75,7 @@ html body {
   width: 100%;
   border-radius: 50px;
   border: none;
-  background-color: red;
+  background-color: #fff;
 }
 
 .register-form {
@@ -84,14 +88,13 @@ html body {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -10;
   opacity: 0.7;
   background-color: #000;
 }
 
 .register-form .user_icon {
   position: absolute;
-  background-color: red;
+  background-color: #fff;
   top: 0;
   left: 50%;
   width: 6rem;
@@ -121,6 +124,105 @@ html body {
   width: 100%;
   border-radius: 50px;
   border: none;
-  background-color: red;
+  background-color: #fff;
+}
+
+.company-login-form {
+  position: relative;
+}
+
+.company-login-form .background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.7;
+  background-color: #fff;
+}
+
+.company-login-form .user_icon {
+  position: absolute;
+  background-color: #fff;
+  top: 0;
+  left: 50%;
+  width: 6rem;
+  height: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.company-login-form label {
+  color: white;
+}
+
+.company-login-form input[type="email"],
+.company-login-form input[type="password"] {
+  border: none;
+  background: none;
+  border-radius: 0;
+  border-bottom: solid 2px #fff;
+  outline: none;
+  color: #fff;
+  width: 100%;
+}
+
+.company-login-form button {
+  width: 100%;
+  border-radius: 50px;
+  border: none;
+  background-color: #fff;
+}
+
+.company-register-form {
+  position: relative;
+}
+
+.company-register-form .background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.7;
+  background-color: #fff;
+}
+
+.company-register-form .user_icon {
+  position: absolute;
+  background-color: #fff;
+  top: 0;
+  left: 50%;
+  width: 6rem;
+  height: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.company-register-form label {
+  color: white;
+}
+
+.company-register-form input {
+  border: none;
+  background: none;
+  border-radius: 0;
+  border-bottom: solid 2px #fff;
+  outline: none;
+  color: #fff;
+  width: 100%;
+}
+
+.company-register-form button {
+  width: 100%;
+  border-radius: 50px;
+  border: none;
+  background-color: #fff;
 }
 
