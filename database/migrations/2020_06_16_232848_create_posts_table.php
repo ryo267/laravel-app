@@ -23,7 +23,6 @@ class CreatePostsTable extends Migration
             $table->index('id');
             $table->index('user_id');
             $table->index('title');
-            $table->index('text');
 
             $table->foreign('user_id')
                 ->references('id')
