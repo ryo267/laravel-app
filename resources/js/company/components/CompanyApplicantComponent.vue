@@ -78,8 +78,7 @@
                                         <h3 id="label">PROFILE</h3>
                                         <p
                                             class="description"
-                                            v-html="user.profile_text"
-                                        ></p>
+                                        >{{user.profile_text}}</p>
                                         <h3 id="label">SKILL</h3>
                                         <div
                                             class="skills mt-3"

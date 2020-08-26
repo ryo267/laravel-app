@@ -24,7 +24,7 @@
                     @click="activeTab(tab.name, tab.id)"
                     :class="[isActive === tab.id ? 'active' : '']"
                 >
-                    {{ tab.name | uppercase }}
+                    {{ tab.display }}
                 </li>
             </ul>
         </div>
@@ -43,10 +43,12 @@ export default {
                 {
                     id: "1",
                     name: "all-info",
+                    display: "全ての求人"
                 },
                 {
                     id: "2",
                     name: "new",
+                    display: "新着求人"
                 }
             ],
             currentTab: "",

@@ -186,6 +186,9 @@
                         >
                             UPDATE<i class="fas fa-sync-alt ml-3"></i>
                         </button>
+                        <div v-if="response">
+                            <p class="text-success text-center">プロフィールを更新しました</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -310,7 +313,8 @@ export default {
             fileInfo_2: [],
             parPage: 5,
             currentPage: 1,
-            errors: []
+            errors: [],
+            response: false,
         };
     },
     components: {
@@ -419,11 +423,12 @@ export default {
             axios
                 .put(url + this.user.id, this.user)
                 .then(response => {
-                    alert("プロフィールを変更しました");
+                    this.response = true;
                 })
                 .catch(e => {
                     console.log(e.response.data.errors);
                     this.errors = e.response.data.errors;
+                    this.response = false;
                 });
         }
     },

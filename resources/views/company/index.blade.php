@@ -91,7 +91,7 @@
             @section('h_nav')
             <section class="header">
                 <nav class="h_nav navbar navbar-expand-lg navbar-light">
-                    <a class="navbar-brand" href="/home">LOGO</a>
+                    <a class="navbar-brand" href="/home"><img src="/sample/LOGO.svg" alt="" style="height: 40px; width: auto;" /></a>
                     <button class="navbar-toggler mr-3" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
