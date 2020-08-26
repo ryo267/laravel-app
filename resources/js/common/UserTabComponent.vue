@@ -29,7 +29,7 @@
                     @click="activeTab(tab.name, tab.id)"
                     :class="[isActive === tab.id ? 'active' : '']"
                 >
-                    {{ tab.name | uppercase }}
+                    {{ tab.display }}
                 </li>
             </ul>
         </div>
@@ -48,27 +48,27 @@ export default {
                 {
                     id: "1",
                     name: "all-users",
-                    link: "ajax/user/all/"
+                    display: "全てのユーザー"
                 },
                 {
                     id: "2",
                     name: "follower",
-                    link: "ajax/user/follower/"
+                    display: "フォロワー数"
                 },
                 {
                     id: "3",
                     name: "thanks",
-                    link: "ajax/user/thanks/"
+                    display: "いいね"
                 },
                 {
                     id: "4",
                     name: "post",
-                    link: "ajax/user/post/"
+                    display: "投稿数"
                 },
                 {
                     id: "5",
                     name: "new",
-                    link: "ajax/user/registration/"
+                    display: "新着ユーザー"
                 }
             ],
             currentTab: "",

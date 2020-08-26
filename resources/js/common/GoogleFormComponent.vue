@@ -29,14 +29,14 @@
                         <div class="col">
                             <div>
                                 <label for="detail" class="" id="label"
-                                    >問い合わせ内容</label
+                                    >お問い合わせ内容</label
                                 >
                             </div>
                             <div>
                                 <input type="hidden" value="" />
                                 <textarea
                                     name="entry.160410273"
-                                    placeholder="問い合わせ内容を入力"
+                                    placeholder="お問い合わせ内容を入力"
                                     v-model="text"
                                 ></textarea>
                             </div>
@@ -50,7 +50,7 @@
                                 name="button"
                                 value="送信する"
                             >
-                                送信する
+                                問い合わせる
                             </button>
                         </div>
                     </div>
@@ -62,10 +62,10 @@
                 ></iframe>
             </div>
         </div>
-        <div v-if="submitted" class="text-center" id="" style="color: #fff">
+        <div v-if="submitted" class="text-center text-success" id="">
             <h1>お問い合わせを受け付けました</h1>
         </div>
-        <div v-if="error && submitted != true" class="text-center" id="" style="color: #fff">
+        <div v-if="error && submitted != true" class="text-center text-danger" id="">
             <h1>アカウント名とお問い合わせ内容を入力してください</h1>
         </div>
     </div>
