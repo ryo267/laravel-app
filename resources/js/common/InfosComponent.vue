@@ -7,7 +7,7 @@
                         <info-component
                             :companyID="info.company_id"
                             :info="info"
-                            :call="call"
+                            :call="call" v-on:parent="getInfos"
                         />
                     </li>
                 </ul>
@@ -80,9 +80,9 @@ export default {
                 if (this.tab != null && this.tab != "" && this.call == "tab") {
                     const url = "/ajax/info/";
                     await axios.get(url + this.tab).then(response => {
-                        if (response.data.length) {
+                        this.infos = response.data;
+                        if (infos.length) {
                             this.flag = false;
-                            this.infos = response.data;
                         } else {
                             this.flag = true;
                         }
@@ -90,9 +90,9 @@ export default {
                 } else if (this.call == "profile") {
                     const url = "/ajax/info/company/";
                     await axios.get(url + this.companyID).then(response => {
-                        if (response.data.length) {
+                        this.infos = response.data;
+                        if (infos.length) {
                             this.flag = false;
-                            this.infos = response.data;
                         } else {
                             this.flag = true;
                         }
@@ -105,13 +105,6 @@ export default {
     },
     mounted() {
         this.getInfos();
-
-        Echo.channel("info").listen("InfoCreated", e => {
-            this.getInfos();
-        });
-        Echo.channel("info").listen("InfoDeleted", e => {
-            this.getInfos();
-        });
     }
 };
 </script>

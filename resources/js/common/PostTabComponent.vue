@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="text-right mx-3">
-            <button class="user_active_btn" @click="$emit('panret')">
+            <button class="user_active_btn" @click="$emit('parent')">
                 USER<i class="fas fa-angle-double-right ml-3"></i>
             </button>
         </div>
