@@ -97,6 +97,6 @@ class PostController extends Controller
 
         \App\Post::where('id', $request->id)->delete();
 
-        event(new \App\Events\PostDeleted());
+        //event(new \App\Events\PostDeleted());
     }
 }

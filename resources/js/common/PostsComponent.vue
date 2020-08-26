@@ -9,6 +9,7 @@
                                 :post="post"
                                 :userID="post.user_id"
                                 :call="call"
+                                v-on:parent="getPosts"
                             ></post-component>
                         </li>
                     </ul>
@@ -76,9 +77,9 @@ export default {
                 ) {
                     const url = "/ajax/post/all/";
                     await axios.get(url + this.post_tag).then(response => {
+                        this.posts = response.data;
                         if (response.data.length) {
                             this.flag = false;
-                            this.posts = response.data;
                         } else {
                             this.flag = true;
                         }
@@ -86,9 +87,9 @@ export default {
                 } else if (this.call == "profile") {
                     const url = "/ajax/post/user/";
                     await axios.get(url + this.userID).then(response => {
+                        this.posts = response.data;
                         if (response.data.length) {
                             this.flag = false;
-                            this.posts = response.data;
                         } else {
                             this.flag = true;
                         }
@@ -101,14 +102,6 @@ export default {
     },
     mounted() {
         this.getPosts();
-
-        Echo.channel("post").listen("PostCreated", e => {
-            this.getPosts();
-        });
-
-        Echo.channel("post").listen("PostDeleted", e => {
-            this.getPosts();
-        });
     }
 };
 </script>

@@ -5,7 +5,7 @@
                 <div class="card">
                     <delete-post-component
                         v-if="post.user_id == this.$userId"
-                        :postID="post.id"
+                        :postID="post.id" v-on:parent="$emit('parent')"
                     />
                     <!--
                         <div class="loading_2" :id="'loading_' + userID">
