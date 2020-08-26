@@ -1045,20 +1045,7 @@ canvas {
         margin: 1rem 0 1.5rem 0;
     }
     .description {
-        position: relative;
-        &::first-letter {
-            margin-left: 1rem;
-        }
-        &:before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            widows: 0.5rem;
-            height: 2.5rem;
-            background: $orange_gradient;
-            border-radius: 2rem;
-        }
+        white-space: pre-wrap;
     }
     .data {
         display: block;

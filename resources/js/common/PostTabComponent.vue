@@ -26,7 +26,7 @@
                     id="tags"
                     :class="[isActive === 0 ? 'active' : '']"
                 >
-                    ALL-POSTS
+                    全ての投稿
                 </li>
                 <li
                     v-for="tag in tags"

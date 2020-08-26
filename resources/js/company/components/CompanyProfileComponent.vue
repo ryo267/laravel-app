@@ -171,6 +171,9 @@
                         >
                             UPDATE<i class="fas fa-sync-alt ml-3"></i>
                         </button>
+                        <div v-if="response">
+                            <p class="text-success text-center">プロフィールを更新しました</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -217,7 +220,7 @@ export default {
             parPage: 5,
             currentPage: 1,
             errors: [],
-            modal_text: "",
+            response: false,
             isActive: false
         };
     },
@@ -247,7 +250,6 @@ export default {
                 .post("/company/profile", formData)
                 .then(response => {
                     this.user = response.data;
-                    this.modal_text = "プロフィール画像を変更しました";
                 })
                 .catch(e => {
                     console.log(e.response.data.errors);
@@ -263,7 +265,6 @@ export default {
                 .post("/company/profile/back", formData)
                 .then(response => {
                     this.user = response.data;
-                    this.modal_text = "プロフィール背景画像を変更しました";
                 })
                 .catch(e => {
                     console.log(e.response.data.errors);
@@ -294,11 +295,12 @@ export default {
             axios
                 .put(url + this.user.id, this.user)
                 .then(response => {
-                    alert("プロフィールを変更しました");
+                    this.response = true;
                 })
                 .catch(e => {
                     console.log(e.response.data.errors);
                     this.errors = e.response.data.errors;
+                    this.response = false;
                 });
         }
     },

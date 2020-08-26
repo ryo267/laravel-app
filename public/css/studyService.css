@@ -1375,28 +1375,7 @@ canvas {
 .info .description,
 .user .description,
 .applicant .description {
-  position: relative;
-}
-
-.post .description::first-letter,
-.info .description::first-letter,
-.user .description::first-letter,
-.applicant .description::first-letter {
-  margin-left: 1rem;
-}
-
-.post .description:before,
-.info .description:before,
-.user .description:before,
-.applicant .description:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  widows: 0.5rem;
-  height: 2.5rem;
-  background: linear-gradient(to right bottom, rgba(255, 119, 48, 0.8), rgba(255, 185, 0, 0.8));
-  border-radius: 2rem;
+  white-space: pre-wrap;
 }
 
 .post .data,
