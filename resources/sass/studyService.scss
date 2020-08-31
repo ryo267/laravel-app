@@ -5,7 +5,6 @@
 }
 */
 html body {
-    min-width: 375px;
     margin: 0;
     * {
         font-family: 'Quicksand', 'M PLUS 1p', sans-serif;
@@ -491,7 +490,7 @@ html body {
 
                 z-index: 30;
                 > .container-fluid {
-                    padding-left: 80px;
+                    padding: 0 0 0 80px;
                 }
                 &.active {
                     width: calc(100% - 80px);
@@ -561,7 +560,7 @@ html body {
 
                 z-index: 40;
                 > .container-fluid {
-                    padding-left: 80px;
+                    padding: 0 0 0 80px;
                     * {
                         width: 100%;
                         border-radius: none;
@@ -1036,6 +1035,7 @@ canvas {
     .title {
         font-size: 3rem;
         line-height: 1;
+        margin-bottom: 3rem;
     }
     .subtitle {
         font-size: 1.2rem;
@@ -1293,6 +1293,14 @@ video {
         height: 40px;
         * {
             height: 100%;
+        }
+    }
+}
+
+.contents {
+    .container-fluid {
+        @include mobile {
+            padding: 0;
         }
     }
 }
