@@ -9,7 +9,7 @@
                                 :post="post"
                                 :userID="post.user_id"
                                 :call="call"
-                                v-on:parent="getPosts"
+                                v-on:parent-get-post="getPosts"
                             ></post-component>
                         </li>
                     </ul>
