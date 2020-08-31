@@ -5,7 +5,6 @@
 */
 
 html body {
-  min-width: 375px;
   margin: 0;
 }
 
@@ -588,7 +587,7 @@ html body > div .said_nav .b_nav_2 {
 }
 
 html body > div .said_nav .b_nav_2 > .container-fluid {
-  padding-left: 80px;
+  padding: 0 0 0 80px;
 }
 
 html body > div .said_nav .b_nav_2.active {
@@ -667,7 +666,7 @@ html body > div .said_nav .p_nav_2 {
 }
 
 html body > div .said_nav .p_nav_2 > .container-fluid {
-  padding-left: 80px;
+  padding: 0 0 0 80px;
 }
 
 html body > div .said_nav .p_nav_2 > .container-fluid * {
@@ -1358,6 +1357,7 @@ canvas {
 .applicant .title {
   font-size: 3rem;
   line-height: 1;
+  margin-bottom: 3rem;
 }
 
 .post .subtitle,
@@ -1714,5 +1714,11 @@ video {
 .info_form .tag_form *,
 .info_form .form_btn * {
   height: 100%;
+}
+
+@media (max-width: 425px) {
+  .contents .container-fluid {
+    padding: 0;
+  }
 }
 
