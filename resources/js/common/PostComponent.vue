@@ -5,7 +5,7 @@
                 <div class="card">
                     <delete-post-component
                         v-if="post.user_id == this.$userId"
-                        :postID="post.id" v-on:parent="$emit('parent')"
+                        :postID="post.id" v-on:parent-get-post="childGetPost"
                     />
                     <!--
                         <div class="loading_2" :id="'loading_' + userID">
@@ -225,6 +225,9 @@ export default {
                 const spinner = document.getElementById("loading_" + id);
                 spinner.classList.add("loaded");
             });
+        },
+        childGetPost(){
+            this.$emit('parent-get-post');
         }
     },
     mounted() {

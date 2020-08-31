@@ -7,7 +7,7 @@
                         <info-component
                             :companyID="info.company_id"
                             :info="info"
-                            :call="call" v-on:parent="getInfos"
+                            :call="call" v-on:parent-get-info="getInfos"
                         />
                     </li>
                 </ul>

@@ -5,7 +5,7 @@
                 <div class="card">
                     <delete-info-component
                         v-if="info.company_id == this.$userId"
-                        :infoID="info.id" v-on:parent="$emit('parent')"
+                        :infoID="info.id" v-on:parent-get-info="childGetInfo"
                     />
                     <div class="card-body p-0">
                         <div class="col">
@@ -76,7 +76,13 @@
                                         class="overview"
                                         :class="{ active: isActive }"
                                     >
-                                        <h5 class="title">{{ info.title }}</h5>
+                                        <h5 class="title">{{ company.screen_name }}</h5>
+                                        <h3 id="label">PROFILE</h3>
+                                        <p
+                                            class="description"
+                                            v-html="company.profile_text"
+                                        ></p>
+                                        <h3 id="label">{{ info.title }}</h3>
                                         <div :id="'viewer' + info.id + call" ></div>
                                     </div>
                                     <div class="cta">
@@ -168,6 +174,9 @@ export default {
                 ]
             });
         },
+        childGetInfo(){
+            this.$emit('parent-get-info');
+        }
     },
     mounted() {
         this.getCompany();

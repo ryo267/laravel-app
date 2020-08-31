@@ -20,10 +20,11 @@ export default {
             try {
                 const url = "/ajax/post/delete/";
                 axios.delete(url + this.postID).then(response => {
-                    this.$emit('parent');
                 });
             } catch (error) {
                 console.log(error);
+            } finally {
+                this.$emit('parent-get-post');
             }
         },
     },
