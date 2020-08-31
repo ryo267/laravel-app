@@ -16,10 +16,10 @@ export default {
         };
     },
     methods: {
-        deleteInfo() {
+        async deleteInfo() {
             try {
                 const url = "/ajax/info/delete/";
-                axios.delete(url + this.infoID).then(response => {
+                await axios.delete(url + this.infoID).then(response => {
                 });
             } catch (error) {
                 console.log(error);

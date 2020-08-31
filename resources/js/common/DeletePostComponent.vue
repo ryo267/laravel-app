@@ -16,10 +16,10 @@ export default {
         };
     },
     methods: {
-        deletePost() {
+        async deletePost() {
             try {
                 const url = "/ajax/post/delete/";
-                axios.delete(url + this.postID).then(response => {
+                await axios.delete(url + this.postID).then(response => {
                 });
             } catch (error) {
                 console.log(error);
