@@ -19,7 +19,9 @@ export default {
         deleteInfo() {
             try {
                 const url = "/ajax/info/delete/";
-                axios.delete(url + this.infoID).then(response => {});
+                axios.delete(url + this.infoID).then(response => {
+                    this.$emit('parent');
+                });
             } catch (error) {
                 console.log(error);
             }

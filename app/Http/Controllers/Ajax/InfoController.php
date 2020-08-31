@@ -66,6 +66,6 @@ class InfoController extends Controller
     public function deleteInfo(Request $request){
         \App\Info::where('id', $request->id)->delete();
 
-        event(new \App\Events\InfoDeleted());
+        //event(new \App\Events\InfoDeleted());
     }
 }

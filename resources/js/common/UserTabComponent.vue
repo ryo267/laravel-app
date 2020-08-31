@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="mx-3">
-            <button class="post_active_btn" @click="$emit('panret')">
+            <button class="post_active_btn" @click="$emit('parent')">
                 <i class="fas fa-angle-double-left mr-3"></i>POST
             </button>
         </div>

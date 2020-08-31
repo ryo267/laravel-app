@@ -5,7 +5,7 @@
                 <div class="card">
                     <delete-info-component
                         v-if="info.company_id == this.$userId"
-                        :infoID="info.id"
+                        :infoID="info.id" v-on:parent="$emit('parent')"
                     />
                     <div class="card-body p-0">
                         <div class="col">
