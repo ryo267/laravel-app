@@ -26,6 +26,9 @@
                 <button v-on:click="fileUpload_2" class="upload_btn">
                     UPLOAD<i class="fas fa-cloud-upload-alt ml-3"></i>
                 </button>
+                <div class="text-center" v-if="fileInfo_2.name">
+                    <div style="color:#fff">{{ fileInfo_2.name }}</div>
+                </div>
                 <div class="text-center" v-if="errors.file" id="error_message">
                     <div style="color:#e74c3c">{{ errors.file[0] }}</div>
                 </div>
@@ -72,7 +75,16 @@
                                     class="fas fa-cloud-upload-alt ml-3"
                                 ></i>
                             </button>
-                            <div class="text-center" v-if="errors.file" id="error_message">
+                            <div class="text-center" v-if="fileInfo.name">
+                                <div style="color:#fff">
+                                    {{ fileInfo.name }}
+                                </div>
+                            </div>
+                            <div
+                                class="text-center"
+                                v-if="errors.file"
+                                id="error_message"
+                            >
                                 <div style="color:#e74c3c">
                                     {{ errors.file[0] }}
                                 </div>
@@ -124,7 +136,11 @@
                                             v-model="user.name"
                                         />
                                     </div>
-                                    <div class="text-center" v-if="errors.name" id="error_message">
+                                    <div
+                                        class="text-center"
+                                        v-if="errors.name"
+                                        id="error_message"
+                                    >
                                         <div style="color:#e74c3c">
                                             {{ errors.name[0] }}
                                         </div>
@@ -146,7 +162,11 @@
                                             v-model="user.email"
                                         />
                                     </div>
-                                    <div class="text-center" v-if="errors.email" id="error_message">
+                                    <div
+                                        class="text-center"
+                                        v-if="errors.email"
+                                        id="error_message"
+                                    >
                                         <div style="color:#e74c3c">
                                             {{ errors.email[0] }}
                                         </div>
@@ -187,7 +207,9 @@
                             UPDATE<i class="fas fa-sync-alt ml-3"></i>
                         </button>
                         <div v-if="response">
-                            <p class="text-success text-center">プロフィールを更新しました</p>
+                            <p class="text-success text-center">
+                                プロフィールを更新しました
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -274,12 +296,20 @@
                                 </div>
                             </form>
                         </div>
-                        <div class="text-center" v-if="errors.progress" id="error_message">
+                        <div
+                            class="text-center"
+                            v-if="errors.progress"
+                            id="error_message"
+                        >
                             <div style="color:#e74c3c">
                                 {{ errors.progress[0] }}
                             </div>
                         </div>
-                        <div class="text-center" v-if="errors.skill_name" id="error_message">
+                        <div
+                            class="text-center"
+                            v-if="errors.skill_name"
+                            id="error_message"
+                        >
                             <div style="color:#e74c3c">
                                 {{ errors.skill_name[0] }}
                             </div>
@@ -314,7 +344,7 @@ export default {
             parPage: 5,
             currentPage: 1,
             errors: [],
-            response: false,
+            response: false
         };
     },
     components: {
