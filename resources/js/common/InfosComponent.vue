@@ -91,7 +91,7 @@ export default {
                     const url = "/ajax/info/company/";
                     await axios.get(url + this.companyID).then(response => {
                         this.infos = response.data;
-                        if (infos.length) {
+                        if (this.infos.length) {
                             this.flag = false;
                         } else {
                             this.flag = true;
