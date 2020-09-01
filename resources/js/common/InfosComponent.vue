@@ -81,7 +81,7 @@ export default {
                     const url = "/ajax/info/";
                     await axios.get(url + this.tab).then(response => {
                         this.infos = response.data;
-                        if (infos.length) {
+                        if (this.infos.length) {
                             this.flag = false;
                         } else {
                             this.flag = true;
