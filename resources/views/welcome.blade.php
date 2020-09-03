@@ -41,7 +41,7 @@
                 <li class="user_contents_wrap active" id="user_contents_wrap">
                     <div class="user_content" id="user_content">
                         <h3 class="title mt-5">「駆け出しエンジニア」<br>のための質問投稿サイト</h3>
-                        <div class="w-50 mt-5 mx-auto d-flex justify-content-between">
+                        <div class="w-50 mt-5 mx-auto button_wrap">
                             <div class="button" id="register_btn">新規登録</div>
                             <div class="button" id="login_btn">ログイン</div>
                         </div>
@@ -469,7 +469,7 @@
                 <li class="company_contents_wrap" id="company_contents_wrap">
                     <div class="company_content" id="user_content">
                         <h3 class="title mt-5">「駆け出しエンジニア」<br>を見つける採用サイト</h3>
-                        <div class="w-50 mt-5 mx-auto d-flex justify-content-between">
+                        <div class="w-50 mt-5 mx-auto button_wrap">
                             <div class="button" id="company_register_btn">新規登録</div>
                             <div class="button" id="company_login_btn">ログイン</div>
                         </div>

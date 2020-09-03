@@ -171,7 +171,7 @@ video {
 
 .wrap .cover {
   position: absolute;
-  background-color: #bdc3c7;
+  background: url("/sample/laptop-2557466_1280.jpg") center/cover no-repeat;
   width: 100%;
   height: 100%;
   z-index: 1;
@@ -204,7 +204,7 @@ video {
 
 .wrap2 .cover2 {
   position: absolute;
-  background-color: #bdc3c7;
+  background: url("/sample/business-meeting-5395567_640_2.jpg") center/cover no-repeat;
   width: 100%;
   height: 100%;
   z-index: 1;
@@ -275,6 +275,16 @@ video {
   .section1 .user_contents_wrap .user_content .title {
     font-size: 1.4rem;
   }
+}
+
+.section1 .user_contents_wrap .user_content .button_wrap .button:not(:first-of-type) {
+  margin-top: 1rem;
+}
+
+.section1 .user_contents_wrap .user_content .button_wrap .button {
+  background: rgba(255, 255, 255, 0.5);
+  text-shadow: 2px 2px 2px #7f8c8d;
+  border-radius: 4px;
 }
 
 .section1 .compnay_container_wrap {
@@ -373,6 +383,16 @@ video {
   .section2 .company_contents_wrap .company_content .title {
     font-size: 1.4rem;
   }
+}
+
+.section2 .company_contents_wrap .company_content .button_wrap .button:not(:first-of-type) {
+  margin-top: 1rem;
+}
+
+.section2 .company_contents_wrap .company_content .button_wrap .button {
+  background: rgba(255, 255, 255, 0.5);
+  text-shadow: 2px 2px 2px #7f8c8d;
+  border-radius: 4px;
 }
 
 .section2 .user_container_wrap {
