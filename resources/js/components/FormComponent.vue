@@ -76,6 +76,7 @@ import tableMergedCell from '@toast-ui/editor-plugin-table-merged-cell';
 import "codemirror/lib/codemirror.css";
 import "@toast-ui/editor/dist/toastui-editor.css";
 import 'highlight.js/styles/github.css';
+import DOMPurify from 'dompurify';
 
 export default {
     name: "form-component",
@@ -109,11 +110,6 @@ export default {
             editor: "",
         };
     },
-    /*
-    components: {
-        editor: Editor
-    },
-    */
     methods: {
         scroll() {
             this.$refs.toastuiEditor.invoke("scrollTop", 10);
@@ -127,7 +123,7 @@ export default {
             const params = {
                 title: this.title,
                 tags: this.tags,
-                text: html
+                text: DOMPurify.sanitize(html)
             };
             await axios
                 .post(url, params)
@@ -153,7 +149,10 @@ export default {
                 plugins: [
                     [codeSyntaxHighlight, { hljs }],
                     tableMergedCell,
-                ]
+                ],
+                customHTMLSanitizer: html => {
+                    return DOMPurify.sanitize(html);
+                }
             });
         },
     },

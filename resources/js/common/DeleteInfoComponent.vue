@@ -1,7 +1,7 @@
 <template>
     <div class="trash_btn_wrap m-0 p-0">
         <button v-if="flag" class="trash" type="button" @click="flag=false"><i class="fas fa-trash"></i></button>
-        <button v-else class="trash" type="button" @click="deleteInfo()">削除する</button>
+        <button v-else class="trash" type="button" @click="deleteInfo()">削除</button>
     </div>
 </template>
 
