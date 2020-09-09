@@ -63,6 +63,7 @@ import tableMergedCell from "@toast-ui/editor-plugin-table-merged-cell";
 import "codemirror/lib/codemirror.css";
 import "@toast-ui/editor/dist/toastui-editor.css";
 import "highlight.js/styles/github.css";
+import DOMPurify from 'dompurify';
 
 export default {
     name: "chat-component",
@@ -90,7 +91,7 @@ export default {
             const url = "/ajax/info/company";
             const params = {
                 title: this.title,
-                text: html
+                text: DOMPurify.sanitize(html)
             };
             await axios
                 .post(url, params)
@@ -115,7 +116,10 @@ export default {
                 plugins: [
                     [codeSyntaxHighlight, { hljs }],
                     tableMergedCell
-                ]
+                ],
+                customHTMLSanitizer: html => {
+                    return DOMPurify.sanitize(html);
+                }
             });
         }
     },
