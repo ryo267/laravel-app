@@ -16,6 +16,13 @@
 	<script src="https://kit.fontawesome.com/f8f423cc2c.js" crossorigin="anonymous"></script>
 	<script src="{{ asset('js/app.js') }}" defer></script>
 	<!--<script src="{{ asset('js/company/three.js') }}" defer></script>-->
+	<script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-162842016-2');
+    </script>
 
 	<!-- Fonts -->
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">

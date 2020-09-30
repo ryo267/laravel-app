@@ -13,6 +13,16 @@
     <!-- Scripts -->
     <script src="{{ asset('js/welcome.js') }}" defer></script>
     <script src="https://kit.fontawesome.com/f8f423cc2c.js" crossorigin="anonymous"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162842016-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-162842016-2');
+    </script>
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
