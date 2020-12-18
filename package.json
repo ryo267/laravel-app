@@ -34,7 +34,7 @@
         "@toast-ui/editor-plugin-code-syntax-highlight": "^1.0.0",
         "@toast-ui/editor-plugin-table-merged-cell": "^1.1.1",
         "@toast-ui/vue-editor": "^2.3.1",
-        "dompurify": "^2.0.15",
+        "dompurify": "^2.0.17",
         "easy-pie-chart": "^2.1.7",
         "gsap": "^3.5.1",
         "jquery.diamonds.js": "git+https://github.com/mqchen/jquery.diamonds.js.git",
